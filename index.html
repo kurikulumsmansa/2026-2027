@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=29">
+  <link rel="stylesheet" href="style.css?v=30">
 </head>
 <body>
 
@@ -376,14 +376,42 @@
           <div>
             <span class="ai-tag">Panduan · Membuat soal dengan bantuan AI</span>
             <h3>Cara Membuat Soal dengan Claude</h3>
-            <p><b>100 soal</b> dibuat dalam <b>3 tahap</b>: 40 + 40 + 20 soal. Hasilnya satu file Word berisi <b>kisi-kisi</b>, <b>naskah soal</b>, dan <b>kunci</b>.</p>
+            <p>Ikuti 8 langkah di bawah. Hasilnya: <b>100 soal</b>, <b>kisi-kisi</b>, dan <b>kartu soal</b>.</p>
           </div>
           <div class="ai-btns">
-            <a class="ai-dl" href="files/Prompt-soal-PGS-MCMA-PGK.docx" download="Prompt pembuatan soal dan kisi-kisi (PGS, MCMA, PGK).docx" data-tip="Unduh file prompt (Word)"><span><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m9.5 12 1.2 5 1.3-3.5 1.3 3.5 1.2-5"/></svg></span>Unduh Prompt (.docx)</a>
+            <a class="ai-dl" href="files/Prompt-100-soal-PGS.docx" download="Prompt pembuatan 100 soal PGS sekaligus.docx" data-tip="Unduh file prompt (Word)"><span><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m9.5 12 1.2 5 1.3-3.5 1.3 3.5 1.2-5"/></svg></span>Unduh Prompt (.docx)</a>
             <a class="ai-open" href="https://claude.ai/new" target="_blank" rel="noopener" data-tip="Buka website Claude (tab baru)">Buka claude.ai</a>
           </div>
         </div>
 
+        <ol class="steps">
+          <li><span class="st-n">1</span><div><b>Unduh prompt</b><p>Klik tombol <em>Unduh Prompt</em> di atas.</p></div></li>
+          <li><span class="st-n">2</span><div><b>Isi yang kuning</b><p>Buka di Word. Isi <mark>mapel</mark>, <mark>kelas</mark>, <mark>TP</mark>, dan <mark>nama Bapak/Ibu</mark>.</p></div></li>
+          <li><span class="st-n">3</span><div><b>Salin teksnya</b><p>Blok dari <code>COPY START</code> sampai <code>COPY END</code>, lalu salin.</p></div></li>
+          <li class="warn"><span class="st-n">4</span><div><b>Tempel di Claude</b><p>Buka <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai</a>, tempel, lalu kirim.</p><p class="st-warn">⚠️ Tempel teksnya saja, jangan kirim file Word.</p></div></li>
+          <li><span class="st-n">5</span><div><b>Tunggu</b><p>Soal dan kisi-kisi akan jadi. Kalau berhenti, ketik <code>Lanjutkan</code>.</p></div></li>
+          <li><span class="st-n">6</span><div><b>Kirim Excel ke Claude</b><p>Unduh <a href="files/Kisi-Kisi-dan-Kartu-Soal-ASAS-BK.xlsx" download="Kisi-Kisi dan Kartu Soal ASAS-BK.xlsx">template Excel</a>, lalu seret ke chat Claude yang sama.</p></div></li>
+          <li class="lebar"><span class="st-n">7</span><div><b>Salin perintah ini, tempel, kirim</b><p>Klik <b>Salin teks</b>, tempel di Claude, kirim. Teksnya tidak perlu dibaca. Claude akan mengisi Excel, kartu soal terisi sendiri. Unduh hasilnya.</p>
+            <div class="copybox"><pre id="promptExcel">Saya lampirkan file Excel &quot;Kisi-Kisi dan Kartu Soal ASAS-BK&quot;. Isi file ini dengan 100 soal yang sudah kamu buat di atas:
+1. Sheet Kisi-Kisi: isi identitas Mata Pelajaran (sel C9), Kelas / Fase (sel E9), dan Nama Guru (sel C10).
+2. Mulai baris 14 (timpa baris contoh), satu soal per baris sampai baris 113: kolom A nomor, B Tujuan Pembelajaran, C Indikator Soal, D Level Kompetensi (hanya LOTS, MOTS, atau HOTS), E Soal lengkap dengan pilihan A sampai E, F Kunci Soal (satu huruf kapital), G Bentuk Soal (PGS).
+3. Jangan mengubah sheet Kartu Soal dan Cek Komposisi, rumus, format, maupun logo. Kartu soal akan terisi otomatis dari sheet Kisi-Kisi.
+4. Periksa: 100 soal, LOTS 20, MOTS 50, HOTS 30, semuanya PGS.
+Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre><button class="copybtn" type="button" data-copy="promptExcel" data-tip="Salin teks ini">Salin teks</button></div></div></li>
+          <li class="done lebar"><span class="st-n">8</span><div><b>Kumpulkan</b><p>Soal ke <a href="https://elearning.smansa-batam.sch.id/" target="_blank" rel="noopener">LMS</a>, Excel kisi-kisi &amp; kartu soal ke <a href="https://forms.gle/FLTuQGUMkWXh63Sy8" target="_blank" rel="noopener">Google Form</a>. Paling lambat <b>14 November</b>.</p></div></li>
+        </ol>
+
+      </div>
+
+      <!-- Prompt tambahan: soal bentuk TKA -->
+      <details class="aiguide tka-extra reveal" id="promptTKA">
+        <summary>
+          <span class="ai-tag">Tambahan · Tidak wajib</span>
+          <b>Prompt soal bentuk TKA (PGS, MCMA, PGK)</b>
+          <small>Untuk Bapak/Ibu yang ingin membuat soal 3 jenis seperti TKA. Klik untuk membuka.</small>
+        </summary>
+        <div class="tka-body">
+          <p>Arahan ASAS-BK tetap <b>100 soal PGS</b> seperti di atas. Prompt ini hanya contoh bila ingin membuat soal model TKA. Hasilnya satu file Word berisi kisi-kisi, naskah soal, dan kunci, dibuat dalam <b>3 tahap</b> (40 + 40 + 20 soal).</p>
         <!-- 3 jenis soal -->
         <div class="jenis3">
           <div class="js-card" style="--c:#1e6bff"><span class="js-tag">PGS</span><b>Pilihan Ganda Sederhana</b><p>5 pilihan, <b>1 jawaban benar</b>.</p>
@@ -403,18 +431,14 @@
           <div class="tt-r tt-f"><span><b>Total</b></span><span>1–100</span><span>60</span><span>20</span><span>20</span><span><b>100</b></span></div>
         </div>
 
-        <ol class="steps">
-          <li><span class="st-n">1</span><div><b>Unduh prompt</b><p>Klik tombol <em>Unduh Prompt</em> di atas.</p></div></li>
-          <li><span class="st-n">2</span><div><b>Isi yang kuning</b><p>Buka di Word. Isi <mark>mapel</mark>, <mark>kelas</mark>, <mark>tahap</mark>, <mark>TP per bab</mark>, dan <mark>nama Bapak/Ibu</mark>.</p></div></li>
-          <li><span class="st-n">3</span><div><b>Salin teksnya</b><p>Blok dari <code>COPY START</code> sampai <code>COPY END</code>, lalu salin.</p></div></li>
-          <li class="warn"><span class="st-n">4</span><div><b>Tahap 1: tempel di Claude</b><p>Buka <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai</a>, tempel, kirim. Unduh file Word hasilnya.</p><p class="st-warn">⚠️ Tempel teksnya saja, jangan kirim file prompt-nya.</p></div></li>
-          <li><span class="st-n">5</span><div><b>Tahap 2</b><p>Ganti angka tahap jadi <mark>2</mark>, salin lagi, tempel. <b>Lampirkan file hasil Tahap 1</b> supaya soal tidak berulang.</p></div></li>
-          <li><span class="st-n">6</span><div><b>Tahap 3</b><p>Ganti angka tahap jadi <mark>3</mark>. <b>Lampirkan file Tahap 1 dan 2</b>.</p></div></li>
-          <li><span class="st-n">7</span><div><b>Periksa</b><p>Cek soal dan kunci. Bagian bertanda <code>[PERLU VERIFIKASI]</code> wajib dicek. Kalau Claude berhenti, ketik <code>Lanjutkan</code>.</p></div></li>
-          <li class="done"><span class="st-n">8</span><div><b>Kumpulkan</b><p>Soal ke <a href="https://elearning.smansa-batam.sch.id/" target="_blank" rel="noopener">LMS</a>, kisi-kisi ke <a href="https://forms.gle/FLTuQGUMkWXh63Sy8" target="_blank" rel="noopener">Google Form</a>. Paling lambat <b>14 November</b>.</p></div></li>
-        </ol>
-
-      </div>
+          <ol class="tka-steps">
+            <li>Unduh prompt, isi bagian kuning (mapel, kelas, <b>tahap</b>, TP per bab, nama).</li>
+            <li>Salin dari <code>COPY START</code> sampai <code>COPY END</code>, tempel di <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai</a>.</li>
+            <li>Untuk Tahap 2 dan 3, ganti angka tahapnya dan <b>lampirkan file hasil tahap sebelumnya</b>.</li>
+          </ol>
+          <a class="ai-dl" href="files/Prompt-soal-PGS-MCMA-PGK.docx" download="Prompt pembuatan soal dan kisi-kisi (PGS, MCMA, PGK).docx" data-tip="Unduh prompt soal bentuk TKA (Word)"><span><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m9.5 12 1.2 5 1.3-3.5 1.3 3.5 1.2-5"/></svg></span>Unduh Prompt TKA (.docx)</a>
+        </div>
+      </details>
 
       <div class="asas-grid">
         <!-- Jadwal -->
@@ -430,7 +454,7 @@
             <div class="bigstat"><b>100</b><span>butir soal <strong>pilihan ganda</strong> per mata pelajaran sebagai bank soal</span></div>
             <ul class="cek">
               <li>Mengacu pada CP dan TP yang telah diajarkan, mencakup <b>seluruh bab secara merata</b>.</li>
-              <li>Tiga bentuk soal: <b>PGS 60</b>, <b>MCMA 20</b>, dan <b>PGK 20</b> soal.</li>
+              <li>Pilihan jawaban <b class="abcde"><i>A</i><i>B</i><i>C</i><i>D</i><i>E</i></b> dengan <b>satu jawaban benar</b>.</li>
             </ul>
             <p class="lvl-t">Komposisi level kognitif</p>
             <div class="lvlbar"><span style="--w:20;--c:#22b07d">20</span><span style="--w:50;--c:#1e6bff">50</span><span style="--w:30;--c:#8b5cf6">30</span></div>
@@ -512,16 +536,16 @@
   </div>
 </div>
 
-<script src="links.js?v=29"></script>
-<script src="app.js?v=29"></script>
-<script src="kalender-data.js?v=29"></script>
-<script src="kalender.js?v=29"></script>
-<script src="guru-data.js?v=29"></script>
-<script src="guru.js?v=29"></script>
-<script src="asas.js?v=29"></script>
-<script src="murid-data.js?v=29"></script>
-  <script src="panduan-data.js?v=29"></script>
-  <script src="panduan.js?v=29"></script>
-  <script src="murid.js?v=29"></script>
+<script src="links.js?v=30"></script>
+<script src="app.js?v=30"></script>
+<script src="kalender-data.js?v=30"></script>
+<script src="kalender.js?v=30"></script>
+<script src="guru-data.js?v=30"></script>
+<script src="guru.js?v=30"></script>
+<script src="asas.js?v=30"></script>
+<script src="murid-data.js?v=30"></script>
+  <script src="panduan-data.js?v=30"></script>
+  <script src="panduan.js?v=30"></script>
+  <script src="murid.js?v=30"></script>
 </body>
 </html>
