@@ -1041,3 +1041,11 @@ body { background: #eef2fa; }
 .tp-tab.xl7 { grid-template-columns: .35fr 1.3fr 1.2fr .55fr 1.3fr .5fr .6fr; }
 .xlprev .tp-tab span { background: #e3f6ec; }
 .xlprev .tp-tab.kosong span { background: #fff; font-weight: 500; }
+.steps li.lebar { grid-column: 1 / -1; }
+.copybox { position: relative; margin: 10px 0; border-radius: 16px; background: #1e293b; }
+.copybox pre { margin: 0; padding: 16px 18px 56px; white-space: pre-wrap; word-break: break-word; color: #e2e8f0; font: .88rem/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.copybtn { position: absolute; right: 12px; bottom: 12px; border: 0; padding: 10px 20px; border-radius: 999px; font: inherit; font-weight: 800; cursor: pointer;
+  background: #d97757; color: #fff; transition: transform .4s var(--spring), background .3s; }
+.copybtn:hover { transform: translateY(-1px); }
+.copybtn.ok { background: #22b07d; }
+@media (min-width: 1200px) { .steps li.dua { grid-column: span 2; } }

@@ -51,3 +51,13 @@ const ASAS_JADWAL = [
     </li>`;
   }).join("");
 })();
+
+/* tombol "Salin teks" */
+document.addEventListener("click", async e => {
+  const b = e.target.closest("[data-copy]"); if (!b) return;
+  const teks = document.getElementById(b.dataset.copy).innerText;
+  try { await navigator.clipboard.writeText(teks); }
+  catch { const t = document.createElement("textarea"); t.value = teks; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); }
+  const asal = b.textContent; b.textContent = "✓ Tersalin"; b.classList.add("ok");
+  setTimeout(() => { b.textContent = asal; b.classList.remove("ok"); }, 2000);
+});
