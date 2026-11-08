@@ -175,58 +175,66 @@
   };
   addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
 
-  /* ---------- Kursor gaya iPad (mouse/trackpad saja) ---------- */
-  if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const root = document.documentElement;
-  const cur = document.querySelector(".cursor");
-  root.classList.add("has-cursor");
-
-  const BLOK = ".spot, .side-link, .sub-link, .res, .icon-btn, .side-brand";
-  const SIZE = 18;
-  let px = innerWidth / 2, py = innerHeight / 2;           // posisi mouse
-  let x = px, y = py, w = SIZE, h = SIZE, r = SIZE / 2;    // posisi kursor sekarang
-  let hoverEl = null, textEl = null, down = false, visible = false, last = performance.now();
-
-  addEventListener("pointermove", e => {
-    px = e.clientX; py = e.clientY;
-    if (!visible) { x = px; y = py; visible = true; root.classList.add("cursor-on"); }
-  }, { passive: true });
-  document.addEventListener("pointerleave", () => { visible = false; root.classList.remove("cursor-on"); });
-  document.addEventListener("pointerover", e => {
-    hoverEl = e.target.closest(BLOK);
-    textEl = hoverEl ? null : e.target.closest("input");
-    root.classList.toggle("cursor-block", !!hoverEl);
-    root.classList.toggle("cursor-text", !!textEl);
-    root.classList.toggle("cursor-dark", !!e.target.closest(".sidebar, .banner"));
-  });
-  addEventListener("pointerdown", () => { down = true; root.classList.add("cursor-down"); });
-  addEventListener("pointerup", () => { down = false; root.classList.remove("cursor-down"); });
-
-  const ease = (k, dt) => 1 - Math.exp(-k * dt);   // halus & tidak tergantung FPS
-  (function frame(now) {
-    const dt = Math.min((now - last) / 1000, 0.05); last = now;
-    let tx = px, ty = py, tw = SIZE, th = SIZE, tr = SIZE / 2, kPos = 38, kSize = 22;
-
-    if (hoverEl && hoverEl.isConnected) {
-      // kursor "menempel" membentuk kotak di sekeliling tombol, sedikit tertarik ke arah mouse
-      const b = hoverEl.getBoundingClientRect();
-      const cx = b.left + b.width / 2, cy = b.top + b.height / 2;
-      const pad = 6;
-      tw = b.width + pad * 2; th = b.height + pad * 2;
-      tr = (parseFloat(getComputedStyle(hoverEl).borderRadius) || 12) + pad;
-      tx = cx + (px - cx) * 0.06; ty = cy + (py - cy) * 0.12;
-      kPos = 20; kSize = 20;
-    } else if (textEl) {
-      tw = 2.5; th = 24; tr = 2; kSize = 30;
+  /* ---------- Label penjelasan (seperti label di Dock Mac) ---------- */
+  const tip = document.getElementById("tip"), tipTxt = tip.firstElementChild;
+  const TARGET = "[data-tip], .side-link, .sub-link, .side-brand, .qcard, .row, .res, .mtile, .kpill, .kbtn, .icon-btn, .seg button, .kmode button, .kchip, .mini";
+  const bersih = t => (t || "").replace(/\s+/g, " ").trim();
+  function teksTip(el) {
+    if (el.dataset.tip) return el.dataset.tip;
+    if (el.classList.contains("side-brand")) return "Kembali ke halaman depan";
+    if (el.classList.contains("main-link")) return "Buka halaman " + bersih(el.querySelector("b").textContent);
+    if (el.classList.contains("side-toggle")) {
+      const j = bersih(el.textContent);
+      return (el.getAttribute("aria-expanded") === "true" ? "Tutup daftar " : "Lihat daftar dokumen ") + j;
     }
-    if (down) { tw *= 0.94; th *= 0.94; }
-
-    x += (tx - x) * ease(kPos, dt);  y += (ty - y) * ease(kPos, dt);
-    w += (tw - w) * ease(kSize, dt); h += (th - h) * ease(kSize, dt);
-    r += (tr - r) * ease(kSize, dt);
-    cur.style.transform = `translate3d(${x - w / 2}px, ${y - h / 2}px, 0)`;
-    cur.style.width = w + "px"; cur.style.height = h + "px"; cur.style.borderRadius = r + "px";
-    requestAnimationFrame(frame);
-  })(last);
+    if (el.classList.contains("sub-all")) return "Lihat semua dokumen di kelompok ini";
+    if (el.classList.contains("mtile")) return "Buka halaman " + bersih(el.querySelector("b").textContent);
+    if (el.classList.contains("kpill")) return el.classList.contains("on") ? "Guru kelas " + el.dataset.k + " ditampilkan di bawah. Klik lagi untuk menutup." : "Lihat guru yang mengajar di kelas " + el.dataset.k;
+    if (el.classList.contains("mini")) return "Buka bulan ini";
+    if (el.matches(".sub-link, .qcard, .row, .res")) {
+      const n = bersih((el.querySelector("h3, b") || el).textContent);
+      return "Buka “" + n + "” (terbuka di tab baru)";
+    }
+    return bersih(el.getAttribute("aria-label")) || "";
+  }
+  let tipEl = null, tipTimer = 0, hideTimer = 0;
+  function tampilTip(el) {
+    const t = teksTip(el); if (!t) return;
+    tipEl = el; tipTxt.textContent = t;
+    tip.classList.remove("show", "bawah");
+    tip.style.left = "0px"; tip.style.top = "0px";
+    const b = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+    let top = b.top - h - 12, bawah = false;
+    if (top < 8) { top = b.bottom + 12; bawah = true; }
+    const cx = b.left + b.width / 2;
+    const left = Math.max(8, Math.min(innerWidth - w - 8, cx - w / 2));
+    tip.style.left = left + "px"; tip.style.top = top + "px";
+    tip.style.setProperty("--ax", (cx - left) + "px");
+    tip.classList.toggle("bawah", bawah);
+    void tip.offsetWidth; tip.classList.add("show");
+  }
+  function sembunyiTip() { clearTimeout(tipTimer); tip.classList.remove("show"); tipEl = null; }
+  const mouse = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (mouse) {
+    document.addEventListener("pointerover", e => {
+      const el = e.target.closest(TARGET);
+      if (el === tipEl) return;
+      clearTimeout(tipTimer);
+      if (!el) { sembunyiTip(); return; }
+      // langsung muncul jika label sudah tampil (pindah antar tombol), jika belum tunggu sebentar
+      tipTimer = setTimeout(() => tampilTip(el), tip.classList.contains("show") ? 0 : 350);
+    });
+    document.addEventListener("pointerleave", sembunyiTip);
+  }
+  // saat diklik/disentuh: label muncul (atau diperbarui) sebentar
+  document.addEventListener("click", e => {
+    const el = e.target.closest(TARGET); if (!el) return;
+    clearTimeout(tipTimer); clearTimeout(hideTimer);
+    setTimeout(() => {
+      if (!el.isConnected || el.offsetParent === null) return sembunyiTip();
+      tampilTip(el);
+      if (!mouse) hideTimer = setTimeout(sembunyiTip, 2200);
+    }, 30);
+  });
+  addEventListener("scroll", () => { if (tipEl) sembunyiTip(); }, { passive: true });
 })();

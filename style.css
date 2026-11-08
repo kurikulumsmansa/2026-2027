@@ -746,3 +746,24 @@ body { background: #eef2fa; }
   .gl-no { text-align: left; }
   .mtile { padding: 18px; }
 }
+
+/* =====================================================================
+   KURSOR BIASA + LABEL PENJELASAN (seperti label Dock di Mac)
+   ===================================================================== */
+.cursor { display: none !important; }
+.tip {
+  position: fixed; left: 0; top: 0; z-index: 100; pointer-events: none; max-width: min(320px, calc(100vw - 16px));
+  padding: 8px 16px; border-radius: 18px; font-size: .95rem; font-weight: 500; line-height: 1.3; color: #1d1d1f; text-align: center;
+  background: rgba(236, 236, 240, .82); -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 10px 30px -8px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.75), 0 0 0 .5px rgba(0,0,0,.14);
+  opacity: 0; transform: translateY(4px) scale(.96); transform-origin: var(--ax, 50%) 100%;
+  transition: opacity .18s var(--ease), transform .3s var(--spring);
+}
+.tip.bawah { transform-origin: var(--ax, 50%) 0; transform: translateY(-4px) scale(.96); }
+.tip.show { opacity: 1; transform: none; }
+.tip::after {
+  content: ""; position: absolute; left: var(--ax, 50%); top: 100%; width: 12px; height: 7px; margin-left: -6px;
+  background: inherit; clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.tip.bawah::after { top: auto; bottom: 100%; clip-path: polygon(50% 0, 0 100%, 100% 100%); }
+@media (max-width: 640px) { .tip { font-size: .92rem; border-radius: 18px; } }

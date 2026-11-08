@@ -10,11 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=13">
+  <link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
 
-<div class="cursor" aria-hidden="true"></div>
+<div class="tip" id="tip" role="tooltip" aria-hidden="true"><span></span></div>
 <div class="content-bg" aria-hidden="true"><i></i><i></i><i></i></div>
 
 <!-- filter lensa untuk efek refraksi kaca -->
@@ -125,10 +125,10 @@
         </div>
         <div class="seg" role="tablist">
           <span class="thumb"></span>
-          <button role="tab" aria-selected="true" data-tab="tabKalender">Kalender</button>
-          <button role="tab" aria-selected="false" data-tab="tabRekap">Rekap</button>
-          <button role="tab" aria-selected="false" data-tab="tabMinggu">Minggu</button>
-          <button role="tab" aria-selected="false" data-tab="tabKet">Keterangan</button>
+          <button role="tab" aria-selected="true" data-tab="tabKalender" data-tip="Lihat kalender per bulan">Kalender</button>
+          <button role="tab" aria-selected="false" data-tab="tabRekap" data-tip="Lihat jumlah hari dan minggu efektif tiap bulan">Rekap</button>
+          <button role="tab" aria-selected="false" data-tab="tabMinggu" data-tip="Lihat daftar minggu efektif">Minggu</button>
+          <button role="tab" aria-selected="false" data-tab="tabKet" data-tip="Lihat daftar libur, agenda, dan catatan">Keterangan</button>
         </div>
       </div>
 
@@ -141,10 +141,10 @@
             <button class="kbtn glass" id="kNext" aria-label="Bulan berikutnya"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
           </div>
           <div class="kright">
-            <button class="kchip glass" id="kToday">Hari ini</button>
+            <button class="kchip glass" id="kToday" data-tip="Kembali ke bulan ini">Hari ini</button>
             <div class="kmode glass" id="kMode">
-              <button data-mode="bulan" aria-pressed="true">Bulan</button>
-              <button data-mode="tahun" aria-pressed="false">Setahun</button>
+              <button data-mode="bulan" aria-pressed="true" data-tip="Tampilkan satu bulan">Bulan</button>
+              <button data-mode="tahun" aria-pressed="false" data-tip="Tampilkan 12 bulan sekaligus">Setahun</button>
             </div>
           </div>
         </div>
@@ -229,17 +229,17 @@
 
       <div class="gpick">
         <div class="gpick-h"><b>Lihat per kelas</b><span>Pilih kelas untuk melihat semua guru yang mengajar di kelas itu</span>
-          <button class="kchip glass" id="gReset" hidden>Tampilkan semua</button></div>
+          <button class="kchip glass" id="gReset" hidden data-tip="Tutup pilihan kelas, tampilkan semua guru">Tampilkan semua</button></div>
         <div id="gKelas"></div>
       </div>
       <div id="gKelasInfo" hidden></div>
 
       <div class="gbar">
         <div class="kmode glass" id="gSeg">
-          <button data-g="semua" aria-pressed="true">Semua</button>
-          <button data-g="0" aria-pressed="false">Umum</button>
-          <button data-g="1" aria-pressed="false">IPA &amp; IPS (X)</button>
-          <button data-g="2" aria-pressed="false">Pilihan (XI–XII)</button>
+          <button data-g="semua" aria-pressed="true" data-tip="Tampilkan semua guru">Semua</button>
+          <button data-g="0" aria-pressed="false" data-tip="Guru mata pelajaran umum">Umum</button>
+          <button data-g="1" aria-pressed="false" data-tip="Guru IPA &amp; IPS kelas X">IPA &amp; IPS (X)</button>
+          <button data-g="2" aria-pressed="false" data-tip="Guru mata pelajaran pilihan kelas XI dan XII">Pilihan (XI–XII)</button>
         </div>
         <span class="pill" id="gJumlah"></span>
       </div>
@@ -260,11 +260,11 @@
   </div>
 </div>
 
-<script src="links.js?v=13"></script>
-<script src="app.js?v=13"></script>
-<script src="kalender-data.js?v=13"></script>
-<script src="kalender.js?v=13"></script>
-<script src="guru-data.js?v=13"></script>
-<script src="guru.js?v=13"></script>
+<script src="links.js?v=14"></script>
+<script src="app.js?v=14"></script>
+<script src="kalender-data.js?v=14"></script>
+<script src="kalender.js?v=14"></script>
+<script src="guru-data.js?v=14"></script>
+<script src="guru.js?v=14"></script>
 </body>
 </html>
