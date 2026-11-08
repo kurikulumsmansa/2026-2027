@@ -61,3 +61,11 @@ Data ada di `murid-data.js`, diambil dari Google Sheet daftar murid (sheet HL, H
 - `info`: keterangan tambahan per kelas (wali kelas / paket).
 Rekap jumlah murid dihitung otomatis. Tabel menampilkan nama, NIS, NISN, L/P, dan agama; judul kolom bisa diklik untuk mengurutkan.
 Setelah mengubah data, naikkan angka `?v=` di `index.html`.
+
+## Halaman layanan (v34)
+- **Jadwal Pelajaran** (`#jadwal`): PDF jadwal per kelas X, XI, XII (versi murid, bukan versi guru).
+- **Formulir Guru** (`#formulir`): 3 tombol besar: perangkat pembelajaran, guru berhalangan hadir, pelaporan BDR.
+- **Guru Wali** (`#guruwali`): jadwal guru wali ganjil, 7 format administrasi (unduh Word lewat `export?format=docx`), folder unggah laporan.
+- **Asesmen** (`#asesmen`): STS Ganjil (format nilai, input nilai, SOP rapor) dan TKA / pemantapan TKA.
+- **KSP 2027** (`#ksp`): dokumen KSP untuk dibaca guru.
+Semua tautan ke Google Drive; pastikan berkas dibagikan "Siapa saja yang memiliki link".

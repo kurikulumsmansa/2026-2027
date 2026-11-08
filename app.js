@@ -84,7 +84,7 @@
   }).join("");
 
   /* ---------- Satu halaman per menu (menu kiri) ---------- */
-  const HALAMAN = { beranda: "Beranda", kalender: "Kalender Pendidikan", guru: "Daftar Guru", murid: "Data Murid", panduan: "Panduan & Aturan", asas: "ASAS-BK Ganjil", perangkat: "Perangkat Ajar", dokumen: "Dokumen & Layanan" };
+  const HALAMAN = { beranda: "Beranda", kalender: "Kalender Pendidikan", guru: "Daftar Guru", murid: "Data Murid", panduan: "Panduan & Aturan", asas: "ASAS-BK Ganjil", perangkat: "Perangkat Ajar", jadwal: "Jadwal Pelajaran", formulir: "Formulir Guru", guruwali: "Guru Wali", asesmen: "Asesmen", ksp: "KSP 2027", dokumen: "Dokumen & Layanan" };
   const papan = new Set(KELOMPOK.map(k => slug(k.judul)));
   const judulHal = document.getElementById("judulHalaman");
   function bukaHalaman() {
