@@ -1,15 +1,15 @@
 # Kurikulum SMAN 1 Batam 2026/2027
 
-Kumpulan file kurikulum SMAN 1 Batam, Tahun Ajaran 2026/2027.
+Dokumen Kurikulum SMAN 1 Batam TP 2026/2027.
 
 Alamat website: https://kurikulumsmansa.github.io/2026-2027/
 
-## Cara menambah atau mengganti file
+## Cara menambah atau mengganti link
 
-1. Buka file `dokumen.js` di GitHub, lalu klik ikon pensil (Edit).
-2. Setiap baris adalah satu file. Ganti `link: "#"` dengan link Google Drive file tersebut
-   (pastikan akses Drive diatur "Siapa saja yang memiliki link").
-3. Untuk menambah file baru, salin satu baris lalu ubah judul, kategori, kelas, dan link-nya.
+1. Buka file `links.js` di GitHub, lalu klik ikon pensil (Edit).
+2. Setiap baris `{ nama: ..., jenis: ..., url: ... }` adalah satu tombol.
+   - `nama`  : tulisan pada tombol
+   - `jenis` : `file`, `folder`, `sheet`, `form`, atau `web` (menentukan warna ikon)
+   - `url`   : link Google Drive / Form / web
+3. Untuk menambah tombol, salin satu baris lalu ubah isinya. Untuk kelompok baru, salin satu blok `{ judul: ..., link: [ ... ] }`.
 4. Klik **Commit changes**. Website diperbarui otomatis dalam 1–2 menit.
-
-Atau unggah file PDF ke folder `files/`, lalu isi link dengan `files/nama-file.pdf`.

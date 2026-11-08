@@ -2,156 +2,48 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Kurikulum SMAN 1 Batam 2026/2027</title>
-  <meta name="description" content="Kumpulan file kurikulum SMAN 1 Batam Tahun Ajaran 2026/2027.">
+  <meta name="description" content="Dokumen Kurikulum SMAN 1 Batam Tahun Pelajaran 2026/2027.">
+  <meta name="theme-color" content="#f5f5f7">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
-  <div class="side-brand">
-    <img class="side-logo" src="logo.png" alt="Logo SMAN 1 Batam">
-    <div>
-      <strong>Kurikulum</strong>
-      <small>SMAN 1 Batam</small>
-    </div>
-  </div>
+  <!-- latar gradasi bergerak -->
+  <div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
 
-  <p class="side-label">Kategori</p>
-  <nav class="side-nav" id="navKategori"></nav>
+  <!-- kursor kustom -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
 
-  <p class="side-label">Kelas</p>
-  <nav class="side-nav" id="navKelas"></nav>
-</aside>
-<div class="overlay" onclick="document.body.classList.remove('side-open')"></div>
+  <main class="page">
 
-<!-- MAIN -->
-<div class="main">
+    <header class="hero reveal">
+      <div class="logo-wrap"><img src="logo.png" alt="Logo SMAN 1 Batam" class="logo"></div>
+      <p class="kicker">SMAN 1 Batam</p>
+      <h1>Kurikulum</h1>
+      <p class="year">Tahun Pelajaran 2026/2027</p>
+      <p class="desc">Dokumen Kurikulum SMAN 1 Batam TP 2026/2027</p>
+    </header>
 
-  <header class="topbar">
-    <button class="icon-btn menu-btn" aria-label="Menu" onclick="document.body.classList.toggle('side-open')">☰</button>
-    <div class="top-title">
-      <strong>KURIKULUM SMAN 1 BATAM</strong>
-      <small>Tahun Ajaran 2026/2027</small>
-    </div>
-    <label class="search">
-      <input type="search" id="cari" placeholder="Cari file kurikulum...">
-      <span>🔍</span>
+    <label class="search reveal">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="cari" placeholder="Cari dokumen" autocomplete="off">
+      <kbd>/</kbd>
     </label>
-  </header>
 
-  <div class="content">
+    <div id="daftar"></div>
+    <p class="empty" id="kosong" hidden>Tidak ada dokumen yang cocok.</p>
 
-    <section class="banner">
-      <div>
-        <h1>KURIKULUM SMAN 1 BATAM</h1>
-        <p class="banner-year">TAHUN AJARAN 2026/2027</p>
-        <p class="banner-text">Kumpulan file kurikulum sekolah. Pilih kategori, lalu klik file untuk membuka atau mengunduh.</p>
-      </div>
-      <div class="banner-art" aria-hidden="true"><img src="logo.png" alt=""></div>
-    </section>
+    <footer class="foot reveal">© 2026 Kurikulum SMAN 1 Batam</footer>
+  </main>
 
-    <!-- KARTU KATEGORI -->
-    <section>
-      <div class="sec-head"><h2>Kategori File Kurikulum</h2></div>
-      <div class="grid-cat" id="kartuKategori"></div>
-    </section>
-
-    <!-- DAFTAR FILE -->
-    <section class="panel" id="daftar">
-      <div class="sec-head">
-        <h2 id="judulDaftar">Semua File</h2>
-        <span class="pill" id="jumlah"></span>
-      </div>
-      <div class="search mobile-search">
-        <input type="search" id="cariHp" placeholder="Cari file kurikulum...">
-        <span>🔍</span>
-      </div>
-      <div class="file-grid" id="fileList"></div>
-      <p class="empty" id="kosong" hidden>File tidak ditemukan.</p>
-    </section>
-
-    <footer class="footer">© 2026 Kurikulum SMAN 1 Batam · Tahun Ajaran 2026/2027</footer>
-  </div>
-</div>
-
-<script src="dokumen.js"></script>
-<script>
-  const KATEGORI = [
-    { nama: "KOSP",              ikon: "📘", warna: "#1e5eff", ket: "Kurikulum Operasional Satuan Pendidikan" },
-    { nama: "CP & ATP",          ikon: "🎯", warna: "#f7a01d", ket: "Capaian & Alur Tujuan Pembelajaran" },
-    { nama: "Modul Ajar",        ikon: "📝", warna: "#ef5a3c", ket: "Perangkat ajar guru" },
-    { nama: "Kalender & Jadwal", ikon: "📅", warna: "#14b8e6", ket: "Kalender, prota, promes, jadwal" },
-    { nama: "Penilaian",         ikon: "📊", warna: "#22b07d", ket: "Pedoman asesmen & rapor" },
-    { nama: "P5",                ikon: "🧩", warna: "#8b5cf6", ket: "Projek Penguatan Profil Pelajar Pancasila" },
-  ];
-  const KELAS = ["X", "XI", "XII"];
-  let filter = { kategori: null, kelas: null, q: "" };
-
-  const warnaOf = k => (KATEGORI.find(x => x.nama === k) || {}).warna || "#1e5eff";
-  const ikonOf  = k => (KATEGORI.find(x => x.nama === k) || {}).ikon || "📄";
-
-  // Sidebar
-  const navKat = document.getElementById("navKategori");
-  navKat.innerHTML = `<a href="#daftar" data-k="">📂<span>Semua File</span></a>` +
-    KATEGORI.map(k => `<a href="#daftar" data-k="${k.nama}">${k.ikon}<span>${k.nama}</span></a>`).join("");
-  document.getElementById("navKelas").innerHTML =
-    KELAS.map(k => `<a href="#daftar" data-c="${k}">🎓<span>Kelas ${k}</span></a>`).join("");
-
-  // Kartu kategori
-  document.getElementById("kartuKategori").innerHTML = KATEGORI.map(k => {
-    const n = DOKUMEN.filter(d => d.kategori === k.nama).length;
-    return `<a class="ccard" href="#daftar" data-k="${k.nama}">
-      <span class="chip" style="background:${k.warna}">${k.ikon} ${k.nama}</span>
-      <p>${k.ket}</p>
-      <b>${n} file</b>
-    </a>`;
-  }).join("");
-
-  function tampil() {
-    const q = filter.q.toLowerCase();
-    const hasil = DOKUMEN.filter(d =>
-      (!filter.kategori || d.kategori === filter.kategori) &&
-      (!filter.kelas || d.kelas === filter.kelas || d.kelas === "Semua") &&
-      (!q || d.judul.toLowerCase().includes(q)));
-    document.getElementById("fileList").innerHTML = hasil.map(d => {
-      const ada = d.link && d.link !== "#";
-      return `<a class="file ${ada ? "" : "soon"}" href="${ada ? d.link : "javascript:void(0)"}" ${ada ? 'target="_blank" rel="noopener"' : ""}>
-        <span class="dico" style="background:${warnaOf(d.kategori)}">${ikonOf(d.kategori)}</span>
-        <div><b>${d.judul}</b><small>${d.kategori} · ${d.kelas === "Semua" ? "Semua kelas" : "Kelas " + d.kelas}</small></div>
-        <span class="act">${ada ? "Buka →" : "Segera"}</span>
-      </a>`;
-    }).join("");
-    document.getElementById("kosong").hidden = hasil.length > 0;
-    document.getElementById("jumlah").textContent = hasil.length + " file";
-    let judul = filter.kategori || "Semua File";
-    if (filter.kelas) judul += " · Kelas " + filter.kelas;
-    document.getElementById("judulDaftar").textContent = judul;
-    document.querySelectorAll(".side-nav a").forEach(a => {
-      const on = a.dataset.k !== undefined
-        ? (a.dataset.k || null) === filter.kategori && !filter.kelas
-        : a.dataset.c === filter.kelas;
-      a.classList.toggle("active", on);
-    });
-  }
-
-  document.addEventListener("click", e => {
-    const a = e.target.closest("[data-k],[data-c]");
-    if (!a) return;
-    if (a.dataset.c !== undefined) { filter.kelas = a.dataset.c; filter.kategori = null; }
-    else { filter.kategori = a.dataset.k || null; filter.kelas = null; }
-    document.body.classList.remove("side-open");
-    tampil();
-  });
-  ["cari", "cariHp"].forEach(id => document.getElementById(id).addEventListener("input", e => {
-    filter.q = e.target.value; tampil();
-  }));
-  tampil();
-</script>
+  <script src="links.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
