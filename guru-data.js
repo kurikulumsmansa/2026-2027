@@ -1,0 +1,113 @@
+/*
+  DAFTAR GURU DAN PEMBAGIAN MENGAJAR — TP 2026/2027
+  --------------------------------------------------
+  Format setiap baris: [ "Nama Guru", "Mata Pelajaran", "Kelas Diajar" ]
+  Penulisan kelas: "X HL 1–12", "XI HJ 1–4, XII HT 9–13", "XI HJ 1–2, 5–6; XII HT 1–3"
+  Guru yang mengajar lebih dari satu mapel cukup ditulis lagi di "tambahan".
+*/
+const GURU = {
+  kelompok: [
+    {
+      nama: "Mata Pelajaran Umum",
+      guru: [
+        ["Hasbiah, S.Pd.I.", "Pendidikan Agama dan Budi Pekerti", "XII HT 6–13"],
+        ["Rowana, S.Ag.", "Pendidikan Agama dan Budi Pekerti", "XI HJ 10–12, XII HT 1–5"],
+        ["Syafriadi, S.Pd.I., M.Pd.I.", "Pendidikan Agama dan Budi Pekerti", "XI HJ 1–9"],
+        ["L.M. Zahid Arsyadi, S.Pd.", "Pendidikan Agama dan Budi Pekerti", "X HL 1–12"],
+        ["Davidzoon Aritonang, S.Th.", "Pendidikan Agama dan Budi Pekerti", "X HL 1–12, XII HT 1–6"],
+        ["Sebarut Norayati Pandiangan, S.Pd.", "Pendidikan Agama dan Budi Pekerti", "XI HJ 1–12, XII HT 7–12"],
+        ["Rita Octafianty, S.Sos.", "Pendidikan Pancasila", "XI HJ 1–12"],
+        ["Agung Stiyawan, S.Pd.", "Pendidikan Pancasila", "X HL 3–4"],
+        ["Nasa Andriansa, S.Pd.", "Pendidikan Pancasila", "X HL 5"],
+        ["Loveni Vebri, S.Pd.", "Pendidikan Pancasila", "X HL 9, 12"],
+        ["Najihah Azzahra, S.Pd.", "Pendidikan Pancasila", "XII HT 1–13"],
+        ["Aulia Fitri, S.Pd.", "Pendidikan Pancasila", "XII HT 7–9"],
+        ["Irsyadul Fikri Al, S.Pd.", "Pendidikan Pancasila", "XII HT 10–13"],
+        ["Komariah, S.Pd.", "Bahasa Indonesia", "XII HT 1–7"],
+        ["Dra. Yusnani", "Bahasa Indonesia", "XII HT 8–13"],
+        ["Tri Mulyani, S.Pd.", "Bahasa Indonesia", "XI HJ 5–12"],
+        ["Fitri Rahmadhani, S.Pd.", "Bahasa Indonesia", "X HL 9–12, XI HJ 1–4"],
+        ["Ogsfika Yotri, S.Pd.", "Bahasa Indonesia", "X HL 1–8"],
+        ["Sikkat Simanullang, S.Pd.", "Matematika", "XII HT 1–6"],
+        ["Yurike Waliana, S.Pd.", "Matematika", "XII HT 7–13"],
+        ["Ratna Sari, S.Pd.", "Matematika", "XI HJ 1–6"],
+        ["Gusmarta, S.Pd.", "Matematika", "XI HJ 7–12"],
+        ["Maydika Sapti Utami, S.Pd.", "Matematika", "X HL 1–6"],
+        ["Pitria Artiani Novianingsih, S.Pd.", "Matematika", "X HL 7–12"],
+        ["Africeli, M.Pd.", "Bahasa Inggris", "XII HT 1–8"],
+        ["Juliantri Utari, S.Pd.", "Bahasa Inggris", "XI HJ 1–4, XII HT 9–13"],
+        ["Yeni Sesmita, S.Pd.", "Bahasa Inggris", "XI HJ 5–12"],
+        ["Desi Yulinda, M.Pd.", "Bahasa Inggris", "X HL 1–4"],
+        ["Krisna Midiastuti, S.Pd.", "Bahasa Inggris", "X HL 5–12"],
+        ["Mangatas Panjaitan, S.Pd.", "PJOK", "XII HT 1–8"],
+        ["Panji Satria Tizu, S.Pd.", "PJOK", "XI HJ 1–4, XII HT 9–13"],
+        ["Indyana Ika Puspita Peni, S.Pd.", "PJOK", "XI HJ 5–12"],
+        ["Igun Kurniawan, S.Pd.", "PJOK", "X HL 1–12"],
+        ["Ida Royani, S.Pd.", "Seni Budaya", "X HL 1–6"],
+        ["Sofia Madonna, M.Pd.", "Seni Budaya", "XI HJ 1–12"],
+        ["Yulia Afrianti, S.Pd.", "Seni Budaya", "XII HT 1–13"],
+        ["Edriyana, S.Ag.", "Bimbingan Konseling", "XI HJ 1–5, XII HT 1–13"],
+        ["Byas Radiake Ratno, S.Pd.", "Bimbingan Konseling", "X HL 1–12, XI HJ 6–12"],
+      ],
+    },
+    {
+      nama: "Mata Pelajaran IPA & IPS (Kelas X HL)",
+      guru: [
+        ["Laras Syahgiah, S.Pd.", "Fisika", "X HL 1–12"],
+        ["Meutia Syahana, S.Pd.", "Kimia", "X HL 1–7"],
+        ["Nyak Mutya Aulina Khairul Fajri, S.Pd.", "Kimia", "X HL 8–12"],
+        ["Reni, S.Pd.", "Biologi", "X HL 9–12"],
+        ["Dina Sahira, S.Pd.", "Biologi", "X HL 1–8"],
+        ["Toyibah, S.Pd.", "Sosiologi", "X HL 1–6"],
+        ["Darliana, S.E.", "Ekonomi", "X HL 1–8"],
+        ["Rizki Novrianti Zahara, S.Tr.Ak.", "Ekonomi", "X HL 9–12"],
+        ["Ummi Shalmi, S.Pd.", "Sejarah", "X HL 1–6"],
+        ["Sri Gusmanila, S.Pd.", "Geografi", "X HL 12"],
+        ["Rena Nurmala Sari, S.Pd.", "Geografi", "X HL 1–8"],
+        ["Heru Darmawansyah, S.Pd.", "Informatika", "X HL 1–12"],
+        ["Refda Yelni, S.E.", "Prakarya", "X HL 7–12"],
+      ],
+    },
+    {
+      nama: "Mata Pelajaran Pilihan (Kelas XI HJ dan XII HT)",
+      guru: [
+        ["Nor Eva Ira Kusmawati, S.E.", "Prakarya dan Kewirausahaan", "XI HJ 1–9"],
+        ["Nor Eva Ira Kusmawati, S.E.", "Ekonomi", "XI HJ 12"],
+        ["Sitti Balkis, S.Pd., M.Pfis.", "Fisika", "XI HJ 1–2, 5–6; XII HT 1–3"],
+        ["Korry Herawati Manalu, S.Pd.", "Kimia", "XII HT 5, 7–8"],
+        ["Meriati Purba, S.Pd.Kim.", "Kimia", "XI HJ 1–4; XII HT 6"],
+        ["Desy Handayani, S.Pd.", "Biologi", "XII HT 5–9"],
+        ["Muhammad Addiansyah Nasution, S.Pd.", "Biologi", "XI HJ 8–9; XII HT 1–2"],
+        ["Nuria Vhistarina, S.Pd.", "Biologi", "XI HJ 1–4"],
+        ["Astri Testiningtyas Firman, S.Pd.", "Sosiologi", "XII HT 8–12"],
+        ["Wawan Kurniawan, S.Pd.Gr.", "Sosiologi", "XI HJ 8–12"],
+        ["Siti Aisyah, S.Pd.", "Ekonomi", "XII HT 9–13"],
+        ["Ayu Laponda, S.Pd.", "Ekonomi", "XI HJ 7–11"],
+        ["Frist Adam Tampubolon, S.Pd.", "Geografi", "XII HT 3–5, 12–13"],
+        ["Hanafi, S.Kom.", "Informatika", "XII HT 1–2, 10–11"],
+        ["Michelle Firsta Karima Sara, S.T.", "Informatika", "XI HJ 5–7"],
+        ["Yang Elsa Primatari, S.Pd.", "Matematika Tingkat Lanjut", "XII HT 4–8"],
+        ["Liza Salfina, S.Pd.", "Matematika Tingkat Lanjut", "XI HJ 6–7; XII HT 1–3"],
+        ["Hermawati, S.Pd.", "Matematika Tingkat Lanjut", "XI HJ 1–5"],
+        ["Yanti, S.Pd.I.", "Bahasa Inggris Tingkat Lanjut", "XI HJ 10–12; XII HT 12–13"],
+        ["Dea Arioktavia, S.Pd.", "Bahasa Inggris Tingkat Lanjut", "XI HJ 3–7"],
+      ],
+    },
+  ],
+
+  /* 4. Penugasan mata pelajaran tambahan untuk guru yang sama */
+  tambahan: [
+    ["Agung Stiyawan, S.Pd.", "Geografi", "X HL 9–11; XII HT 9–11"],
+    ["Nasa Andriansa, S.Pd.", "Sejarah", "XII HT 3–13"],
+    ["Loveni Vebri, S.Pd.", "Sosiologi", "X HL 7–12"],
+    ["Aulia Fitri, S.Pd.", "Sejarah", "X HL 7–12; XII HT 1–2"],
+    ["Irsyadul Fikri Al, S.Pd.", "Sejarah", "XI HJ 1–12"],
+    ["Sri Gusmanila, S.Pd.", "Geografi", "XI HJ 8–11"],
+    ["Reni, S.Pd.", "Biologi", "XII HT 3–4"],
+    ["Toyibah, S.Pd.", "Sosiologi", "XII HT 13"],
+    ["Refda Yelni, S.E.", "Ekonomi", "XII HT 6–7"],
+  ],
+
+  /* jumlah rombel per tingkat */
+  rombel: { "X HL": 12, "XI HJ": 12, "XII HT": 13 },
+};

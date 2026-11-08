@@ -23,3 +23,8 @@ pada file *Kalender_Pendidikan_SMAN_1_Batam_2026-2027*). Cukup ubah kolom **Jeni
 
 Jika sheet tidak bisa dibaca (misalnya akses sheet diubah jadi privat), website memakai
 salinan di file `kalender-data.js`. Tab *Keterangan* (agenda, peringatan, catatan) juga diambil dari file itu.
+
+## Guru & Pembagian Mengajar
+
+Data guru ada di file `guru-data.js`. Setiap baris: `["Nama Guru", "Mata Pelajaran", "Kelas Diajar"]`,
+contoh kelas: `"XI HJ 1–2, 5–6; XII HT 1–3"`. Mapel tambahan untuk guru yang sama ditulis di bagian `tambahan`.

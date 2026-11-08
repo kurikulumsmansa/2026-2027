@@ -107,7 +107,7 @@
   /* ---------- Muncul halus saat di-scroll ---------- */
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-  }), { threshold: 0.06 });
+  }), { threshold: 0, rootMargin: "0px 0px -40px 0px" });
   document.querySelectorAll(".reveal").forEach((el, i) => {
     el.style.transitionDelay = Math.min(i * 60, 360) + "ms"; io.observe(el);
   });
