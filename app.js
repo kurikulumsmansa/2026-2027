@@ -84,7 +84,7 @@
   }).join("");
 
   /* ---------- Satu halaman per menu (menu kiri) ---------- */
-  const HALAMAN = { beranda: "Beranda", kalender: "Kalender Pendidikan", guru: "Daftar Guru", dokumen: "Dokumen & Layanan" };
+  const HALAMAN = { beranda: "Beranda", kalender: "Kalender Pendidikan", guru: "Daftar Guru", asas: "ASAS-BK Ganjil", dokumen: "Dokumen & Layanan" };
   const papan = new Set(KELOMPOK.map(k => slug(k.judul)));
   const judulHal = document.getElementById("judulHalaman");
   function bukaHalaman() {

@@ -37,3 +37,9 @@ salinan di file `kalender-data.js`. Tab *Keterangan* (agenda, peringatan, catata
 
 Data guru ada di file `guru-data.js`. Setiap baris: `["Nama Guru", "Mata Pelajaran", "Kelas Diajar"]`,
 contoh kelas: `"XI HJ 1–2, 5–6; XII HT 1–3"`. Mapel tambahan untuk guru yang sama ditulis di bagian `tambahan`.
+
+## ASAS-BK (menu "ASAS-BK Ganjil")
+
+Jadwal ada di file `asas.js` (daftar `ASAS_JADWAL`), status "Selesai / Sedang berlangsung / x hari lagi" dihitung otomatis.
+Teks ketentuan dan link Google Form/LMS ada di `index.html` bagian `<!-- ===== ASAS-BK ===== -->`.
+Template kisi-kisi: `files/Kisi-kisi-ASAS-template.docx` (ganti file ini untuk memperbarui template).
