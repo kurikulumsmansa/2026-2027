@@ -1052,3 +1052,50 @@ body { background: #eef2fa; }
 .copybox pre { max-height: 118px; overflow: hidden; -webkit-mask-image: linear-gradient(180deg, #000 45%, transparent); mask-image: linear-gradient(180deg, #000 45%, transparent); padding-bottom: 16px; opacity: .85; }
 .copybox { padding-bottom: 58px; }
 .copybtn { font-size: 1rem; padding: 12px 26px; }
+
+/* =====================================================================
+   DATA MURID
+   ===================================================================== */
+.murid.glass { border-radius: var(--r-outer); padding: 26px; background: rgba(255,255,255,.5); }
+.mupdate { display: inline-flex; align-items: center; gap: 8px; margin: 8px 0 0; padding: 6px 14px; border-radius: 999px; background: #e3f6ec; color: #17704c; font-size: .9rem; }
+.mupdate i { width: 8px; height: 8px; border-radius: 50%; background: #22b07d; box-shadow: 0 0 0 4px rgba(34,176,125,.2); }
+.mrekap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
+.mtile2 { text-align: left; border: 0; font: inherit; cursor: pointer; padding: 18px; border-radius: 24px; color: #fff;
+  background: linear-gradient(150deg, color-mix(in srgb, var(--c) 72%, #fff), var(--c)); box-shadow: 0 14px 30px -16px var(--c), inset 0 1px 0 rgba(255,255,255,.35);
+  transition: transform .5s var(--spring), box-shadow .3s; }
+.mtile2:hover { transform: translateY(-3px); }
+.mtile2.on { box-shadow: 0 0 0 4px #fff, 0 0 0 7px var(--c); }
+.mtile2.total { --c: #0f2a5f; cursor: default; background: linear-gradient(150deg, #1e3a75, #0f2a5f); }
+.mtile2 small { display: block; font-size: .95rem; font-weight: 700; opacity: .92; }
+.mtile2 b { display: block; font-size: 2.6rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; margin: 4px 0 0; }
+.mtile2 > span { font-size: .9rem; opacity: .9; }
+.mlp { display: flex; gap: 6px; margin-top: 10px; }
+.mlp em { font-style: normal; font-size: .82rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: rgba(255,255,255,.22); }
+.mhead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 6px 0 12px; }
+.mhead b { font-size: 1.2rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
+.mhead span { color: #475569; }
+.mrek { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.mrk { text-align: left; border: 0; font: inherit; cursor: pointer; padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,.8); box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(20,40,90,.07); transition: transform .5s var(--spring), background .3s; }
+.mrk:hover { transform: translateY(-2px); background: #fff; }
+.mrk b { display: block; font-size: 1.05rem; color: var(--navy); }
+.mrk span { display: block; font-size: 1.4rem; font-weight: 800; color: var(--blue); letter-spacing: -0.02em; }
+.mrk small { color: #64748b; }
+.mtable { border-radius: 20px; overflow: hidden; background: rgba(255,255,255,.75); }
+.mt-h, .mt-r { display: grid; grid-template-columns: 52px minmax(0, 1fr) 60px; gap: 12px; padding: 11px 18px; align-items: center; }
+.mtable.wk .mt-h, .mtable.wk .mt-r { grid-template-columns: 52px minmax(0, 1fr) 110px 60px; }
+.mt-h { background: var(--navy); color: #fff; font-weight: 700; font-size: .9rem; }
+.mt-r { border-top: 1px solid rgba(20,40,90,.07); font-size: 1rem; }
+.mt-r:nth-child(odd) { background: rgba(240,245,255,.6); }
+.mt-no { color: #64748b; text-align: right; }
+.mt-n { font-weight: 600; color: #0f172a; }
+.mt-lp { justify-self: start; font-weight: 700; padding: 2px 10px; border-radius: 999px; font-size: .85rem; background: #eef2f7; }
+.mt-lp.L { background: #e6efff; color: #1e5bd8; } .mt-lp.P { background: #fde8f1; color: #c0306b; }
+.mkosong { padding: 30px; text-align: center; border-radius: 20px; background: rgba(255,255,255,.7); grid-column: 1 / -1; }
+@media (max-width: 900px) { .mrekap { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) {
+  .murid.glass { padding: 16px; }
+  .mtile2 b { font-size: 2rem; }
+  .mt-h, .mt-r { padding: 10px 12px; grid-template-columns: 30px minmax(0, 1fr) 44px; gap: 8px; }
+  .mtable.wk .mt-h, .mtable.wk .mt-r { grid-template-columns: 30px minmax(0, 1fr) 70px 40px; }
+}
+.minfo{margin:-4px 0 10px;font-size:.88rem;color:var(--muted,#5b6b82)}

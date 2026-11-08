@@ -84,7 +84,7 @@
   }).join("");
 
   /* ---------- Satu halaman per menu (menu kiri) ---------- */
-  const HALAMAN = { beranda: "Beranda", kalender: "Kalender Pendidikan", guru: "Daftar Guru", asas: "ASAS-BK Ganjil", dokumen: "Dokumen & Layanan" };
+  const HALAMAN = { beranda: "Beranda", kalender: "Kalender Pendidikan", guru: "Daftar Guru", murid: "Data Murid", asas: "ASAS-BK Ganjil", dokumen: "Dokumen & Layanan" };
   const papan = new Set(KELOMPOK.map(k => slug(k.judul)));
   const judulHal = document.getElementById("judulHalaman");
   function bukaHalaman() {
@@ -189,6 +189,7 @@
     }
     if (el.classList.contains("sub-all")) return "Lihat semua dokumen di kelompok ini";
     if (el.classList.contains("mtile")) return "Buka halaman " + bersih(el.querySelector("b").textContent);
+    if (el.classList.contains("kpill") && el.closest("#dataMurid")) return el.classList.contains("on") ? "Daftar murid " + el.dataset.k + " ditampilkan di bawah. Klik lagi untuk menutup." : "Lihat daftar murid kelas " + el.dataset.k;
     if (el.classList.contains("kpill")) return el.classList.contains("on") ? "Guru kelas " + el.dataset.k + " ditampilkan di bawah. Klik lagi untuk menutup." : "Lihat guru yang mengajar di kelas " + el.dataset.k;
     if (el.classList.contains("mini")) return "Buka bulan ini";
     if (el.matches(".sub-link, .qcard, .row, .res")) {

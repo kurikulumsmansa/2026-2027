@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=24">
+  <link rel="stylesheet" href="style.css?v=25">
 </head>
 <body>
 
@@ -46,6 +46,10 @@
     <a href="#guru" class="side-link main-link" data-nav data-go="guru">
       <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 1.9 5 5.4"/></svg>
       <span><b>Daftar Guru</b><small>Siapa mengajar apa dan di kelas mana</small></span>
+    </a>
+    <a href="#murid" class="side-link main-link" data-nav data-go="murid">
+      <svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5"/><path d="M22 9v6"/></svg>
+      <span><b>Data Murid</b><small>Jumlah siswa dan nama per kelas</small></span>
     </a>
     <a href="#asas" class="side-link main-link menu-penting" data-nav data-go="asas">
       <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V3h6v1"/><path d="m9 12.5 2 2 4-4"/></svg>
@@ -268,6 +272,27 @@
       <div class="quick" id="quick"></div>
     </section>
 
+    <!-- ===== DATA MURID ===== -->
+    <section id="dataMurid" class="murid glass reveal" data-view="murid">
+      <div class="kal-head">
+        <div>
+          <p class="kal-eyebrow">Data Murid</p>
+          <h2>Tahun Pelajaran 2026/2027</h2>
+          <p class="mupdate" id="mUpdate"></p>
+        </div>
+        <label class="gsearch glass">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" id="mCari" placeholder="Cari nama murid…" autocomplete="off">
+        </label>
+      </div>
+      <div class="mrekap" id="mRekap"></div>
+      <div class="gpick">
+        <div class="gpick-h"><b>Lihat per kelas</b><span>Pilih kelas untuk melihat daftar nama murid</span></div>
+        <div id="mKelas"></div>
+      </div>
+      <div id="mDaftar"></div>
+    </section>
+
     <!-- ===== ASAS-BK ===== -->
     <section class="asas" data-view="asas" id="asasBox">
       <div class="asas-hero reveal">
@@ -411,12 +436,14 @@ Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre
   </div>
 </div>
 
-<script src="links.js?v=24"></script>
-<script src="app.js?v=24"></script>
-<script src="kalender-data.js?v=24"></script>
-<script src="kalender.js?v=24"></script>
-<script src="guru-data.js?v=24"></script>
-<script src="guru.js?v=24"></script>
-<script src="asas.js?v=24"></script>
+<script src="links.js?v=25"></script>
+<script src="app.js?v=25"></script>
+<script src="kalender-data.js?v=25"></script>
+<script src="kalender.js?v=25"></script>
+<script src="guru-data.js?v=25"></script>
+<script src="guru.js?v=25"></script>
+<script src="asas.js?v=25"></script>
+<script src="murid-data.js?v=25"></script>
+<script src="murid.js?v=25"></script>
 </body>
 </html>

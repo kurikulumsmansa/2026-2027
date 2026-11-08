@@ -44,3 +44,12 @@ Jadwal ada di file `asas.js` (daftar `ASAS_JADWAL`), status "Selesai / Sedang be
 Teks ketentuan dan link Google Form/LMS ada di `index.html` bagian `<!-- ===== ASAS-BK ===== -->`.
 Template kisi-kisi & kartu soal (Excel, 3 sheet): `files/Kisi-Kisi-dan-Kartu-Soal-ASAS-BK.xlsx`.
 Panduan prompt AI (7 langkah) ada di bagian `<!-- Panduan prompt AI -->`; file prompt: `files/Prompt-100-soal-PGS.docx`.
+
+## Data Murid (menu "Data Murid")
+
+Data ada di `murid-data.js`, diambil dari Google Sheet daftar murid (sheet HL, HJ, HT).
+- `update`: tanggal update terbaru (format `2026-11-01`).
+- `kelas`: satu kelas = satu blok teks, satu murid per baris, diawali `L ` atau `P ` (pakai `- ` kalau L/P belum ada).
+- `info`: keterangan tambahan per kelas (wali kelas / paket).
+Rekap jumlah siswa dihitung otomatis. Yang ditampilkan hanya nama, kelas, dan L/P.
+Setelah mengubah data, naikkan angka `?v=` di `index.html`.
