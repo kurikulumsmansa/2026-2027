@@ -858,25 +858,25 @@ P|Maylaf Afra Nazrana|10499|0103972532|I
 L|Michael Valentino Sitopu|10501|3107800441|K
 L|Muhammad Dzaky Al-Farizi|10516|3105185147|I
 L|Muhammad Iqbal Al-Masykuri|10509|0105369868|I
-P|Nailah Afifah Najwa|10551|0097666682|
-L|Newman James Tampubolon|10571|0101703017|
-L|Okqueen Goklas Champion Sihombing|10587|0098245575|
-P|Olifia Junia Adrila|10588|3103735966|
-P|Putri Ramayani|10598|0073039150|
-P|Rachma Wati|10608|0085131994|
-L|Raja Ahmad Danil Hadiy|10623|0109673322|
-L|Reiguel Jesrel Samosir|10632|0099489968|
-P|Reva Oktalina|10635|0092189416|
-P|Sabrina Derizkika Aura|10654|0119381666|
-L|Sammuel Sem Yoktan Samosir|10658|3102983606|
-P|Septia Suci Ramadani|10663|0081146209|
-P|Steffie Yuliana Filadelfia Nababan|10672|3107150568|
-P|Syura Kayla|10684|0093718913|
-P|Vanesa Olivia|10693|0097441235|
-P|Viona Fitri Najmi|10700|0102522814|
-L|Yoel Pramana Sitorus|10710|0082267448|
-P|Zahra Tsyakhira Putri|10718|0102420498|
-P|Zivanna Silitonga|10730|0096377240|`,
+P|Nailah Afifah Najwa|10551|0097666682|I
+L|Newman James Tampubolon|10571|0101703017|K
+L|Okqueen Goklas Champion Sihombing|10587|0098245575|K
+P|Olifia Junia Adrila|10588|3103735966|I
+P|Putri Ramayani|10598|0073039150|I
+P|Rachma Wati|10608|0085131994|I
+L|Raja Ahmad Danil Hadiy|10623|0109673322|I
+L|Reiguel Jesrel Samosir|10632|0099489968|K
+P|Reva Oktalina|10635|0092189416|I
+P|Sabrina Derizkika Aura|10654|0119381666|I
+L|Sammuel Sem Yoktan Samosir|10658|3102983606|K
+P|Septia Suci Ramadani|10663|0081146209|I
+P|Steffie Yuliana Filadelfia Nababan|10672|3107150568|K
+P|Syura Kayla|10684|0093718913|I
+P|Vanesa Olivia|10693|0097441235|K
+P|Viona Fitri Najmi|10700|0102522814|I
+L|Yoel Pramana Sitorus|10710|0082267448|K
+P|Zahra Tsyakhira Putri|10718|0102420498|I
+P|Zivanna Silitonga|10730|0096377240|K`,
 "XI HJ 10": `L|Adibat Toat Ariansyah|10220|0099900236|I
 P|Aira Putri Aqilahsyifa|10229|0108396130|I
 P|Cantika Yulia Amanda|10292|0094816886|I
