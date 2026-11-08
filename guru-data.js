@@ -4,6 +4,7 @@
   Format setiap baris: [ "Nama Guru", "Mata Pelajaran", "Kelas Diajar" ]
   Penulisan kelas: "X HL 1–12", "XI HJ 1–4, XII HT 9–13", "XI HJ 1–2, 5–6; XII HT 1–3"
   Guru yang mengajar lebih dari satu mapel cukup ditulis lagi di "tambahan".
+  Website mengambil data TERBARU dari tab "WEBSITE" di Google Sheets "PEMBAGIAN TUGAS GURU 2026" (guru.js). File ini hanya cadangan.
 */
 const GURU = {
   kelompok: [

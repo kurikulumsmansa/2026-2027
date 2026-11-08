@@ -4,6 +4,34 @@
 (() => {
   const root = document.getElementById("daftarGuru");
   if (!root) return;
+
+  /* Ambil data terbaru dari tab "WEBSITE" di Google Sheets Pembagian Tugas Guru.
+     Kolom: Kelompok | Nama Guru | Mata Pelajaran | Kelas. Gagal -> pakai guru-data.js. */
+  const SHEET = "1frD5O7OnUOmgwxHn_zFOvf5ahwosQSIKBwKyANf_W98";
+  let live = false;
+  new Promise(resolve => {
+    const cb = "__guru" + Date.now(), s = document.createElement("script");
+    const t = setTimeout(() => done(null), 8000);
+    function done(v) { clearTimeout(t); delete window[cb]; s.remove(); resolve(v); }
+    window[cb] = res => done(res && res.table ? res.table.rows : null);
+    s.onerror = () => done(null);
+    s.src = `https://docs.google.com/spreadsheets/d/${SHEET}/gviz/tq?sheet=WEBSITE&range=A2:D400&headers=0&tqx=responseHandler:${cb}`;
+    document.head.appendChild(s);
+  }).then(rows => {
+    if (!rows) return;
+    const teks = c => c ? String(c.f != null ? c.f : c.v != null ? c.v : "").trim() : "";
+    const kel = GURU.kelompok.map(k => ({ nama: k.nama, guru: [] })), tamb = [];
+    for (const r of rows) {
+      const [k = "", n = "", m = "", c = ""] = (r.c || []).map(teks);
+      if (!n || !m) continue;
+      if (/tambahan/i.test(k)) { tamb.push([n, m, c]); continue; }
+      const i = kel.findIndex(x => x.nama.toLowerCase() === k.toLowerCase());
+      kel[i < 0 ? 0 : i].guru.push([n, m, c]);
+    }
+    if (kel.reduce((a, k) => a + k.guru.length, 0) > 10) { GURU.kelompok = kel; GURU.tambahan = tamb; live = true; }
+  }).catch(() => {}).then(mulai);
+
+  function mulai() {
   const $ = s => root.querySelector(s);
   const TINGKAT = Object.keys(GURU.rombel);              // ["X HL","XI HJ","XII HT"]
 
@@ -105,4 +133,5 @@
   $("#gRombel").textContent = Object.values(GURU.rombel).reduce((a, b) => a + b, 0);
   render();
   window.__GURU_TEST = { urai, SEMUA };
+  }
 })();
