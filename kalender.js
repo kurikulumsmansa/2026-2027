@@ -59,7 +59,7 @@
             if (!m) continue;
             const jenis = String(r[2]).trim();
             if (!JENIS[jenis]) continue;
-            hasil.push({ tgl: new Date(+m[3], +m[2] - 1, +m[1]), jenis, ket: (String(r[3] || "").trim() || jenis).replace(/\b(siswa|peserta didik)\b/gi, "murid") });
+            hasil.push({ tgl: new Date(+m[3], +m[2] - 1, +m[1]), jenis, ket: (String(r[3] || "").trim() || jenis).replace(/\b(siswa|peserta didik)\b/gi, "murid").replace(/tahun pelajaran/gi, "tahun ajaran") });
           }
           done(hasil.length >= 360 ? hasil : null);
         } catch (e) { done(null); }
@@ -148,7 +148,7 @@
     // tombol mode
     $("#kMode").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
     root.classList.toggle("mode-tahun", mode === "tahun");
-    $("#kJudul").textContent = mode === "tahun" ? "Tahun Pelajaran 2026/2027" : `${BULAN[cur.getMonth()]} ${cur.getFullYear()}`;
+    $("#kJudul").textContent = mode === "tahun" ? "Tahun Ajaran 2026/2027" : `${BULAN[cur.getMonth()]} ${cur.getFullYear()}`;
     const semester = cur < new Date(2027, 0, 1) ? "Semester Ganjil" : "Semester Genap";
     $("#kSub").textContent = mode === "tahun" ? "Juli 2026 – Juni 2027" : semester;
     $("#kPrev").disabled = mode === "tahun" || cur.getTime() <= new Date(awal.getFullYear(), awal.getMonth(), 1).getTime();
@@ -256,7 +256,7 @@
     $("#rekapBody").innerHTML =
       b.slice(0, 6).map(x => row(x, `${BULAN[x.m]} ${x.y}`)).join("") + row(ganjil, "Jumlah Semester Ganjil", "sum") +
       b.slice(6).map(x => row(x, `${BULAN[x.m]} ${x.y}`)).join("") + row(genap, "Jumlah Semester Genap", "sum") +
-      row(total, "Jumlah Tahun Pelajaran", "sum total");
+      row(total, "Jumlah Tahun Ajaran", "sum total");
   }
 
   /* ---------- Minggu ---------- */

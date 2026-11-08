@@ -52,7 +52,7 @@ const KELOMPOK = [
   {
     judul: "Administrasi Guru",
     link: [
-      { nama: "Pengumpulan Perangkat Pembelajaran [Semester Ganjil] TP 2026/2027", utama: true, jenis: "form",
+      { nama: "Pengumpulan Perangkat Pembelajaran [Semester Ganjil] TA 2026/2027", utama: true, jenis: "form",
         url: "https://forms.gle/weH4Agne78ZA8b248" },
     ],
   },

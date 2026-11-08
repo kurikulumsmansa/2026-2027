@@ -17,7 +17,7 @@ const KALDIK = {
   /* Salinan "Data Harian": hari biasa (Senin–Jumat) otomatis "Efektif / Hari efektif",
      Sabtu & Minggu otomatis "Akhir pekan". Di bawah ini hanya hari yang berbeda. */
   rentang: [
-    ["2026-07-01", "2026-07-17", "Libur Sekolah", "Libur akhir tahun pelajaran 2025/2026"],
+    ["2026-07-01", "2026-07-17", "Libur Sekolah", "Libur akhir tahun ajaran 2025/2026"],
     ["2026-07-20", "2026-07-24", "Efektif", "MPLS murid kelas X (Kaldik Kepri)"],
     ["2026-08-04", "2026-08-07", "Efektif", "ANBK SMA dan observasi guru (agenda sekolah dari draf)"],
     ["2026-08-11", "2026-08-14", "Efektif", "Observasi guru (agenda sekolah dari draf)"],
@@ -69,7 +69,7 @@ const KALDIK = {
     ["2027-06-06", "2027-06-06", "Minggu", "Minggu, 1 Muharam 1449 H/Tahun Baru Islam (libur nasional)"],
     ["2027-06-14", "2027-06-17", "Non-KBM", "Pengolahan nilai dan classmeeting"],
     ["2027-06-18", "2027-06-18", "Non-KBM", "Penetapan dan pembagian rapor semester genap"],
-    ["2027-06-21", "2027-06-30", "Libur Sekolah", "Libur akhir tahun pelajaran 2026/2027 (21 Juni sampai 16 Juli 2027)"],
+    ["2027-06-21", "2027-06-30", "Libur Sekolah", "Libur akhir tahun ajaran 2026/2027 (21 Juni sampai 16 Juli 2027)"],
   ],
 
   /* Tab "Keterangan" bagian B, C, D */
@@ -91,7 +91,7 @@ const KALDIK = {
     ["3 Mei 2027", "Perkiraan penetapan kelulusan SMA/SMK/SMALB/Paket C", "Kaldik Kepri 2026/2027"],
     ["2 sampai 11 Juni 2027", "Asesmen sumatif semester genap", "Kaldik Kepri 2026/2027"],
     ["18 Juni 2027", "Penetapan rapor semester genap; pembagian rapor 18 dan 19 Juni 2027", "Kaldik Kepri 2026/2027"],
-    ["21 Juni sampai 16 Juli 2027", "Libur akhir tahun pelajaran 2026/2027", "Kaldik Kepri 2026/2027"],
+    ["21 Juni sampai 16 Juli 2027", "Libur akhir tahun ajaran 2026/2027", "Kaldik Kepri 2026/2027"],
     ["Agustus 2026; 7 September 2026; 6 sampai 16 April 2027", "Observasi guru, ANBK/observasi guru, sumatif tengah semester ganjil, dan sumatif tengah semester genap kelas X, XI", "Agenda sekolah dari draf awal"],
   ],
   peringatan: [
@@ -110,9 +110,9 @@ const KALDIK = {
   catatan: [
     ["SKB yang dipakai", "Libur nasional dan cuti bersama 2027 ditetapkan dalam SKB 3 Menteri (Menteri Agama, Menteri Ketenagakerjaan, Menteri PANRB) Nomor 1205 Tahun 2026, 3 Tahun 2026, dan 2 Tahun 2026, tanggal 15 September 2026. Libur Juli sampai Desember 2026 memakai SKB 3 Menteri Tahun 2026."],
     ["Cuti bersama 15 Maret 2027", "Kaldik Kepri memperkirakan masuk sekolah 15 Maret 2027. SKB 2027 menetapkan 15 Maret sebagai cuti bersama, sehingga kalender ini memakai masuk sekolah 16 Maret 2027. Perlu konfirmasi Dinas."],
-    ["Awal tahun pelajaran", "Kaldik Kepri 2026/2027 menyebut 13 Juli 2026 pada paragraf awal, tetapi daftar kegiatan dan FAQ menyebut 20 Juli 2026. Kalender ini memakai 20 Juli 2026 (sesuai draf)."],
+    ["Awal tahun ajaran", "Kaldik Kepri 2026/2027 menyebut 13 Juli 2026 pada paragraf awal, tetapi daftar kegiatan dan FAQ menyebut 20 Juli 2026. Kalender ini memakai 20 Juli 2026 (sesuai draf)."],
     ["Sumber Kaldik Kepri 2026/2027", "Tanggal Kaldik Kepri 2026/2027 diambil dari ringkasan di komunitasbelajar.id, bukan dari file resmi Dinas Pendidikan. Mohon cocokkan dengan salinan resmi."],
     ["Agenda sekolah", "Observasi guru, ANBK/observasi guru, dan sumatif tengah semester dipertahankan seperti draf awal karena tidak diatur dalam Kaldik Kepri. Tanggal ANBK perlu dikonfirmasi."],
-    ["Libur akhir tahun", "Libur akhir tahun pelajaran 2026/2027 berlangsung 21 Juni sampai 16 Juli 2027, sehingga hanya 21 sampai 30 Juni 2027 yang tampil pada kalender ini."],
+    ["Libur akhir tahun", "Libur akhir tahun ajaran 2026/2027 berlangsung 21 Juni sampai 16 Juli 2027, sehingga hanya 21 sampai 30 Juni 2027 yang tampil pada kalender ini."],
   ],
 };

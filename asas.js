@@ -7,7 +7,7 @@ const ASAS_JADWAL = [
   ["2026-11-16", "2026-11-20", "Telaah soal"],
   ["2026-11-26", "2026-11-26", "Simulasi ASAS-BK"],
   ["2026-11-30", "2026-12-09", "Pelaksanaan ASAS-BK", true],
-  ["2026-12-10", "2026-12-11", "Ujian susulan"],
+  ["2026-12-10", "2026-12-11", "Asesmen susulan"],
   ["2026-12-14", "2026-12-14", "Pengiriman nilai dan batas akhir input E-Rapor", true],
   ["2026-12-16", "2026-12-16", "Rapat semester ganjil"],
   ["2026-12-18", "2026-12-18", "Pembagian rapor"],
