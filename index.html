@@ -4,46 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Kurikulum SMAN 1 Batam 2026/2027</title>
-  <meta name="description" content="Dokumen Kurikulum SMAN 1 Batam Tahun Pelajaran 2026/2027.">
-  <meta name="theme-color" content="#f5f5f7">
+  <meta name="description" content="Papan informasi kurikulum untuk Bapak/Ibu guru SMAN 1 Batam, Tahun Ajaran 2026/2027.">
+  <meta name="theme-color" content="#13254a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
-  <!-- latar gradasi bergerak -->
-  <div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
 
-  <!-- kursor kustom -->
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
+<!-- ===== MENU KIRI ===== -->
+<aside class="sidebar">
+  <a href="#beranda" class="side-brand">
+    <img src="logo.png" alt="Logo SMAN 1 Batam">
+    <div><strong>Kurikulum</strong><small>SMAN 1 Batam</small></div>
+  </a>
 
-  <main class="page">
+  <p class="side-label">Papan Informasi</p>
+  <nav class="side-nav">
+    <a href="#beranda" class="side-link active" data-nav>
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      <span>Beranda</span>
+    </a>
+  </nav>
 
-    <header class="hero reveal">
-      <div class="logo-wrap"><img src="logo.png" alt="Logo SMAN 1 Batam" class="logo"></div>
-      <p class="kicker">SMAN 1 Batam</p>
-      <h1>Kurikulum</h1>
-      <p class="year">Tahun Pelajaran 2026/2027</p>
-      <p class="desc">Dokumen Kurikulum SMAN 1 Batam TP 2026/2027</p>
-    </header>
+  <p class="side-label">Dokumen &amp; Layanan</p>
+  <nav class="side-nav" id="sideGroups"></nav>
 
-    <label class="search reveal">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input type="search" id="cari" placeholder="Cari dokumen" autocomplete="off">
-      <kbd>/</kbd>
-    </label>
+  <p class="side-foot">Tahun Ajaran 2026/2027</p>
+</aside>
+<div class="overlay" onclick="document.body.classList.remove('side-open')"></div>
 
-    <div id="daftar"></div>
-    <p class="empty" id="kosong" hidden>Tidak ada dokumen yang cocok.</p>
+<!-- ===== ISI ===== -->
+<div class="main">
+  <header class="topbar">
+    <button class="icon-btn menu-btn" aria-label="Buka menu" onclick="document.body.classList.toggle('side-open')">
+      <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+    </button>
+    <div class="top-title">
+      <strong>Papan Informasi Kurikulum</strong>
+      <small id="tanggal"></small>
+    </div>
+    <div class="search-wrap">
+      <label class="search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="cari" placeholder="Cari dokumen…" autocomplete="off">
+        <kbd>/</kbd>
+      </label>
+      <div class="results" id="hasil" hidden></div>
+    </div>
+  </header>
 
-    <footer class="foot reveal">© 2026 Kurikulum SMAN 1 Batam</footer>
-  </main>
+  <div class="content">
 
-  <script src="links.js?v=4"></script>
-  <script src="app.js?v=4"></script>
+    <section id="beranda" class="banner reveal">
+      <div class="banner-text">
+        <p class="hello">Selamat datang, Bapak/Ibu Guru</p>
+        <h1>KURIKULUM SMAN 1 BATAM</h1>
+        <p class="year">TAHUN AJARAN 2026/2027</p>
+        <p class="sub">Papan informasi dokumen dan layanan kurikulum untuk majelis guru.</p>
+      </div>
+      <div class="banner-logo"><img src="logo.png" alt=""></div>
+      <span class="orb o1"></span><span class="orb o2"></span>
+    </section>
+
+    <section class="reveal">
+      <div class="sec-head"><h2>Akses Cepat</h2></div>
+      <div class="quick" id="quick"></div>
+    </section>
+
+    <div class="boards" id="boards"></div>
+
+    <footer class="footer">© 2026 Kurikulum SMAN 1 Batam · Tahun Ajaran 2026/2027</footer>
+  </div>
+</div>
+
+<script src="links.js?v=6"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>

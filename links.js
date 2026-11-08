@@ -6,6 +6,7 @@
     nama : tulisan pada tombol
     url  : alamat link (Google Drive, Form, dll.)
     jenis: "file", "folder", "sheet", "form", atau "web" (menentukan ikon)
+    utama: true  -> (opsional) tampil juga di kartu "Akses Cepat" halaman depan
 */
 const KELOMPOK = [
   {
@@ -18,7 +19,7 @@ const KELOMPOK = [
   {
     judul: "Pembelajaran",
     link: [
-      { nama: "Informasi Guru Berhalangan Hadir di Kelas", jenis: "form",
+      { nama: "Informasi Guru Berhalangan Hadir di Kelas", utama: true, jenis: "form",
         url: "https://forms.gle/6PVC2JR79KttKtKh7" },
     ],
   },
@@ -27,7 +28,7 @@ const KELOMPOK = [
     link: [
       { nama: "Rekap Pemantauan Murid HL, HJ dan HT", jenis: "folder",
         url: "https://drive.google.com/drive/folders/1Xn1c9BxztBVPwgwtzpPYmaVmCbhebkEC?usp=drive_link" },
-      { nama: "Kalender Pendidikan SMAN 1 Batam 2026-2027", jenis: "sheet",
+      { nama: "Kalender Pendidikan SMAN 1 Batam 2026-2027", utama: true, jenis: "sheet",
         url: "https://docs.google.com/spreadsheets/d/1q_HcEny9GmdbBIBL9b-98GfPlJ5mQ3I0bKk86XOyujU/edit?usp=sharing" },
       { nama: "Absensi Kehadiran Murid 2026/2027", jenis: "folder",
         url: "https://drive.google.com/drive/folders/1Ruh1YqM15oiygMKG4LSBq-B4N35_jQqS?usp=sharing" },
@@ -40,7 +41,7 @@ const KELOMPOK = [
         url: "https://drive.google.com/file/d/1KWXnoMB_GIZKeqV3aDLf8hyxQtFeLf2t/view?usp=sharing" },
       { nama: "Jadwal Guru Wali Sem. Ganjil 26-27 XI HJ", jenis: "file",
         url: "https://drive.google.com/file/d/1WMa0La12DPBGk0QhuokychL6iqXa_Cnq/view?usp=sharing" },
-      { nama: "Nama Guru Wali 26/27", jenis: "sheet",
+      { nama: "Nama Guru Wali 26/27", utama: true, jenis: "sheet",
         url: "https://docs.google.com/spreadsheets/d/1IZmFolpJm2MSlNhTbgMJfQ_os2X2KOKCAHHayhe86Ng/edit?usp=sharing" },
       { nama: "Administrasi Guru Wali", jenis: "folder",
         url: "https://drive.google.com/drive/folders/1nBuAOQyaXfnq3Cp0UNEKbwUypyvOL5VN?usp=sharing" },
@@ -51,7 +52,7 @@ const KELOMPOK = [
   {
     judul: "Administrasi Guru",
     link: [
-      { nama: "Pengumpulan Perangkat Pembelajaran [Semester Ganjil] TP 2026/2027", jenis: "form",
+      { nama: "Pengumpulan Perangkat Pembelajaran [Semester Ganjil] TP 2026/2027", utama: true, jenis: "form",
         url: "https://forms.gle/weH4Agne78ZA8b248" },
     ],
   },
