@@ -10,14 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
 <div class="cursor" aria-hidden="true"></div>
+<div class="content-bg" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<!-- filter lensa untuk efek refraksi kaca -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="lg-lens" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.006 0.009" numOctaves="2" seed="4" result="n"/>
+    <feGaussianBlur in="n" stdDeviation="3" result="nb"/>
+    <feDisplacementMap in="SourceGraphic" in2="nb" scale="28" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 
 <!-- ===== MENU KIRI ===== -->
-<aside class="sidebar">
+<aside class="sidebar glass">
   <a href="#beranda" class="side-brand">
     <img src="logo.png" alt="Logo SMAN 1 Batam">
     <div><strong>Kurikulum</strong><small>SMAN 1 Batam</small></div>
@@ -40,8 +50,8 @@
 
 <!-- ===== ISI ===== -->
 <div class="main">
-  <header class="topbar">
-    <button class="icon-btn menu-btn" aria-label="Buka menu" onclick="document.body.classList.toggle('side-open')">
+  <header class="topbar glass lens adaptive">
+    <button class="icon-btn menu-btn glass" aria-label="Buka menu" onclick="document.body.classList.toggle('side-open')">
       <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
     </button>
     <div class="top-title">
@@ -49,12 +59,12 @@
       <small id="tanggal"></small>
     </div>
     <div class="search-wrap">
-      <label class="search">
+      <label class="search glass">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <input type="search" id="cari" placeholder="Cari dokumen…" autocomplete="off">
         <kbd>/</kbd>
       </label>
-      <div class="results" id="hasil" hidden></div>
+      <div class="results glass" id="hasil" hidden></div>
     </div>
   </header>
 
@@ -82,7 +92,7 @@
   </div>
 </div>
 
-<script src="links.js?v=7"></script>
-<script src="app.js?v=7"></script>
+<script src="links.js?v=9"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

@@ -54,7 +54,7 @@
   const utama = KELOMPOK.flatMap(k => k.link.filter(l => l.utama).map(l => ({ ...l, kel: k.judul })));
   document.getElementById("quick").innerHTML = utama.map(l => {
     const w = WARNA_JENIS[l.jenis] || "#1e6bff";
-    return `<a class="qcard spot" href="${l.url}" ${ext}>
+    return `<a class="qcard spot glass lens" href="${l.url}" ${ext}>
       <span class="chip" style="background:${w}">${l.kel}</span>
       <h3>${l.nama}</h3>
       <div class="qfoot">
@@ -67,7 +67,7 @@
   /* ---------- Papan per kelompok ---------- */
   document.getElementById("boards").innerHTML = KELOMPOK.map((k, i) => {
     const g = GAYA[i % GAYA.length];
-    return `<section class="board reveal" id="${slug(k.judul)}" style="--c:${g.warna}">
+    return `<section class="board glass reveal" id="${slug(k.judul)}" style="--c:${g.warna}">
       <div class="board-head">
         <span class="bicon">${ic(g.svg)}</span>
         <h2>${k.judul}</h2>
@@ -119,6 +119,34 @@
     t.style.setProperty("--x", e.clientX - r.left + "px");
     t.style.setProperty("--y", e.clientY - r.top + "px");
   });
+
+  /* ---------- Liquid Glass: refraksi, kilau, tint adaptif, menyusut saat scroll ---------- */
+  const root0 = document.documentElement;
+  const ua = navigator.userAgent;
+  if (/Chrome|Edg\//.test(ua) && !/Firefox/.test(ua)) root0.classList.add("refract");
+
+  // kilau tepi kaca bergeser mengikuti kursor
+  document.addEventListener("pointermove", e => {
+    const g = e.target.closest(".glass"); if (!g) return;
+    const b = g.getBoundingClientRect();
+    g.style.setProperty("--lx", ((e.clientX - b.left) / b.width * 100).toFixed(1) + "%");
+    g.style.setProperty("--ly", ((e.clientY - b.top) / b.height * 100).toFixed(1) + "%");
+  }, { passive: true });
+
+  const bar = document.querySelector(".topbar"), banner = document.querySelector(".banner");
+  let lastY = scrollY, ticking = false;
+  const onScroll = () => {
+    const y = scrollY;
+    // tint adaptif: bar atas jadi gelap saat melayang di atas banner biru
+    const bb = banner.getBoundingClientRect(), tb = bar.getBoundingClientRect();
+    const overBanner = bb.top < tb.bottom - 10 && bb.bottom > tb.top + tb.height / 2 && y > 4;
+    document.body.classList.toggle("on-dark", overBanner);
+    // menyusut saat scroll turun, melebar saat scroll naik
+    if (y > 140 && y > lastY + 4) bar.classList.add("compact");
+    else if (y < lastY - 4 || y < 140) bar.classList.remove("compact");
+    lastY = y; ticking = false;
+  };
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
 
   /* ---------- Kursor gaya iPad (mouse/trackpad saja) ---------- */
   if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
