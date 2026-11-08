@@ -51,7 +51,7 @@ Halaman `#perangkat` di `index.html`: tombol ke Google Form pengumpulan perangka
 Jadwal ada di file `asas.js` (daftar `ASAS_JADWAL`), status "Selesai / Sedang berlangsung / x hari lagi" dihitung otomatis.
 Teks ketentuan dan link Google Form/LMS ada di `index.html` bagian `<!-- ===== ASAS-BK ===== -->`.
 Template kisi-kisi & kartu soal (Excel, 3 sheet): `files/Kisi-Kisi-dan-Kartu-Soal-ASAS-BK.xlsx`.
-Panduan prompt AI (7 langkah) ada di bagian `<!-- Panduan prompt AI -->`; file prompt: `files/Prompt-100-soal-PGS.docx`.
+Panduan prompt AI (8 langkah, 3 tahap: PGS, MCMA, PGK) ada di bagian `<!-- Panduan prompt AI -->`; file prompt: `files/Prompt-soal-PGS-MCMA-PGK.docx`.
 
 ## Data Murid (menu "Data Murid")
 
