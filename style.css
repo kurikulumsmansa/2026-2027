@@ -1236,3 +1236,26 @@ body { background: #eef2fa; }
 .lay .upbox b { font-size: 1.25rem; }
 @media (max-width: 900px) { .fm-grid { grid-template-columns: minmax(0, 1fr); } .fm-grid .upbox { min-height: 0; } }
 @media (max-width: 640px) { .fr-list { grid-template-columns: minmax(0, 1fr); } .fr { padding: 12px; gap: 12px; } .fr-go { padding: 8px 12px; } }
+
+/* ===== v35: lebih halus, lebih tertata, lebih mudah dibaca ===== */
+body { font-size: 16px; line-height: 1.55; }
+/* animasi lebih ringan: tanpa blur, gerak pendek */
+.reveal { filter: none; transform: translateY(12px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal.in { transform: none; }
+.view-in { animation-duration: .4s; }
+/* menu kiri berkelompok */
+.side-label { font-size: .8rem; font-weight: 800; letter-spacing: .08em; color: #a9b8dc; margin: 20px 0 6px; padding: 0 26px; }
+.side-label-merah { color: #ff9b9b; }
+.side-nav + .side-label { border-top: 1px solid rgba(255,255,255,.08); padding-top: 16px; margin-top: 14px; }
+.main-link span b { font-size: 1.06rem; }
+.main-link span small { font-size: .82rem; color: #b6c3e2; }
+/* teks keterangan lebih jelas */
+.page-head p, .fr-sub, .ah-salam { font-size: 1.05rem; }
+.fr-t b { font-size: 1.08rem; }
+.fr-t small { font-size: .95rem; color: #334155; }
+.fr-go { font-size: .95rem; padding: 10px 18px; }
+.fr { padding: 16px 18px; min-height: 78px; }
+.fr-head { font-size: 1.35rem; margin-top: 34px; padding-bottom: 10px; border-bottom: 2px solid rgba(15,30,70,.08); }
+.upbox small { font-size: 1rem; color: #334155; }
+.mtile small, .menu-tiles small { font-size: .95rem; color: #334155; }
+@media (max-width: 640px) { .fr-t b { font-size: 1.02rem; } .fr-go { padding: 9px 14px; } }

@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=34">
+  <link rel="stylesheet" href="style.css?v=35">
 </head>
 <body>
 
@@ -43,47 +43,59 @@
       <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/><circle cx="8" cy="14.5" r=".6"/><circle cx="12" cy="14.5" r=".6"/><circle cx="16" cy="14.5" r=".6"/></svg>
       <span><b>Kalender Pendidikan</b><small>Libur, asesmen, hari efektif</small></span>
     </a>
-    <a href="#guru" class="side-link main-link" data-nav data-go="guru">
-      <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 1.9 5 5.4"/></svg>
-      <span><b>Daftar Guru</b><small>Siapa mengajar apa dan di kelas mana</small></span>
-    </a>
-    <a href="#murid" class="side-link main-link" data-nav data-go="murid">
-      <svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5"/><path d="M22 9v6"/></svg>
-      <span><b>Data Murid</b><small>Jumlah murid dan nama per kelas</small></span>
-    </a>
-    <a href="#panduan" class="side-link main-link" data-nav data-go="panduan">
-      <svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v13"/></svg>
-      <span><b>Panduan &amp; Aturan</b><small>CP, panduan mapel, peraturan terbaru</small></span>
-    </a>
-    <a href="#asas" class="side-link main-link menu-penting" data-nav data-go="asas">
-      <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V3h6v1"/><path d="m9 12.5 2 2 4-4"/></svg>
-      <span><b>ASAS-BK Ganjil</b><small>Jadwal, ketentuan soal, unggah berkas</small></span>
-      <i class="dot-penting" aria-hidden="true"></i>
-    </a>
-    <a href="#perangkat" class="side-link main-link menu-penting" data-nav data-go="perangkat">
-      <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7M9 11.5h5"/></svg>
-      <span><b>Perangkat Ajar</b><small>Kumpulkan perangkat semester ganjil</small></span>
-      <i class="dot-penting" aria-hidden="true"></i>
-    </a>
     <a href="#jadwal" class="side-link main-link" data-nav data-go="jadwal">
       <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg>
       <span><b>Jadwal Pelajaran</b><small>Jadwal per kelas X, XI, XII</small></span>
     </a>
+  </nav>
+
+  <p class="side-label side-label-merah">Segera Dikerjakan</p>
+  <nav class="side-nav">
+    <a href="#asas" class="side-link main-link menu-penting" data-nav data-go="asas">
+      <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V3h6v1"/><path d="m9 12.5 2 2 4-4"/></svg>
+      <span><b>ASAS-BK Ganjil</b><small>Jadwal, soal, unggah berkas</small></span>
+      <i class="dot-penting" aria-hidden="true"></i>
+    </a>
+    <a href="#perangkat" class="side-link main-link menu-penting" data-nav data-go="perangkat">
+      <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7M9 11.5h5"/></svg>
+      <span><b>Perangkat Ajar</b><small>Kumpulkan paling lambat 14 Nov</small></span>
+      <i class="dot-penting" aria-hidden="true"></i>
+    </a>
+  </nav>
+
+  <p class="side-label">Untuk Guru</p>
+  <nav class="side-nav">
     <a href="#formulir" class="side-link main-link" data-nav data-go="formulir">
       <svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2.5"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/></svg>
-      <span><b>Formulir Guru</b><small>Perangkat, berhalangan hadir, BDR</small></span>
+      <span><b>Formulir Guru</b><small>Perangkat, berhalangan, BDR</small></span>
     </a>
     <a href="#guruwali" class="side-link main-link" data-nav data-go="guruwali">
       <svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v13"/></svg>
-      <span><b>Guru Wali</b><small>Jadwal dan 7 format administrasi</small></span>
+      <span><b>Guru Wali</b><small>Jadwal dan format</small></span>
     </a>
     <a href="#asesmen" class="side-link main-link" data-nav data-go="asesmen">
       <svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M3.5 15h17M9.5 4v16"/></svg>
       <span><b>Asesmen</b><small>STS Ganjil, TKA, pemantapan</small></span>
     </a>
+  </nav>
+
+  <p class="side-label">Bacaan &amp; Data</p>
+  <nav class="side-nav">
+    <a href="#panduan" class="side-link main-link" data-nav data-go="panduan">
+      <svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v13"/></svg>
+      <span><b>Panduan &amp; Aturan</b><small>CP, panduan mapel, aturan</small></span>
+    </a>
     <a href="#ksp" class="side-link main-link" data-nav data-go="ksp">
       <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
-      <span><b>KSP 2027</b><small>Kurikulum sekolah untuk dibaca</small></span>
+      <span><b>KSP 2027</b><small>Kurikulum sekolah</small></span>
+    </a>
+    <a href="#guru" class="side-link main-link" data-nav data-go="guru">
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 1.9 5 5.4"/></svg>
+      <span><b>Daftar Guru</b><small>Guru, mapel, dan kelas</small></span>
+    </a>
+    <a href="#murid" class="side-link main-link" data-nav data-go="murid">
+      <svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5"/><path d="M22 9v6"/></svg>
+      <span><b>Data Murid</b><small>Nama murid per kelas</small></span>
     </a>
     <a href="#dokumen" class="side-link main-link" data-nav data-go="dokumen">
       <svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
@@ -803,16 +815,16 @@ Keluaran: satu file Word dengan format yang sama, berisi soal nomor 81 sampai 10
   </div>
 </div>
 
-<script src="links.js?v=34"></script>
-<script src="app.js?v=34"></script>
-<script src="kalender-data.js?v=34"></script>
-<script src="kalender.js?v=34"></script>
-<script src="guru-data.js?v=34"></script>
-<script src="guru.js?v=34"></script>
-<script src="asas.js?v=34"></script>
-<script src="murid-data.js?v=34"></script>
-  <script src="panduan-data.js?v=34"></script>
-  <script src="panduan.js?v=34"></script>
-  <script src="murid.js?v=34"></script>
+<script src="links.js?v=35"></script>
+<script src="app.js?v=35"></script>
+<script src="kalender-data.js?v=35"></script>
+<script src="kalender.js?v=35"></script>
+<script src="guru-data.js?v=35"></script>
+<script src="guru.js?v=35"></script>
+<script src="asas.js?v=35"></script>
+<script src="murid-data.js?v=35"></script>
+  <script src="panduan-data.js?v=35"></script>
+  <script src="panduan.js?v=35"></script>
+  <script src="murid.js?v=35"></script>
 </body>
 </html>
