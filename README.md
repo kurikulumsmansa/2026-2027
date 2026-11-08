@@ -1,6 +1,6 @@
-# Kurikulum SMANSA 2026/2027
+# Kurikulum SMAN 1 Batam 2026/2027
 
-Website informasi kurikulum SMANSA tahun pelajaran 2026/2027.
+Website informasi kurikulum SMAN 1 Batam tahun pelajaran 2026/2027.
 
 Alamat website: https://kurikulumsmansa.github.io/2026-2027/
 

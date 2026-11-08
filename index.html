@@ -3,165 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kurikulum SMANSA 2026/2027</title>
-  <meta name="description" content="Informasi kurikulum SMANSA tahun pelajaran 2026/2027: kalender akademik, struktur kurikulum, dokumen, dan pengumuman.">
+  <title>Kurikulum SMAN 1 Batam 2026/2027</title>
+  <meta name="description" content="Kurikulum SMAN 1 Batam Tahun Ajaran 2026/2027: pengumuman, kalender akademik, struktur kurikulum, jadwal, dan dokumen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <a href="#beranda" class="brand">
-      <span class="logo">S1</span>
-      <span>Kurikulum SMANSA</span>
-    </a>
-    <button class="menu-btn" aria-label="Buka menu" onclick="document.body.classList.toggle('nav-open')">☰</button>
-    <nav class="nav">
-      <a href="#beranda">Beranda</a>
-      <a href="#pengumuman">Pengumuman</a>
-      <a href="#kalender">Kalender</a>
-      <a href="#struktur">Struktur Kurikulum</a>
-      <a href="#dokumen">Dokumen</a>
-      <a href="#kontak">Kontak</a>
-    </nav>
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="side-brand">
+    <img class="side-logo" src="logo.png" alt="Logo SMAN 1 Batam">
+    <div>
+      <strong>Kurikulum</strong>
+      <small>SMAN 1 Batam</small>
+    </div>
   </div>
-</header>
 
-<main>
+  <p class="side-label">Menu Utama</p>
+  <nav class="side-nav">
+    <a href="#beranda" class="active"><span class="ico">🏠</span>Beranda</a>
+    <a href="#program"><span class="ico">📚</span>Program Kurikulum</a>
+    <a href="#agenda"><span class="ico">📌</span>Agenda Terdekat</a>
+    <a href="#pengumuman"><span class="ico">🔔</span>Pengumuman</a>
+  </nav>
 
-  <!-- BERANDA -->
-  <section id="beranda" class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Tahun Pelajaran 2026/2027</p>
-      <h1>Wakil Kepala Sekolah Bidang Kurikulum<br>SMANSA</h1>
-      <p class="lead">Pusat informasi kurikulum untuk guru, siswa, dan orang tua: kalender akademik, struktur mata pelajaran, perangkat ajar, dan pengumuman terbaru.</p>
-      <div class="hero-actions">
-        <a class="btn" href="#kalender">Lihat Kalender Akademik</a>
-        <a class="btn btn-ghost" href="#dokumen">Unduh Dokumen</a>
-      </div>
+  <p class="side-label">Akademik</p>
+  <nav class="side-nav">
+    <a href="#kalender"><span class="ico">📅</span>Kalender Akademik</a>
+    <a href="#struktur"><span class="ico">🧩</span>Struktur Kurikulum</a>
+    <a href="#dokumen"><span class="ico">📁</span>Dokumen</a>
+  </nav>
+
+  <p class="side-label">Lainnya</p>
+  <nav class="side-nav">
+    <a href="#kontak"><span class="ico">✉️</span>Kontak</a>
+  </nav>
+</aside>
+<div class="overlay" onclick="document.body.classList.remove('side-open')"></div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <header class="topbar">
+    <button class="icon-btn menu-btn" aria-label="Menu" onclick="document.body.classList.toggle('side-open')">☰</button>
+    <div class="top-title">
+      <strong>KURIKULUM SMAN 1 BATAM</strong>
+      <small>Tahun Ajaran 2026/2027</small>
     </div>
-  </section>
+    <label class="search">
+      <input type="search" id="cari" placeholder="Cari dokumen...">
+      <span>🔍</span>
+    </label>
+  </header>
 
-  <!-- PENGUMUMAN -->
-  <section id="pengumuman" class="section">
-    <div class="wrap">
-      <h2>Pengumuman</h2>
-      <div class="cards">
-        <article class="card">
-          <span class="tag">Penting</span>
-          <h3>Pengumpulan Modul Ajar Semester Ganjil</h3>
-          <p>Bapak/Ibu guru dimohon mengumpulkan modul ajar semester ganjil paling lambat <strong>[tanggal]</strong>.</p>
+  <div class="content">
+
+    <!-- BANNER -->
+    <section id="beranda" class="banner">
+      <div>
+        <p class="banner-sub">Selamat Datang di</p>
+        <h1>KURIKULUM SMAN 1 BATAM</h1>
+        <p class="banner-year">TAHUN AJARAN 2026/2027</p>
+        <p class="banner-text">Pusat informasi kurikulum untuk guru, siswa, dan orang tua.</p>
+      </div>
+      <div class="banner-art" aria-hidden="true">
+        <img src="logo.png" alt="">
+      </div>
+    </section>
+
+    <!-- PROGRAM KURIKULUM -->
+    <section id="program">
+      <div class="sec-head">
+        <h2>Program Kurikulum Berjalan</h2>
+        <a href="#struktur" class="pill">Lihat Semua</a>
+      </div>
+      <div class="grid-4">
+        <article class="pcard">
+          <span class="chip c-blue">Kelas X · Fase E</span>
+          <h3>Pembelajaran Intrakurikuler Semester Ganjil</h3>
+          <div class="pfoot">
+            <div><small>Koordinator</small><b>[nama]</b></div>
+            <div class="prog"><b>55%</b><span class="bar"><i style="width:55%;background:#1e5eff"></i></span></div>
+          </div>
         </article>
-        <article class="card">
-          <span class="tag tag-blue">Asesmen</span>
-          <h3>Jadwal Sumatif Akhir Semester</h3>
-          <p>Sumatif Akhir Semester Ganjil dilaksanakan pada <strong>[tanggal]</strong>. Jadwal lengkap menyusul.</p>
+        <article class="pcard">
+          <span class="chip c-orange">Kelas XI · Fase F</span>
+          <h3>Mata Pelajaran Pilihan &amp; Intrakurikuler</h3>
+          <div class="pfoot">
+            <div><small>Koordinator</small><b>[nama]</b></div>
+            <div class="prog"><b>60%</b><span class="bar"><i style="width:60%;background:#f7a01d"></i></span></div>
+          </div>
         </article>
-        <article class="card">
-          <span class="tag tag-green">P5</span>
+        <article class="pcard">
+          <span class="chip c-red">Kelas XII · Fase F</span>
+          <h3>Persiapan Asesmen Akhir &amp; Studi Lanjut</h3>
+          <div class="pfoot">
+            <div><small>Koordinator</small><b>[nama]</b></div>
+            <div class="prog"><b>70%</b><span class="bar"><i style="width:70%;background:#ef5a3c"></i></span></div>
+          </div>
+        </article>
+        <article class="pcard">
+          <span class="chip c-cyan">Kokurikuler / P5</span>
           <h3>Projek Penguatan Profil Pelajar Pancasila</h3>
-          <p>Tema projek kelas X dan XI tahun ini: <strong>[tema]</strong>. Koordinator projek: <strong>[nama]</strong>.</p>
+          <div class="pfoot">
+            <div><small>Koordinator</small><b>[nama]</b></div>
+            <div class="prog"><b>40%</b><span class="bar"><i style="width:40%;background:#14b8e6"></i></span></div>
+          </div>
         </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- KALENDER -->
-  <section id="kalender" class="section alt">
-    <div class="wrap">
-      <h2>Kalender Akademik 2026/2027</h2>
-      <p class="muted">Tanggal bersifat sementara. Silakan sesuaikan dengan kalender pendidikan dari Dinas Pendidikan.</p>
+    <!-- 3 KOLOM: AGENDA, DOKUMEN, PENGUMUMAN -->
+    <div class="grid-3">
+
+      <section id="agenda">
+        <div class="sec-head"><h2>Agenda Terdekat</h2><a href="#kalender" class="link">Lihat Semua</a></div>
+        <article class="lesson" style="--c:#ef5a3c">
+          <div class="lesson-top"><h3>Sumatif Tengah Semester</h3><span>⋯</span></div>
+          <p>[tanggal] · 07.30 – 12.00</p>
+          <div class="avatars"><span>X</span><span>XI</span><span>XII</span></div>
+        </article>
+        <article class="lesson" style="--c:#1e5eff">
+          <div class="lesson-top"><h3>Rapat MGMP Sekolah</h3><span>⋯</span></div>
+          <p>Setiap [hari] · 13.30 – 15.00</p>
+          <div class="avatars"><span>👩‍🏫</span><span>👨‍🏫</span></div>
+        </article>
+      </section>
+
+      <section id="dokumen">
+        <div class="sec-head"><h2>Dokumen</h2></div>
+        <div class="doc-list" id="docList">
+          <a href="#" class="doc"><span class="dico" style="background:#f7a01d">📘</span><div><b>KOSP 2026/2027</b><small>Kurikulum Operasional Sekolah</small></div><span class="arr">→</span></a>
+          <a href="#" class="doc"><span class="dico" style="background:#1e5eff">📅</span><div><b>Kalender Pendidikan</b><small>Tahun Ajaran 2026/2027</small></div><span class="arr">→</span></a>
+          <a href="#" class="doc"><span class="dico" style="background:#ef5a3c">🗓️</span><div><b>Jadwal Pelajaran</b><small>Semester Ganjil</small></div><span class="arr">→</span></a>
+          <a href="#" class="doc"><span class="dico" style="background:#22b07d">📝</span><div><b>Format Modul Ajar</b><small>Template untuk guru</small></div><span class="arr">→</span></a>
+          <a href="#" class="doc"><span class="dico" style="background:#14b8e6">📊</span><div><b>Pedoman Penilaian</b><small>Asesmen &amp; rapor</small></div><span class="arr">→</span></a>
+        </div>
+      </section>
+
+      <section id="pengumuman" class="notif">
+        <div class="sec-head"><h2>Pengumuman Terbaru</h2></div>
+        <ul class="timeline">
+          <li style="--c:#1e5eff"><time>[tgl]</time><div>Pengumpulan modul ajar semester ganjil.<small>oleh Wakasek Kurikulum</small></div></li>
+          <li style="--c:#22b07d"><time>[tgl]</time><div>Pembagian tema projek P5 kelas X dan XI.<small>oleh Tim P5</small></div></li>
+          <li style="--c:#f7a01d"><time>[tgl]</time><div>Jadwal Sumatif Akhir Semester segera terbit.<small>oleh Wakasek Kurikulum</small></div></li>
+          <li style="--c:#ef5a3c"><time>[tgl]</time><div>Batas input nilai rapor di aplikasi.<small>oleh Operator</small></div></li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- KALENDER -->
+    <section id="kalender" class="panel">
+      <div class="sec-head"><h2>Kalender Akademik 2026/2027</h2></div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr><th>Waktu</th><th>Kegiatan</th></tr>
-          </thead>
+          <thead><tr><th>Waktu</th><th>Kegiatan</th><th>Semester</th></tr></thead>
           <tbody>
-            <tr><td>Juli 2026</td><td>Hari pertama masuk sekolah &amp; MPLS</td></tr>
-            <tr><td>Agustus 2026</td><td>Peringatan HUT RI &amp; kegiatan kokurikuler</td></tr>
-            <tr><td>September 2026</td><td>Asesmen Sumatif Tengah Semester Ganjil</td></tr>
-            <tr><td>Desember 2026</td><td>Sumatif Akhir Semester Ganjil &amp; pembagian rapor</td></tr>
-            <tr><td>Januari 2027</td><td>Awal Semester Genap</td></tr>
-            <tr><td>Maret 2027</td><td>Asesmen Sumatif Tengah Semester Genap</td></tr>
-            <tr><td>Mei 2027</td><td>Sumatif Akhir Jenjang Kelas XII</td></tr>
-            <tr><td>Juni 2027</td><td>Sumatif Akhir Tahun &amp; kenaikan kelas</td></tr>
+            <tr><td>Juli 2026</td><td>Hari pertama masuk sekolah &amp; MPLS</td><td><span class="chip c-blue">Ganjil</span></td></tr>
+            <tr><td>September 2026</td><td>Sumatif Tengah Semester Ganjil</td><td><span class="chip c-blue">Ganjil</span></td></tr>
+            <tr><td>Desember 2026</td><td>Sumatif Akhir Semester &amp; pembagian rapor</td><td><span class="chip c-blue">Ganjil</span></td></tr>
+            <tr><td>Januari 2027</td><td>Awal Semester Genap</td><td><span class="chip c-orange">Genap</span></td></tr>
+            <tr><td>Maret 2027</td><td>Sumatif Tengah Semester Genap</td><td><span class="chip c-orange">Genap</span></td></tr>
+            <tr><td>Mei 2027</td><td>Sumatif Akhir Jenjang Kelas XII</td><td><span class="chip c-orange">Genap</span></td></tr>
+            <tr><td>Juni 2027</td><td>Sumatif Akhir Tahun &amp; kenaikan kelas</td><td><span class="chip c-orange">Genap</span></td></tr>
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
+      <p class="note">Tanggal masih sementara, sesuaikan dengan kalender pendidikan Provinsi Kepulauan Riau.</p>
+    </section>
 
-  <!-- STRUKTUR KURIKULUM -->
-  <section id="struktur" class="section">
-    <div class="wrap">
-      <h2>Struktur Kurikulum</h2>
-      <p class="muted">Mengacu pada Kurikulum Merdeka. Jumlah jam pelajaran per minggu dapat disesuaikan dengan KOSP sekolah.</p>
-      <div class="cards">
-        <article class="card">
-          <h3>Kelas X <small>Fase E</small></h3>
-          <ul>
-            <li>Mata pelajaran umum (Pendidikan Agama, PPKn, Bahasa Indonesia, Matematika, Bahasa Inggris, IPA, IPS, PJOK, Seni, Informatika, dll.)</li>
-            <li>Projek Penguatan Profil Pelajar Pancasila</li>
-            <li>Muatan lokal: <strong>[isi]</strong></li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Kelas XI <small>Fase F</small></h3>
-          <ul>
-            <li>Mata pelajaran umum</li>
-            <li>Mata pelajaran pilihan sesuai minat dan bakat siswa</li>
-            <li>Projek Penguatan Profil Pelajar Pancasila</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Kelas XII <small>Fase F</small></h3>
-          <ul>
-            <li>Mata pelajaran umum</li>
-            <li>Mata pelajaran pilihan lanjutan</li>
-            <li>Persiapan asesmen akhir &amp; studi lanjut</li>
-          </ul>
-        </article>
+    <!-- STRUKTUR -->
+    <section id="struktur" class="panel">
+      <div class="sec-head"><h2>Struktur Kurikulum</h2></div>
+      <div class="grid-3 tight">
+        <div class="scard"><span class="chip c-blue">Kelas X · Fase E</span><ul><li>Mata pelajaran umum</li><li>Projek P5</li><li>Muatan lokal: [isi]</li></ul></div>
+        <div class="scard"><span class="chip c-orange">Kelas XI · Fase F</span><ul><li>Mata pelajaran umum</li><li>Mata pelajaran pilihan</li><li>Projek P5</li></ul></div>
+        <div class="scard"><span class="chip c-red">Kelas XII · Fase F</span><ul><li>Mata pelajaran umum</li><li>Mata pelajaran pilihan lanjutan</li><li>Persiapan studi lanjut</li></ul></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- DOKUMEN -->
-  <section id="dokumen" class="section alt">
-    <div class="wrap">
-      <h2>Dokumen Kurikulum</h2>
-      <p class="muted">Ganti tanda <code>#</code> pada setiap tautan dengan link Google Drive dokumen yang bersangkutan.</p>
-      <ul class="doc-list">
-        <li><a href="#">📘 Kurikulum Operasional Satuan Pendidikan (KOSP) 2026/2027</a></li>
-        <li><a href="#">📅 Kalender Pendidikan 2026/2027</a></li>
-        <li><a href="#">🗓️ Jadwal Pelajaran Semester Ganjil</a></li>
-        <li><a href="#">📝 Format Modul Ajar</a></li>
-        <li><a href="#">📊 Pedoman Penilaian &amp; Rapor</a></li>
-        <li><a href="#">🧩 Panduan Projek P5</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- KONTAK -->
-  <section id="kontak" class="section">
-    <div class="wrap">
-      <h2>Kontak</h2>
+    <!-- KONTAK -->
+    <section id="kontak" class="panel">
+      <div class="sec-head"><h2>Kontak</h2></div>
       <div class="contact">
-        <p><strong>Wakasek Kurikulum:</strong> [nama]</p>
-        <p><strong>Alamat sekolah:</strong> [alamat SMANSA]</p>
-        <p><strong>Email:</strong> [email]</p>
+        <div><small>Wakasek Kurikulum</small><b>[nama]</b></div>
+        <div><small>Alamat</small><b>SMAN 1 Batam, [alamat]</b></div>
+        <div><small>Email</small><b>[email]</b></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</main>
-
-<footer class="footer">
-  <div class="wrap">© 2026 Kurikulum SMANSA · Tahun Pelajaran 2026/2027</div>
-</footer>
+    <footer class="footer">© 2026 Kurikulum SMAN 1 Batam · Tahun Ajaran 2026/2027</footer>
+  </div>
+</div>
 
 <script>
-  document.querySelectorAll('.nav a').forEach(a =>
-    a.addEventListener('click', () => document.body.classList.remove('nav-open')));
+  // tutup sidebar di HP setelah klik menu + tandai menu aktif
+  const links = document.querySelectorAll('.side-nav a');
+  links.forEach(a => a.addEventListener('click', () => {
+    links.forEach(l => l.classList.remove('active'));
+    a.classList.add('active');
+    document.body.classList.remove('side-open');
+  }));
+  // pencarian dokumen sederhana
+  document.getElementById('cari').addEventListener('input', e => {
+    const q = e.target.value.toLowerCase();
+    document.querySelectorAll('#docList .doc').forEach(d => {
+      d.style.display = d.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+    if (q) document.getElementById('dokumen').scrollIntoView({behavior: 'smooth', block: 'center'});
+  });
 </script>
 </body>
 </html>
