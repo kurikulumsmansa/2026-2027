@@ -5,10 +5,12 @@
   const root = document.getElementById("dataMurid");
   if (!root || typeof MURID === "undefined") return;
   const $ = s => root.querySelector(s);
+  const AGAMA = { I: "Islam", K: "Kristen", C: "Katolik", B: "Buddha", H: "Hindu" };
   /* data per kelas ditulis sebagai teks: satu murid per baris, "L Nama" / "P Nama" */
   for (const k in MURID.kelas) { const v = MURID.kelas[k];
-    if (typeof v === "string") MURID.kelas[k] = v.split("\n").filter(l => l.trim())
-      .map(l => [l.slice(2).trim(), l[0] === "L" || l[0] === "P" ? l[0] : ""]); }
+    if (typeof v === "string") MURID.kelas[k] = v.split("\n").filter(l => l.trim()).map(l => {
+      const [jk, nama, nis = "", nisn = "", ag = ""] = l.split("|");
+      return [nama.trim(), jk === "L" || jk === "P" ? jk : "", nis, nisn, AGAMA[ag] || ""]; }); }
   const INFO = MURID.info || {};
   const BLN = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
   const [y, m, d] = MURID.update.split("-").map(Number);
@@ -45,17 +47,34 @@
   }).join("");
 
   let kelas = null, tingkat = null, q = "";
-  const tabel = (rows, denganKelas) => `<div class="mtable${denganKelas ? " wk" : ""}">
-      <div class="mt-h"><span>No</span><span>Nama Murid</span>${denganKelas ? "<span>Kelas</span>" : ""}${adaLP ? "<span>L/P</span>" : ""}</div>
-      ${rows.map((r, i) => `<div class="mt-r"><span class="mt-no">${i + 1}</span><span class="mt-n">${r[0]}</span>${denganKelas ? `<span>${r.k}</span>` : ""}${adaLP ? `<span class="mt-lp ${r[1]}">${r[1] || "–"}</span>` : ""}</div>`).join("")}
-    </div>`;
+  /* tabel daftar murid: judul kolom bisa diklik untuk mengurutkan */
+  let urut = { kol: "no", naik: true };
+  const KOLOM = [["no", "No"], ["nama", "Nama Murid"], ["kelas", "Kelas"], ["nis", "NIS"], ["nisn", "NISN"], ["lp", "L/P"], ["agama", "Agama"]];
+  const nilai = (r, kol) => ({ no: r.no, nama: r[0], kelas: r.k, nis: +r[2] || 0, nisn: r[3], lp: r[1], agama: r[4] })[kol];
+  const tabel = (rows, denganKelas) => {
+    rows = rows.map((r, i) => Object.assign([...r], { no: i + 1, k: r.k }));
+    const { kol, naik } = urut;
+    if (kol !== "no" || !naik) rows.sort((a, b) => { const x = nilai(a, kol), y = nilai(b, kol);
+      const h = typeof x === "number" ? x - y : String(x).localeCompare(String(y), "id", { numeric: true });
+      return (naik ? h : -h) || a.no - b.no; });
+    const kolom = KOLOM.filter(([k]) => denganKelas || k !== "kelas");
+    return `<p class="mthint">Klik judul kolom untuk mengurutkan.<span class="mtscroll">Geser tabel ke kiri untuk melihat kolom lain.</span></p><div class="mtwrap"><table class="mtab">
+      <thead><tr>${kolom.map(([k, t]) => `<th><button class="msort${kol === k ? " on" : ""}" data-sort="${k}" data-tip="Urutkan menurut ${t}">${t}<i>${kol === k ? (naik ? "▲" : "▼") : "↕"}</i></button></th>`).join("")}</tr></thead>
+      <tbody>${rows.map(r => `<tr>${kolom.map(([k]) => {
+        if (k === "no") return `<td class="mt-no">${r.no}</td>`;
+        if (k === "nama") return `<td class="mt-n">${r[0]}</td>`;
+        if (k === "kelas") return `<td class="mt-k">${r.k}</td>`;
+        if (k === "lp") return `<td><span class="mt-lp ${r[1]}">${r[1] || "–"}</span></td>`;
+        const v = nilai(r, k); return `<td class="mt-${k}">${v || "–"}</td>`; }).join("")}</tr>`).join("")}</tbody>
+    </table></div>`;
+  };
 
   function render() {
     root.querySelectorAll(".kpill").forEach(b => b.classList.toggle("on", b.dataset.k === kelas));
     root.querySelectorAll(".mtile2[data-t]").forEach(b => b.classList.toggle("on", b.dataset.t === tingkat));
     const out = $("#mDaftar");
     if (q) {
-      const hasil = KELAS.flatMap(k => MURID.kelas[k].map(r => Object.assign([...r], { k }))).filter(r => r[0].toLowerCase().includes(q));
+      const hasil = KELAS.flatMap(k => MURID.kelas[k].map(r => Object.assign([...r], { k }))).filter(r => r[0].toLowerCase().includes(q) || (q.length > 3 && (r[2] + " " + r[3]).includes(q)));
       out.innerHTML = `<div class="mhead"><b>Hasil pencarian “${q}”</b><span>${hasil.length} murid</span></div>` + (hasil.length ? tabel(hasil, true) : `<p class="gnone">Nama tidak ditemukan.</p>`);
     } else if (kelas) {
       const h = hitung(MURID.kelas[kelas]);
@@ -69,8 +88,9 @@
     }
   }
   root.addEventListener("click", e => {
-    const k = e.target.closest("[data-k]"), t = e.target.closest(".mtile2[data-t]");
-    if (k) { kelas = kelas === k.dataset.k ? null : k.dataset.k; q = ""; $("#mCari").value = ""; render(); }
+    const k = e.target.closest("[data-k]"), t = e.target.closest(".mtile2[data-t]"), so = e.target.closest("[data-sort]");
+    if (so) { const c = so.dataset.sort; urut = { kol: c, naik: urut.kol === c ? !urut.naik : true }; render(); }
+    else if (k) { kelas = kelas === k.dataset.k ? null : k.dataset.k; q = ""; urut = { kol: "no", naik: true }; $("#mCari").value = ""; render(); }
     else if (t) { tingkat = tingkat === t.dataset.t ? null : t.dataset.t; kelas = null; render(); }
   });
   $("#mCari").addEventListener("input", e => { q = e.target.value.trim().toLowerCase(); render(); });

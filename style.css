@@ -1099,3 +1099,27 @@ body { background: #eef2fa; }
   .mtable.wk .mt-h, .mtable.wk .mt-r { grid-template-columns: 30px minmax(0, 1fr) 70px 40px; }
 }
 .minfo{margin:-4px 0 10px;font-size:.88rem;color:var(--muted,#5b6b82)}
+
+/* tabel murid (bisa diurutkan) */
+.mtwrap { border-radius: 20px; overflow-x: auto; background: rgba(255,255,255,.75); -webkit-overflow-scrolling: touch; }
+.mtab { width: 100%; border-collapse: collapse; font-size: 1rem; }
+.mtab th { background: var(--navy); text-align: left; padding: 0; white-space: nowrap; }
+.msort { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 6px; width: 100%; padding: 12px 14px; color: #fff; font-weight: 700; font-size: .9rem; cursor: pointer; }
+.msort i { font-style: normal; font-size: .7rem; opacity: .55; }
+.msort.on i { opacity: 1; color: #ffd75e; }
+.msort:hover { background: rgba(255,255,255,.1); }
+.msort:focus-visible { outline: 2px solid #ffd75e; outline-offset: -2px; }
+.mtab td { padding: 10px 14px; border-top: 1px solid rgba(20,40,90,.07); white-space: nowrap; }
+.mtab tbody tr:nth-child(odd) { background: rgba(240,245,255,.6); }
+.mtab td.mt-n { white-space: normal; min-width: 180px; }
+.mtab td.mt-nis, .mtab td.mt-nisn { font-variant-numeric: tabular-nums; color: #334155; }
+.mtab td.mt-agama { color: #334155; }
+.mtab td.mt-no { width: 1%; }
+.mthint { font-size: .88rem; color: #64748b; margin: -4px 0 8px; }
+.mtscroll { display: none; }
+@media (max-width: 720px) {
+  .mtab { font-size: .92rem; }
+  .msort { padding: 10px; } .mtab td { padding: 9px 10px; }
+  .mtab td.mt-n { min-width: 150px; }
+  .mtscroll { display: block; }
+}

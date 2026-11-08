@@ -49,7 +49,7 @@ Panduan prompt AI (7 langkah) ada di bagian `<!-- Panduan prompt AI -->`; file p
 
 Data ada di `murid-data.js`, diambil dari Google Sheet daftar murid (sheet HL, HJ, HT).
 - `update`: tanggal update terbaru (format `2026-11-01`).
-- `kelas`: satu kelas = satu blok teks, satu murid per baris, diawali `L ` atau `P ` (pakai `- ` kalau L/P belum ada).
+- `kelas`: satu kelas = satu blok teks, satu murid per baris: `L|Nama|NIS|NISN|I` (L/P, nama, NIS, NISN, kode agama: I Islam, K Kristen, C Katolik, B Buddha, H Hindu). Kolom yang belum ada dikosongkan.
 - `info`: keterangan tambahan per kelas (wali kelas / paket).
-Rekap jumlah siswa dihitung otomatis. Yang ditampilkan hanya nama, kelas, dan L/P.
+Rekap jumlah siswa dihitung otomatis. Tabel menampilkan nama, NIS, NISN, L/P, dan agama; judul kolom bisa diklik untuk mengurutkan.
 Setelah mengubah data, naikkan angka `?v=` di `index.html`.
