@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=23">
+  <link rel="stylesheet" href="style.css?v=24">
 </head>
 <body>
 
@@ -322,8 +322,8 @@
         <div class="ai-head">
           <div>
             <span class="ai-tag">Panduan · Membuat soal dengan bantuan AI</span>
-            <h3>Buat 100 Soal &amp; Kisi-kisi Sekaligus dengan Claude</h3>
-            <p>Gunakan prompt dari Tim Kurikulum. Claude akan menyusun <b>kisi-kisi</b>, <b>naskah 100 soal PG</b> beserta kuncinya, dan <b>pembahasan</b> sesuai ketentuan ASAS-BK.</p>
+            <h3>Cara Membuat Soal dengan Claude</h3>
+            <p>Ikuti 8 langkah di bawah. Hasilnya: <b>100 soal</b>, <b>kisi-kisi</b>, dan <b>kartu soal</b>.</p>
           </div>
           <div class="ai-btns">
             <a class="ai-dl" href="files/Prompt-100-soal-PGS.docx" download="Prompt pembuatan 100 soal PGS sekaligus.docx" data-tip="Unduh file prompt (Word)"><span><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m9.5 12 1.2 5 1.3-3.5 1.3 3.5 1.2-5"/></svg></span>Unduh Prompt (.docx)</a>
@@ -332,38 +332,22 @@
         </div>
 
         <ol class="steps">
-          <li><span class="st-n">1</span><div><b>Unduh file prompt</b><p>Klik tombol <em>Unduh Prompt (.docx)</em> di atas, lalu buka filenya di Microsoft Word.</p></div></li>
-          <li><span class="st-n">2</span><div><b>Isi bagian yang berwarna kuning</b><p>Ganti <mark>[ISI MATA PELAJARAN]</mark>, <mark>[ISI FASE DAN KELAS]</mark>, <mark>[ISI TP LENGKAP ... PER BAB]</mark>, dan <mark>[ISI NAMA DAN GELAR GURU]</mark> dengan data Bapak/Ibu. Hapus tanda kurung siku dan kata "ISI".</p></div></li>
-          <li><span class="st-n">3</span><div><b>Salin teksnya dari Word</b><p>Blok teks mulai <code>--- COPY START FROM HERE ---</code> sampai <code>--- COPY END HERE ---</code>, lalu salin (Ctrl+C, atau Cmd+C di Mac).</p></div></li>
-          <li class="warn"><span class="st-n">4</span><div><b>Tempel di website Claude</b><p>Buka <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai</a>, tempel (Ctrl+V / Cmd+V) di kotak chat, lalu kirim.</p><p class="st-warn">⚠️ Jangan unggah file Word prompt-nya ke Claude. Cukup salin teksnya lalu tempel.</p></div></li>
-          <li class="dua"><span class="st-n">5</span><div><b>Tunggu sampai selesai</b><p>Claude akan membuat kisi-kisi, naskah soal (dengan baris <em>Ans:</em>), dan pembahasan. Jika berhenti di tengah, ketik <code>Lanjutkan dari nomor X</code> (X = nomor terakhir yang sudah jadi + 1).</p></div></li>
-          <li class="lebar"><span class="st-n">6</span><div><b>Masukkan template Excel ke Claude</b>
-            <p>Unduh <a href="files/Kisi-Kisi-dan-Kartu-Soal-ASAS-BK.xlsx" download="Kisi-Kisi dan Kartu Soal ASAS-BK.xlsx">Template Kisi-kisi &amp; Kartu Soal (Excel)</a>. Di <b>percakapan Claude yang sama</b>, seret (drag) file Excel itu ke kotak chat atau klik tombol <b>+</b> lalu pilih filenya. Kemudian salin teks di bawah ini, tempel, dan kirim.</p>
+          <li><span class="st-n">1</span><div><b>Unduh prompt</b><p>Klik tombol <em>Unduh Prompt</em> di atas.</p></div></li>
+          <li><span class="st-n">2</span><div><b>Isi yang kuning</b><p>Buka di Word. Isi <mark>mapel</mark>, <mark>kelas</mark>, <mark>TP</mark>, dan <mark>nama Bapak/Ibu</mark>.</p></div></li>
+          <li><span class="st-n">3</span><div><b>Salin teksnya</b><p>Blok dari <code>COPY START</code> sampai <code>COPY END</code>, lalu salin.</p></div></li>
+          <li class="warn"><span class="st-n">4</span><div><b>Tempel di Claude</b><p>Buka <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai</a>, tempel, lalu kirim.</p><p class="st-warn">⚠️ Tempel teksnya saja, jangan kirim file Word.</p></div></li>
+          <li><span class="st-n">5</span><div><b>Tunggu</b><p>Soal dan kisi-kisi akan jadi. Kalau berhenti, ketik <code>Lanjutkan</code>.</p></div></li>
+          <li><span class="st-n">6</span><div><b>Kirim Excel ke Claude</b><p>Unduh <a href="files/Kisi-Kisi-dan-Kartu-Soal-ASAS-BK.xlsx" download="Kisi-Kisi dan Kartu Soal ASAS-BK.xlsx">template Excel</a>, lalu seret ke chat Claude yang sama.</p></div></li>
+          <li class="lebar"><span class="st-n">7</span><div><b>Salin perintah ini, tempel, kirim</b><p>Klik <b>Salin teks</b>, tempel di Claude, kirim. Teksnya tidak perlu dibaca. Claude akan mengisi Excel, kartu soal terisi sendiri. Unduh hasilnya.</p>
             <div class="copybox"><pre id="promptExcel">Saya lampirkan file Excel &quot;Kisi-Kisi dan Kartu Soal ASAS-BK&quot;. Isi file ini dengan 100 soal yang sudah kamu buat di atas:
 1. Sheet Kisi-Kisi: isi identitas Mata Pelajaran (sel C9), Kelas / Fase (sel E9), dan Nama Guru (sel C10).
 2. Mulai baris 14 (timpa baris contoh), satu soal per baris sampai baris 113: kolom A nomor, B Tujuan Pembelajaran, C Indikator Soal, D Level Kompetensi (hanya LOTS, MOTS, atau HOTS), E Soal lengkap dengan pilihan A sampai E, F Kunci Soal (satu huruf kapital), G Bentuk Soal (PGS).
 3. Jangan mengubah sheet Kartu Soal dan Cek Komposisi, rumus, format, maupun logo. Kartu soal akan terisi otomatis dari sheet Kisi-Kisi.
 4. Periksa: 100 soal, LOTS 20, MOTS 50, HOTS 30, semuanya PGS.
-Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre><button class="copybtn" type="button" data-copy="promptExcel" data-tip="Salin teks ini">Salin teks</button></div>
-            <p>Claude akan memberikan file Excel yang sudah terisi. Unduh filenya, lalu buka: <b>kartu soal otomatis terisi di sheet kedua</b>, dan jumlah per level bisa dicek di sheet ketiga.</p></div></li>
-          <li class="done"><span class="st-n">7</span><div><b>Kumpulkan</b><p>Unggah soal ke <a href="https://elearning.smansa-batam.sch.id/" target="_blank" rel="noopener">LMS</a>, lalu kirim kisi-kisi dan kartu soal lewat <a href="https://forms.gle/FLTuQGUMkWXh63Sy8" target="_blank" rel="noopener">Google Form</a> paling lambat <b>14 November 2026</b>.</p></div></li>
+Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre><button class="copybtn" type="button" data-copy="promptExcel" data-tip="Salin teks ini">Salin teks</button></div></div></li>
+          <li class="done lebar"><span class="st-n">8</span><div><b>Kumpulkan</b><p>Soal ke <a href="https://elearning.smansa-batam.sch.id/" target="_blank" rel="noopener">LMS</a>, Excel kisi-kisi &amp; kartu soal ke <a href="https://forms.gle/FLTuQGUMkWXh63Sy8" target="_blank" rel="noopener">Google Form</a>. Paling lambat <b>14 November</b>.</p></div></li>
         </ol>
 
-        <details class="ai-prev">
-          <summary>Lihat isi prompt (bagian kuning yang perlu diisi)</summary>
-          <div class="prompt">
-            <p class="pc">--- COPY START FROM HERE ---</p>
-            <p>Buatkan 100 soal PGS <mark>[ISI MATA PELAJARAN]</mark> untuk <mark>[ISI FASE DAN KELAS]</mark> yang mengukur Tujuan Pembelajaran (TP) berikut secara utuh:</p>
-            <p><mark>[ISI TP LENGKAP DARI PROTA/ATP, DIKELOMPOKKAN PER BAB]</mark></p>
-            <p>Data tetap: SMA Negeri 1 Batam, 2026/2027, Ganjil, 75 menit, Kepala Sekolah M. Syurman Rizal, S.E., M.M., NIP 197506102006041015. Penyusun: <mark>[ISI NAMA DAN GELAR GURU]</mark>.</p>
-            <p><b>JUMLAH SOAL</b> · 100 PGS: Level 1 (LOTS) 20, Level 2 (MOTS) 50, Level 3 (HOTS) 30, tersebar ke semua bab, setiap TP minimal 1 soal.</p>
-            <p><b>URUTAN</b> · per bab; di tiap bab Level 1, lalu Level 2, lalu Level 3 (sesuai kategori Moodle).</p>
-            <p><b>KAIDAH</b> · 5 pilihan (a–e), 1 benar; stimulus baru tiap 3–6 soal; kunci a–e masing-masing 20 kali; tanpa data karangan.</p>
-            <p><b>KELUARAN</b> · satu file Word: 1. Kisi-kisi dengan 7 kolom yang sama persis dengan template Excel (NO, TP, Indikator, Level LOTS/MOTS/HOTS, Soal + pilihan A–E, Kunci, Bentuk PGS), 2. Naskah soal (potret) dengan baris "Ans:", 3. Lampiran pembahasan.</p>
-            <p class="pc">--- COPY END HERE ---</p>
-            <p class="pnote">Ini hanya ringkasan. Salin teks lengkapnya dari file Word yang diunduh.</p>
-          </div>
-        </details>
       </div>
 
       <div class="asas-grid">
@@ -427,12 +411,12 @@ Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre
   </div>
 </div>
 
-<script src="links.js?v=23"></script>
-<script src="app.js?v=23"></script>
-<script src="kalender-data.js?v=23"></script>
-<script src="kalender.js?v=23"></script>
-<script src="guru-data.js?v=23"></script>
-<script src="guru.js?v=23"></script>
-<script src="asas.js?v=23"></script>
+<script src="links.js?v=24"></script>
+<script src="app.js?v=24"></script>
+<script src="kalender-data.js?v=24"></script>
+<script src="kalender.js?v=24"></script>
+<script src="guru-data.js?v=24"></script>
+<script src="guru.js?v=24"></script>
+<script src="asas.js?v=24"></script>
 </body>
 </html>
