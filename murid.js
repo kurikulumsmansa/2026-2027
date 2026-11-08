@@ -4,6 +4,51 @@
 (() => {
   const root = document.getElementById("dataMurid");
   if (!root || typeof MURID === "undefined") return;
+
+  /* Ambil data terbaru langsung dari Google Sheets (tab HL, HJ, HT).
+     Jika gagal (internet lambat / sheet tidak dibagikan), pakai salinan di murid-data.js. */
+  const SHEET = "1mENNFm_7V6nYU1BGuB2jZDtfPlSxlM40kp7J_3zL6yY";
+  const TAB = { HL: "X", HJ: "XI", HT: "XII" };
+  const KODE = { ISLAM: "I", KRISTEN: "K", PROTESTAN: "K", KATOLIK: "C", KATHOLIK: "C", BUDHA: "B", BUDDHA: "B", HINDU: "H" };
+  const ambilTab = tab => new Promise(resolve => {
+    const cb = "__murid" + tab + Date.now(), s = document.createElement("script");
+    const t = setTimeout(() => done(null), 8000);
+    function done(v) { clearTimeout(t); delete window[cb]; s.remove(); resolve(v); }
+    window[cb] = res => done(res && res.table ? res.table.rows : null);
+    s.onerror = () => done(null);
+    s.src = `https://docs.google.com/spreadsheets/d/${SHEET}/gviz/tq?sheet=${tab}&range=A1:G900&headers=0&tqx=responseHandler:${cb}`;
+    document.head.appendChild(s);
+  });
+  const teks = c => c ? String(c.f != null ? c.f : c.v != null ? c.v : "").trim() : "";
+  function olah(tab, rows) {
+    const out = {}; let kls = null;
+    for (const r of rows) {
+      const c = (r.c || []).map(teks), [a = "", b = "", nis = "", nisn = "", jk = "", , ag = ""] = c;
+      const m = b.match(/^:?\s*(HL|HJ|HT)\s*(\d+)$/i);
+      if (m && (!a || /kelas/i.test(a))) { kls = `${TAB[tab]} ${m[1].toUpperCase()} ${+m[2]}`; out[kls] = []; continue; }
+      if (!kls || !b || /^nama$/i.test(b)) continue;
+      const lp = /^[LP]$/i.test(jk) ? jk.toUpperCase() : "";
+      if (!nis && !nisn && !lp) continue;
+      out[kls].push(`${lp || "-"}|${b}|${nis}|${nisn}|${KODE[ag.toUpperCase()] || ""}`);
+    }
+    return out;
+  }
+  let live = false;
+  Promise.all(Object.keys(TAB).map(ambilTab)).then(hasil => {
+    const baru = {};
+    Object.keys(TAB).forEach((tab, i) => { if (!hasil[i]) return;
+      const o = olah(tab, hasil[i]); if (Object.values(o).some(v => v.length)) Object.assign(baru, o); });
+    const n = Object.values(baru).reduce((x, v) => x + v.length, 0);
+    if (n > 100) {
+      /* ganti hanya tingkat yang berhasil diambil */
+      const tk = new Set(Object.keys(baru).map(k => k.split(" ")[0]));
+      for (const k of Object.keys(MURID.kelas)) if (tk.has(k.split(" ")[0])) delete MURID.kelas[k];
+      for (const k in baru) if (baru[k].length) MURID.kelas[k] = baru[k].join("\n");
+      live = true;
+    }
+  }).catch(() => {}).then(mulai);
+
+  function mulai() {
   const $ = s => root.querySelector(s);
   const AGAMA = { I: "Islam", K: "Kristen", C: "Katolik", B: "Buddha", H: "Hindu" };
   /* data per kelas ditulis sebagai teks: satu murid per baris, "L Nama" / "P Nama" */
@@ -14,7 +59,7 @@
   const INFO = MURID.info || {};
   const BLN = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
   const [y, m, d] = MURID.update.split("-").map(Number);
-  $("#mUpdate").innerHTML = `<i></i>Update terbaru: <b>${d} ${BLN[m - 1]} ${y}</b>`;
+  $("#mUpdate").innerHTML = live ? `<i></i>Data <b>otomatis</b> dari Google Sheets` : `<i></i>Update terbaru: <b>${d} ${BLN[m - 1]} ${y}</b>`;
 
   const TINGKAT = [["X", "X HL", "Kelas X"], ["XI", "XI HJ", "Kelas XI"], ["XII", "XII HT", "Kelas XII"]];
   const urutKelas = (a, b) => { const ta = a.split(" ")[0].length, tb = b.split(" ")[0].length;
@@ -95,4 +140,5 @@
   });
   $("#mCari").addEventListener("input", e => { q = e.target.value.trim().toLowerCase(); render(); });
   render();
+  }
 })();

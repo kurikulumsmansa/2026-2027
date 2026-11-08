@@ -2,6 +2,7 @@
   DATA MURID — TP 2026/2027
   Sumber: Google Sheets "NAMA MURID SMA NEGERI 1 BATAM TP 2026/2027" (sheet HL, HJ, HT).
   Satu baris = satu murid: L/P|Nama|NIS|NISN|Agama  (Agama: I=Islam K=Kristen C=Katolik B=Buddha H=Hindu; kosongkan jika belum ada; "-" jika L/P belum diisi).
+  Website mengambil data TERBARU langsung dari sheet itu (murid.js). File ini hanya cadangan jika sheet gagal dibuka.
   Ubah tanggal "update" setiap kali data diperbarui (format TAHUN-BULAN-TANGGAL).
 */
 const MURID = {
