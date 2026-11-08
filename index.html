@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=37">
+  <link rel="stylesheet" href="style.css?v=38">
 </head>
 <body>
 
@@ -609,20 +609,28 @@ Keluaran: satu file Word dengan format yang sama, berisi soal nomor 81 sampai 10
           <span class="ah-tag">Semester Ganjil · Tahun Ajaran 2026/2027</span>
           <h2>Jadwal Pelajaran</h2>
           <p class="ah-sub">Jadwal per kelas · Revisi 15 Juli 2026</p>
-          <p class="ah-salam">Pilih tingkat kelas di bawah. Jadwal akan terbuka dalam bentuk PDF.</p>
+          <p class="ah-salam">Pilih kelas di bawah. Jadwal langsung tampil di halaman ini.</p>
         </div>
       </div>
-      <div class="fr-list">
-        <a class="fr glass reveal" href="https://drive.google.com/file/d/1uZP3F4W5s58B9N5V0rhkCAKdD7qxqoLm/view" target="_blank" rel="noopener" style="--c:#1e6bff" data-tip="Buka Kelas X · Hang Lekir (tab baru)">
-          <span class="fr-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg></span><span class="fr-t"><b>Kelas X · Hang Lekir</b><small>Jadwal pelajaran semua kelas X</small></span><span class="fr-go">Lihat PDF</span>
-        </a>
-        <a class="fr glass reveal" href="https://drive.google.com/file/d/1jiF2BMzhHLEae6u0NXC3YHhvh1iXIsYf/view" target="_blank" rel="noopener" style="--c:#22b07d" data-tip="Buka Kelas XI · Hang Jebat (tab baru)">
-          <span class="fr-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg></span><span class="fr-t"><b>Kelas XI · Hang Jebat</b><small>Jadwal pelajaran semua kelas XI</small></span><span class="fr-go">Lihat PDF</span>
-        </a>
-        <a class="fr glass reveal" href="https://drive.google.com/file/d/1EuU4n5-bXY6n9gX7hmfNVZz0MFVF5nBS/view" target="_blank" rel="noopener" style="--c:#f7a01d" data-tip="Buka Kelas XII · Hang Tuah (tab baru)">
-          <span class="fr-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg></span><span class="fr-t"><b>Kelas XII · Hang Tuah</b><small>Jadwal pelajaran semua kelas XII</small></span><span class="fr-go">Lihat PDF</span>
-        </a>
+      <div class="jd-tabs reveal" role="tablist">
+        <button class="jd-tab on" data-jd="1uZP3F4W5s58B9N5V0rhkCAKdD7qxqoLm" style="--c:#1e6bff">Kelas X<small>Hang Lekir</small></button>
+        <button class="jd-tab" data-jd="1jiF2BMzhHLEae6u0NXC3YHhvh1iXIsYf" style="--c:#22b07d">Kelas XI<small>Hang Jebat</small></button>
+        <button class="jd-tab" data-jd="1EuU4n5-bXY6n9gX7hmfNVZz0MFVF5nBS" style="--c:#f7a01d">Kelas XII<small>Hang Tuah</small></button>
       </div>
+      <div class="jd-view glass reveal">
+        <iframe id="jdFrame" title="Jadwal pelajaran" loading="lazy" allow="autoplay"></iframe>
+        <p class="jd-note">Jadwal tidak muncul? <a id="jdBuka" href="#" target="_blank" rel="noopener">Buka di tab baru</a>. Untuk memperbesar, gunakan tombol perbesar di pojok kanan atas jadwal.</p>
+      </div>
+      <script>
+      (() => {
+        const tabs = document.querySelectorAll(".jd-tab"), fr = document.getElementById("jdFrame"), buka = document.getElementById("jdBuka");
+        const tampil = id => { tabs.forEach(t => t.classList.toggle("on", t.dataset.jd === id));
+          fr.src = `https://drive.google.com/file/d/${id}/preview`; buka.href = `https://drive.google.com/file/d/${id}/view`; };
+        tabs.forEach(t => t.addEventListener("click", () => tampil(t.dataset.jd)));
+        const cek = () => { if (location.hash === "#jadwal" && !fr.src) tampil(tabs[0].dataset.jd); };
+        addEventListener("hashchange", cek); cek();
+      })();
+      </script>
     </section>
 
     <!-- ===== FORMULIR GURU ===== -->
@@ -815,16 +823,16 @@ Keluaran: satu file Word dengan format yang sama, berisi soal nomor 81 sampai 10
   </div>
 </div>
 
-<script src="links.js?v=37"></script>
-<script src="app.js?v=37"></script>
-<script src="kalender-data.js?v=37"></script>
-<script src="kalender.js?v=37"></script>
-<script src="guru-data.js?v=37"></script>
-<script src="guru.js?v=37"></script>
-<script src="asas.js?v=37"></script>
-<script src="murid-data.js?v=37"></script>
-  <script src="panduan-data.js?v=37"></script>
-  <script src="panduan.js?v=37"></script>
-  <script src="murid.js?v=37"></script>
+<script src="links.js?v=38"></script>
+<script src="app.js?v=38"></script>
+<script src="kalender-data.js?v=38"></script>
+<script src="kalender.js?v=38"></script>
+<script src="guru-data.js?v=38"></script>
+<script src="guru.js?v=38"></script>
+<script src="asas.js?v=38"></script>
+<script src="murid-data.js?v=38"></script>
+  <script src="panduan-data.js?v=38"></script>
+  <script src="panduan.js?v=38"></script>
+  <script src="murid.js?v=38"></script>
 </body>
 </html>
