@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=38">
+  <link rel="stylesheet" href="style.css?v=40">
 </head>
 <body>
 
@@ -609,28 +609,14 @@ Keluaran: satu file Word dengan format yang sama, berisi soal nomor 81 sampai 10
           <span class="ah-tag">Semester Ganjil · Tahun Ajaran 2026/2027</span>
           <h2>Jadwal Pelajaran</h2>
           <p class="ah-sub">Jadwal per kelas · Revisi 15 Juli 2026</p>
-          <p class="ah-salam">Pilih kelas di bawah. Jadwal langsung tampil di halaman ini.</p>
+          <p class="ah-salam">Klik nama kelas, jadwalnya langsung muncul di bawah.</p>
         </div>
       </div>
-      <div class="jd-tabs reveal" role="tablist">
-        <button class="jd-tab on" data-jd="1uZP3F4W5s58B9N5V0rhkCAKdD7qxqoLm" style="--c:#1e6bff">Kelas X<small>Hang Lekir</small></button>
-        <button class="jd-tab" data-jd="1jiF2BMzhHLEae6u0NXC3YHhvh1iXIsYf" style="--c:#22b07d">Kelas XI<small>Hang Jebat</small></button>
-        <button class="jd-tab" data-jd="1EuU4n5-bXY6n9gX7hmfNVZz0MFVF5nBS" style="--c:#f7a01d">Kelas XII<small>Hang Tuah</small></button>
+      <div class="jd-pilih glass reveal">
+        <b class="jd-judul">Pilih kelas</b>
+        <div class="kpick" id="jdKelas"></div>
       </div>
-      <div class="jd-view glass reveal">
-        <iframe id="jdFrame" title="Jadwal pelajaran" loading="lazy" allow="autoplay"></iframe>
-        <p class="jd-note">Jadwal tidak muncul? <a id="jdBuka" href="#" target="_blank" rel="noopener">Buka di tab baru</a>. Untuk memperbesar, gunakan tombol perbesar di pojok kanan atas jadwal.</p>
-      </div>
-      <script>
-      (() => {
-        const tabs = document.querySelectorAll(".jd-tab"), fr = document.getElementById("jdFrame"), buka = document.getElementById("jdBuka");
-        const tampil = id => { tabs.forEach(t => t.classList.toggle("on", t.dataset.jd === id));
-          fr.src = `https://drive.google.com/file/d/${id}/preview`; buka.href = `https://drive.google.com/file/d/${id}/view`; };
-        tabs.forEach(t => t.addEventListener("click", () => tampil(t.dataset.jd)));
-        const cek = () => { if (location.hash === "#jadwal" && !fr.src) tampil(tabs[0].dataset.jd); };
-        addEventListener("hashchange", cek); cek();
-      })();
-      </script>
+      <div class="jd-hasil glass reveal" id="jdTabel"></div>
     </section>
 
     <!-- ===== FORMULIR GURU ===== -->
@@ -823,16 +809,18 @@ Keluaran: satu file Word dengan format yang sama, berisi soal nomor 81 sampai 10
   </div>
 </div>
 
-<script src="links.js?v=38"></script>
-<script src="app.js?v=38"></script>
-<script src="kalender-data.js?v=38"></script>
-<script src="kalender.js?v=38"></script>
-<script src="guru-data.js?v=38"></script>
-<script src="guru.js?v=38"></script>
-<script src="asas.js?v=38"></script>
-<script src="murid-data.js?v=38"></script>
-  <script src="panduan-data.js?v=38"></script>
-  <script src="panduan.js?v=38"></script>
-  <script src="murid.js?v=38"></script>
+<script src="links.js?v=40"></script>
+<script src="app.js?v=40"></script>
+<script src="kalender-data.js?v=40"></script>
+<script src="kalender.js?v=40"></script>
+<script src="guru-data.js?v=40"></script>
+<script src="guru.js?v=40"></script>
+<script src="asas.js?v=40"></script>
+<script src="murid-data.js?v=40"></script>
+  <script src="panduan-data.js?v=40"></script>
+  <script src="panduan.js?v=40"></script>
+  <script src="murid.js?v=40"></script>
+  <script src="jadwal-data.js?v=40"></script>
+  <script src="jadwal.js?v=40"></script>
 </body>
 </html>

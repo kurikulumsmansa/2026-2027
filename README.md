@@ -63,7 +63,7 @@ Rekap jumlah murid dihitung otomatis. Tabel menampilkan nama, NIS, NISN, L/P, da
 Setelah mengubah data, naikkan angka `?v=` di `index.html`.
 
 ## Halaman layanan (v34)
-- **Jadwal Pelajaran** (`#jadwal`): PDF jadwal per kelas X, XI, XII (versi murid, bukan versi guru).
+- **Jadwal Pelajaran** (`#jadwal`): tabel jadwal per kelas (HL 1, HJ 2, ...) dari `jadwal-data.js`. Data dibuat dari PDF jadwal kelas (aSc) dengan `tools/parse-jadwal.py` (taruh PDF di folder `jd/`, jalankan, salin hasilnya). Di HP tampil per hari.
 - **Formulir Guru** (`#formulir`): 3 tombol besar: perangkat pembelajaran, guru berhalangan hadir, pelaporan BDR.
 - **Guru Wali** (`#guruwali`): jadwal guru wali ganjil, 7 format administrasi (unduh Word lewat `export?format=docx`), folder unggah laporan.
 - **Asesmen** (`#asesmen`): STS Ganjil (format nilai, input nilai, SOP rapor) dan TKA / pemantapan TKA.
