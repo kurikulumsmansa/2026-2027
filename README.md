@@ -38,6 +38,10 @@ salinan di file `kalender-data.js`. Tab *Keterangan* (agenda, peringatan, catata
 Data guru ada di file `guru-data.js`. Setiap baris: `["Nama Guru", "Mata Pelajaran", "Kelas Diajar"]`,
 contoh kelas: `"XI HJ 1–2, 5–6; XII HT 1–3"`. Mapel tambahan untuk guru yang sama ditulis di bagian `tambahan`.
 
+## Panduan & Aturan (menu "Panduan & Aturan")
+
+Daftar file ada di `panduan-data.js`: `[judul, keterangan, id file Google Drive, ukuran MB]`. File tetap disimpan di Google Drive kurikulum (folder PANDUAN PEMBELAJARAN), website hanya menautkan. Pastikan file/folder dibagikan ke guru (akun sekolah atau "siapa saja yang memiliki link").
+
 ## Perangkat Ajar (menu "Perangkat Ajar")
 
 Halaman `#perangkat` di `index.html`: tombol ke Google Form pengumpulan perangkat (https://forms.gle/o3dXfyYEagAbt6bk9) dan hitung mundur ke batas akhir (atribut `data-hitung` / `data-hitung-besar`, tanggal 2026-11-14). Ganti link dan tanggal di sana untuk semester berikutnya.

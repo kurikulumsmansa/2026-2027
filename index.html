@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=27">
+  <link rel="stylesheet" href="style.css?v=28">
 </head>
 <body>
 
@@ -50,6 +50,10 @@
     <a href="#murid" class="side-link main-link" data-nav data-go="murid">
       <svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5"/><path d="M22 9v6"/></svg>
       <span><b>Data Murid</b><small>Jumlah siswa dan nama per kelas</small></span>
+    </a>
+    <a href="#panduan" class="side-link main-link" data-nav data-go="panduan">
+      <svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v13"/></svg>
+      <span><b>Panduan &amp; Aturan</b><small>CP, panduan mapel, peraturan terbaru</small></span>
     </a>
     <a href="#asas" class="side-link main-link menu-penting" data-nav data-go="asas">
       <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V3h6v1"/><path d="m9 12.5 2 2 4-4"/></svg>
@@ -306,6 +310,18 @@
     </section>
 
     <!-- ===== ASAS-BK ===== -->
+    <section class="panduan glass reveal" data-view="panduan" id="panduanBox">
+      <div class="pd-head">
+        <div><h2>Panduan &amp; Aturan</h2><p>Bahan rujukan resmi untuk menyusun pembelajaran. Klik judul untuk membuka file PDF.</p></div>
+        <label class="gsearch pd-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" id="pdCari" placeholder="Cari panduan atau aturan…" autocomplete="off"></label>
+      </div>
+      <div class="pd-sec"><h3>Paling penting</h3><div class="pd-utama" id="pdUtama"></div></div>
+      <div class="pd-sec"><h3>Panduan Mata Pelajaran</h3><div class="pd-list" id="pdMapel"></div></div>
+      <div class="pd-sec"><h3>Peraturan Terbaru Kemendikdasmen</h3><div id="pdAturan"></div></div>
+      <p class="gnone" id="pdKosong" hidden>Tidak ditemukan. Coba kata lain.</p>
+      <a class="pd-folder" id="pdFolder" href="#" target="_blank" rel="noopener" data-tip="Buka folder Panduan Pembelajaran di Google Drive">Buka semua file di Google Drive</a>
+    </section>
+
     <section class="asas" data-view="asas" id="asasBox">
       <div class="asas-hero reveal">
         <div class="ah-text">
@@ -483,14 +499,16 @@ Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre
   </div>
 </div>
 
-<script src="links.js?v=27"></script>
-<script src="app.js?v=27"></script>
-<script src="kalender-data.js?v=27"></script>
-<script src="kalender.js?v=27"></script>
-<script src="guru-data.js?v=27"></script>
-<script src="guru.js?v=27"></script>
-<script src="asas.js?v=27"></script>
-<script src="murid-data.js?v=27"></script>
-<script src="murid.js?v=27"></script>
+<script src="links.js?v=28"></script>
+<script src="app.js?v=28"></script>
+<script src="kalender-data.js?v=28"></script>
+<script src="kalender.js?v=28"></script>
+<script src="guru-data.js?v=28"></script>
+<script src="guru.js?v=28"></script>
+<script src="asas.js?v=28"></script>
+<script src="murid-data.js?v=28"></script>
+  <script src="panduan-data.js?v=28"></script>
+  <script src="panduan.js?v=28"></script>
+  <script src="murid.js?v=28"></script>
 </body>
 </html>
