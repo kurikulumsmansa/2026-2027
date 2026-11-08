@@ -83,6 +83,33 @@
     </section>`;
   }).join("");
 
+  /* ---------- Satu halaman per menu (menu kiri) ---------- */
+  const HALAMAN = { beranda: "Beranda", kalender: "Kalender Pendidikan", guru: "Daftar Guru", dokumen: "Dokumen & Layanan" };
+  const papan = new Set(KELOMPOK.map(k => slug(k.judul)));
+  const judulHal = document.getElementById("judulHalaman");
+  function bukaHalaman() {
+    const h = decodeURIComponent(location.hash.slice(1)) || "beranda";
+    const view = HALAMAN[h] ? h : papan.has(h) ? "dokumen" : "beranda";
+    document.querySelectorAll("[data-view]").forEach(el => {
+      const tampil = el.dataset.view === view;
+      if (tampil && el.hidden) { el.classList.remove("view-in"); void el.offsetWidth; el.classList.add("view-in"); }
+      el.hidden = !tampil;
+    });
+    document.querySelectorAll("[data-go]").forEach(a => a.classList.toggle("active", a.dataset.go === view));
+    if (judulHal) judulHal.textContent = view === "beranda" ? "Papan Informasi Kurikulum" : HALAMAN[view];
+    document.title = (view === "beranda" ? "" : HALAMAN[view] + " · ") + "Kurikulum SMAN 1 Batam 2026/2027";
+    document.body.classList.remove("side-open");
+    if (papan.has(h)) {
+      const b = document.getElementById(h);
+      requestAnimationFrame(() => {
+        b.scrollIntoView({ behavior: "smooth", block: "start" });
+        b.classList.remove("flash"); void b.offsetWidth; b.classList.add("flash");
+      });
+    } else scrollTo({ top: 0 });
+  }
+  addEventListener("hashchange", bukaHalaman);
+  bukaHalaman();
+
   /* ---------- Pencarian ---------- */
   const semua = KELOMPOK.flatMap(k => k.link.map(l => ({ ...l, kel: k.judul })));
   const cari = document.getElementById("cari"), hasil = document.getElementById("hasil");

@@ -2,7 +2,7 @@
    GURU & PEMBAGIAN MENGAJAR
    ===================================================================== */
 (() => {
-  const root = document.getElementById("guru");
+  const root = document.getElementById("daftarGuru");
   if (!root) return;
   const $ = s => root.querySelector(s);
   const TINGKAT = Object.keys(GURU.rombel);              // ["X HL","XI HJ","XII HT"]
@@ -36,7 +36,6 @@
   const PAL = ["#1e6bff","#22b07d","#ef5a3c","#8b5cf6","#f59e0b","#14b8a6","#e11d48","#0ea5e9","#6366f1","#16a34a","#d946ef","#f97316"];
   const warnaMapel = {}; let wi = 0;
   const warna = m => warnaMapel[m] || (warnaMapel[m] = PAL[wi++ % PAL.length]);
-  const inisial = n => n.replace(/^(Dra?\.|L\.M\.)\s*/, "").split(/[ ,]/).filter(w => w && /^[A-Z]/.test(w) && !/\./.test(w)).slice(0, 2).map(w => w[0]).join("");
 
   /* ---------- state ---------- */
   let q = "", grup = "semua", kelas = null;
@@ -58,15 +57,22 @@
   });
   $("#gReset").addEventListener("click", () => { kelas = null; render(); });
 
-  function kartu(g) {
+  const NAMA_KEL = GURU.kelompok.map(k => k.nama);
+  function baris(g) {
     const sorot = t => kelas && t.daftar.includes(kelas) ? " hit" : "";
-    return `<article class="gcard" style="--c:${warna(g.tugas[0].mapel)}">
-      <div class="gtop">
-        <span class="gav">${inisial(g.nama)}</span>
-        <div class="gname"><b>${g.nama}</b><small>${g.jumlahKelas} kelas</small></div>
-      </div>
-      <ul class="gtugas">${g.tugas.map(t => `<li class="${sorot(t)}" style="--c:${warna(t.mapel)}"><span class="gmapel">${t.mapel}</span><span class="gkls">${t.kelas}</span></li>`).join("")}</ul>
-    </article>`;
+    return `<div class="gl-row">
+      <span class="gl-no">${g.no}</span>
+      <span class="gl-nama">${g.nama}</span>
+      <div class="gl-t">${g.tugas.map(t => `<div class="gl-task${sorot(t)}" style="--c:${warna(t.mapel)}"><span class="gl-mapel">${t.mapel}</span><span class="gl-kls">${t.kelas}</span></div>`).join("")}</div>
+    </div>`;
+  }
+  function daftar(list) {
+    if (!list.length) return `<p class="gnone">Tidak ada guru yang cocok.</p>`;
+    const head = `<div class="gl-head"><span class="gl-no">No</span><span>Nama Guru</span><div class="gl-t"><span>Mata Pelajaran</span><span>Kelas yang Diajar</span></div></div>`;
+    return head + NAMA_KEL.map((nm, i) => {
+      const isi = list.filter(g => g.kel === i);
+      return isi.length ? `<div class="gl-grp"><b>${nm}</b><span>${isi.length} guru</span></div>${isi.map(baris).join("")}` : "";
+    }).join("");
   }
 
   function render() {
@@ -91,7 +97,7 @@
     } else $("#gKelasInfo").hidden = true;
 
     $("#gJumlah").textContent = `${list.length} guru`;
-    $("#gGrid").innerHTML = list.map(kartu).join("") || `<p class="gnone">Tidak ada guru yang cocok.</p>`;
+    $("#gGrid").innerHTML = daftar(list);
   }
 
   $("#gTotal").textContent = SEMUA.length;

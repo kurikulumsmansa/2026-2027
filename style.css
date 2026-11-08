@@ -672,3 +672,77 @@ body { background: #eef2fa; }
   #gSeg { width: 100%; overflow-x: auto; } #gSeg button { white-space: nowrap; padding: 8px 12px; }
 }
 .kinfo li .gmapel { color: rgba(255,255,255,.78); font-weight: 600; }
+
+/* =====================================================================
+   SATU HALAMAN PER MENU + MENU KIRI LEBIH JELAS
+   ===================================================================== */
+[data-view][hidden] { display: none !important; }
+.view-in { animation: viewIn .55s var(--ease) both; }
+@keyframes viewIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+.side-label { font-size: .74rem; color: #8193bd; }
+.main-link { align-items: center; padding: 12px 14px; }
+.main-link svg { width: 24px; height: 24px; }
+.main-link span b { display: block; font-size: 1.02rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.25; }
+.main-link span small { display: block; font-size: .78rem; color: #9fb0d6; line-height: 1.3; margin-top: 2px; }
+.main-link.active span small { color: rgba(255,255,255,.85); }
+.side-link { font-size: .95rem; }
+.sub-link { font-size: .9rem; }
+
+.top-title strong { font-size: 1.12rem; }
+
+/* kartu menu besar di Beranda */
+.menu-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.mtile { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 22px; border-radius: 28px;
+  background: rgba(255,255,255,.66); transition: transform .5s var(--spring), box-shadow .3s; }
+.mtile:hover { transform: translateY(-3px); }
+.mt-ic { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; color: #fff; margin-bottom: 8px;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--c) 70%, #fff), var(--c)); box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 8px 18px -8px var(--c); }
+.mt-ic svg { width: 26px; height: 26px; }
+.mtile b { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; color: var(--navy); }
+.mtile small { font-size: .92rem; color: #475569; line-height: 1.4; }
+.mt-go { align-self: flex-start; margin-top: 10px; padding: 8px 18px; border-radius: 999px; background: var(--c); color: #fff; font-weight: 700; font-size: .9rem; }
+
+.page-head { margin-bottom: 18px; }
+.page-head h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.035em; color: var(--navy); }
+.page-head p { margin: 4px 0 0; color: #475569; font-size: .98rem; }
+.board { scroll-margin-top: 96px; }
+.board.flash { animation: flash 1.6s var(--ease); }
+@keyframes flash { 0%, 40% { box-shadow: 0 0 0 4px rgba(30,107,255,.45), 0 20px 40px -16px rgba(30,107,255,.4); } 100% { } }
+.row b { font-size: .98rem; }
+
+/* daftar guru berbentuk tabel */
+.glist { border-radius: 22px; overflow: hidden; background: rgba(255,255,255,.72); box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(20,40,90,.06); }
+.gl-head, .gl-row { display: grid; grid-template-columns: 52px minmax(200px, 1.15fr) minmax(0, 2fr); gap: 12px; padding: 12px 18px; align-items: start; }
+.gl-t { display: grid; gap: 4px; }
+.gl-head .gl-t, .gl-task { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); display: grid; gap: 12px; }
+.gl-head { background: var(--navy); color: #fff; font-weight: 700; font-size: .9rem; position: sticky; top: 0; }
+.gl-grp { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 12px 18px; background: #e8f0ff; color: var(--navy); }
+.gl-grp b { font-size: 1rem; font-weight: 800; }
+.gl-grp span { font-size: .85rem; color: #475569; white-space: nowrap; }
+.gl-row { border-top: 1px solid rgba(20,40,90,.08); font-size: 1rem; line-height: 1.4; }
+.gl-row:nth-of-type(even) { background: rgba(240,245,255,.55); }
+.gl-row:hover { background: #fff; }
+.gl-no { color: #64748b; font-variant-numeric: tabular-nums; text-align: right; }
+.gl-head .gl-no { color: #fff; }
+.gl-nama { font-weight: 700; color: #0f172a; }
+.gl-task { padding: 2px 0; border-radius: 10px; }
+.gl-mapel { color: var(--c); font-weight: 700; }
+.gl-kls { color: #1e293b; }
+.gl-task.hit { background: color-mix(in srgb, var(--c) 14%, #fff); box-shadow: 0 0 0 2px var(--c); padding: 4px 8px; margin: 0 -8px; }
+.kinfo li b { font-size: 1rem; }
+.kinfo li .gmapel { font-size: .82rem; }
+
+@media (max-width: 900px) {
+  .menu-tiles { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .gl-head { display: none; }
+  .gl-row { grid-template-columns: 30px minmax(0, 1fr); gap: 4px 10px; padding: 12px 14px; }
+  .gl-row .gl-t { grid-column: 2; }
+  .gl-task { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 6px 10px; background: color-mix(in srgb, var(--c) 7%, #fff); border-left: 3px solid var(--c); }
+  .gl-task.hit { margin: 0; padding: 6px 10px; }
+  .gl-grp { padding: 10px 14px; }
+  .gl-no { text-align: left; }
+  .mtile { padding: 18px; }
+}

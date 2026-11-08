@@ -4,6 +4,15 @@ Papan informasi kurikulum untuk Bapak/Ibu guru SMAN 1 Batam, TP 2026/2027.
 
 Alamat website: https://kurikulumsmansa.github.io/2026-2027/
 
+## Susunan website
+
+Menu kiri adalah navigasi utama. Setiap menu membuka satu halaman sendiri:
+
+- **Beranda** (`#beranda`): banner, tombol besar ke setiap menu, dan dokumen yang sering dibuka
+- **Kalender Pendidikan** (`#kalender`)
+- **Daftar Guru** (`#guru`): tabel No, Nama Guru, Mata Pelajaran, Kelas yang Diajar
+- **Dokumen & Layanan** (`#dokumen`): semua link dari `links.js`
+
 ## Cara menambah atau mengganti link
 
 1. Buka file `links.js` di GitHub, lalu klik ikon pensil (Edit).

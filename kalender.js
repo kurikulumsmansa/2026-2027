@@ -100,7 +100,7 @@
   }
 
   /* ---------- 4. Tampilan ---------- */
-  const root = document.getElementById("kalender");
+  const root = document.getElementById("kalenderBox");
   if (!root) return;
   const $ = s => root.querySelector(s);
   let DATA, HIT, cur, pilih = null, mode = "bulan";
