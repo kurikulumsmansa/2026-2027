@@ -767,3 +767,14 @@ body { background: #eef2fa; }
 }
 .tip.bawah::after { top: auto; bottom: 100%; clip-path: polygon(50% 0, 0 100%, 100% 100%); }
 @media (max-width: 640px) { .tip { font-size: .92rem; border-radius: 18px; } }
+
+/* =====================================================================
+   HALAMAN DOKUMEN: rapi & sejajar (satu kelompok selebar halaman)
+   ===================================================================== */
+.boards { columns: auto !important; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.board, .board.glass { margin: 0 !important; break-inside: auto; padding: 18px; }
+.board .rows { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; align-items: stretch; }
+.board .row { height: 100%; min-height: 76px; padding: 14px 16px; }
+.board .rtext b { font-size: 1rem; line-height: 1.4; }
+.board .rtext small { font-size: .82rem; }
+@media (max-width: 640px) { .board .rows { grid-template-columns: minmax(0, 1fr); } }
