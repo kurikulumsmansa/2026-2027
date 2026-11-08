@@ -120,28 +120,58 @@
     t.style.setProperty("--y", e.clientY - r.top + "px");
   });
 
-  /* ---------- Kursor kustom (mouse/trackpad saja) ---------- */
+  /* ---------- Kursor gaya iPad (mouse/trackpad saja) ---------- */
   if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const root = document.documentElement;
+  const cur = document.querySelector(".cursor");
   root.classList.add("has-cursor");
-  const dot = document.querySelector(".cursor-dot"), ring = document.querySelector(".cursor-ring");
-  let mx = -100, my = -100, rx = mx, ry = my;
+
+  const BLOK = ".spot, .side-link, .sub-link, .res, .icon-btn, .side-brand";
+  const SIZE = 18;
+  let px = innerWidth / 2, py = innerHeight / 2;           // posisi mouse
+  let x = px, y = py, w = SIZE, h = SIZE, r = SIZE / 2;    // posisi kursor sekarang
+  let hoverEl = null, textEl = null, down = false, visible = false, last = performance.now();
+
   addEventListener("pointermove", e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.transform = `translate(${mx}px,${my}px)`;
-    root.classList.add("cursor-on");
-  });
-  document.addEventListener("pointerleave", () => root.classList.remove("cursor-on"));
-  (function loop() {
-    const k = reduce ? 1 : 0.2;
-    rx += (mx - rx) * k; ry += (my - ry) * k;
-    ring.style.transform = `translate(${rx}px,${ry}px)`;
-    requestAnimationFrame(loop);
-  })();
+    px = e.clientX; py = e.clientY;
+    if (!visible) { x = px; y = py; visible = true; root.classList.add("cursor-on"); }
+  }, { passive: true });
+  document.addEventListener("pointerleave", () => { visible = false; root.classList.remove("cursor-on"); });
   document.addEventListener("pointerover", e => {
-    root.classList.toggle("cursor-hover", !!e.target.closest("a, button, input, label"));
+    hoverEl = e.target.closest(BLOK);
+    textEl = hoverEl ? null : e.target.closest("input");
+    root.classList.toggle("cursor-block", !!hoverEl);
+    root.classList.toggle("cursor-text", !!textEl);
+    root.classList.toggle("cursor-dark", !!e.target.closest(".sidebar, .banner"));
   });
-  addEventListener("pointerdown", () => root.classList.add("cursor-down"));
-  addEventListener("pointerup", () => root.classList.remove("cursor-down"));
+  addEventListener("pointerdown", () => { down = true; root.classList.add("cursor-down"); });
+  addEventListener("pointerup", () => { down = false; root.classList.remove("cursor-down"); });
+
+  const ease = (k, dt) => 1 - Math.exp(-k * dt);   // halus & tidak tergantung FPS
+  (function frame(now) {
+    const dt = Math.min((now - last) / 1000, 0.05); last = now;
+    let tx = px, ty = py, tw = SIZE, th = SIZE, tr = SIZE / 2, kPos = 38, kSize = 22;
+
+    if (hoverEl && hoverEl.isConnected) {
+      // kursor "menempel" membentuk kotak di sekeliling tombol, sedikit tertarik ke arah mouse
+      const b = hoverEl.getBoundingClientRect();
+      const cx = b.left + b.width / 2, cy = b.top + b.height / 2;
+      const pad = 6;
+      tw = b.width + pad * 2; th = b.height + pad * 2;
+      tr = (parseFloat(getComputedStyle(hoverEl).borderRadius) || 12) + pad;
+      tx = cx + (px - cx) * 0.06; ty = cy + (py - cy) * 0.12;
+      kPos = 20; kSize = 20;
+    } else if (textEl) {
+      tw = 2.5; th = 24; tr = 2; kSize = 30;
+    }
+    if (down) { tw *= 0.94; th *= 0.94; }
+
+    x += (tx - x) * ease(kPos, dt);  y += (ty - y) * ease(kPos, dt);
+    w += (tw - w) * ease(kSize, dt); h += (th - h) * ease(kSize, dt);
+    r += (tr - r) * ease(kSize, dt);
+    cur.style.transform = `translate3d(${x - w / 2}px, ${y - h / 2}px, 0)`;
+    cur.style.width = w + "px"; cur.style.height = h + "px"; cur.style.borderRadius = r + "px";
+    requestAnimationFrame(frame);
+  })(last);
 })();
