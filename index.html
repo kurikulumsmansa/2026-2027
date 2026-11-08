@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=26">
+  <link rel="stylesheet" href="style.css?v=27">
 </head>
 <body>
 
@@ -54,6 +54,11 @@
     <a href="#asas" class="side-link main-link menu-penting" data-nav data-go="asas">
       <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V3h6v1"/><path d="m9 12.5 2 2 4-4"/></svg>
       <span><b>ASAS-BK Ganjil</b><small>Jadwal, ketentuan soal, unggah berkas</small></span>
+      <i class="dot-penting" aria-hidden="true"></i>
+    </a>
+    <a href="#perangkat" class="side-link main-link menu-penting" data-nav data-go="perangkat">
+      <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7M9 11.5h5"/></svg>
+      <span><b>Perangkat Ajar</b><small>Kumpulkan perangkat semester ganjil</small></span>
       <i class="dot-penting" aria-hidden="true"></i>
     </a>
     <a href="#dokumen" class="side-link main-link" data-nav data-go="dokumen">
@@ -110,6 +115,13 @@
     <a href="#asas" class="asas-alert reveal" data-view="beranda" data-tip="Buka informasi lengkap ASAS-BK">
       <span class="aa-ic"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V3h6v1"/><path d="m9 12.5 2 2 4-4"/></svg></span>
       <span class="aa-text"><small>Informasi penting · ASAS-BK Ganjil 2026/2027</small><b>Batas unggah soal, kisi-kisi, dan kartu soal: <u>Sabtu, 14 November 2026</u></b></span>
+      <span class="aa-count" data-hitung="2026-11-14"></span>
+      <span class="aa-go">Lihat</span>
+    </a>
+
+    <a href="#perangkat" class="asas-alert pa-alert reveal" data-view="beranda" data-tip="Buka halaman pengumpulan perangkat ajar">
+      <span class="aa-ic"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7M9 11.5h5"/></svg></span>
+      <span class="aa-text"><small>Informasi penting · Perangkat Ajar Semester Ganjil</small><b>Batas pengumpulan perangkat pembelajaran: <u>Sabtu, 14 November 2026</u></b></span>
       <span class="aa-count" data-hitung="2026-11-14"></span>
       <span class="aa-go">Lihat</span>
     </a>
@@ -427,6 +439,41 @@ Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre
       <p class="asas-foot">Penjelasan lebih lengkap beserta contoh soal akan disampaikan menyusul. · <b>Tim Kurikulum SMAN 1 Batam</b></p>
     </section>
 
+    <section class="asas perangkat" data-view="perangkat" id="perangkatBox">
+      <div class="asas-hero pa-hero reveal">
+        <div class="ah-text">
+          <span class="ah-tag">Informasi Penting dari Bidang Kurikulum</span>
+          <h2>Perangkat Ajar</h2>
+          <p class="ah-sub">Pengumpulan Perangkat Pembelajaran · Semester Ganjil · Tahun Pelajaran 2026/2027</p>
+          <p class="ah-salam">Bapak/Ibu Guru, mohon kumpulkan perangkat pembelajaran melalui formulir di bawah ini.</p>
+        </div>
+        <div class="ah-count glass">
+          <small>Batas akhir pengisian</small>
+          <b data-hitung-besar="2026-11-14"></b>
+          <span>Sabtu, 14 November 2026</span>
+        </div>
+      </div>
+
+      <div class="pa-grid">
+        <a class="upbox reveal" href="https://forms.gle/o3dXfyYEagAbt6bk9" target="_blank" rel="noopener" data-tip="Buka Google Form pengumpulan perangkat (tab baru)">
+          <span class="up-ic"><svg viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.9-8.9A6 6 0 0 1 17.7 8 4.5 4.5 0 0 1 17 18"/><path d="M12 12v8M8.8 14.8 12 11.6l3.2 3.2"/></svg></span>
+          <b>Kumpulkan Perangkat Ajar</b>
+          <small>Klik di sini untuk mengisi formulir dan mengunggah berkas</small>
+          <span class="up-btn">Isi Formulir</span>
+          <span class="up-note">forms.gle/o3dXfyYEagAbt6bk9</span>
+        </a>
+        <div class="pa-cara glass reveal">
+          <b>Caranya</b>
+          <ol>
+            <li>Siapkan file perangkat ajar Bapak/Ibu.</li>
+            <li>Klik tombol <em>Isi Formulir</em>.</li>
+            <li>Isi data, unggah file, lalu tekan <em>Kirim</em>.</li>
+          </ol>
+          <p>Paling lambat <b>Sabtu, 14 November 2026</b>.</p>
+        </div>
+      </div>
+    </section>
+
     <section data-view="dokumen">
       <div class="page-head reveal"><h2>Dokumen &amp; Layanan</h2><p>Klik nama dokumen untuk membukanya. Dokumen akan terbuka di tab baru.</p></div>
       <div class="boards" id="boards"></div>
@@ -436,14 +483,14 @@ Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre
   </div>
 </div>
 
-<script src="links.js?v=26"></script>
-<script src="app.js?v=26"></script>
-<script src="kalender-data.js?v=26"></script>
-<script src="kalender.js?v=26"></script>
-<script src="guru-data.js?v=26"></script>
-<script src="guru.js?v=26"></script>
-<script src="asas.js?v=26"></script>
-<script src="murid-data.js?v=26"></script>
-<script src="murid.js?v=26"></script>
+<script src="links.js?v=27"></script>
+<script src="app.js?v=27"></script>
+<script src="kalender-data.js?v=27"></script>
+<script src="kalender.js?v=27"></script>
+<script src="guru-data.js?v=27"></script>
+<script src="guru.js?v=27"></script>
+<script src="asas.js?v=27"></script>
+<script src="murid-data.js?v=27"></script>
+<script src="murid.js?v=27"></script>
 </body>
 </html>
