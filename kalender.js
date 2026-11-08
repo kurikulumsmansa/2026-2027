@@ -59,7 +59,7 @@
             if (!m) continue;
             const jenis = String(r[2]).trim();
             if (!JENIS[jenis]) continue;
-            hasil.push({ tgl: new Date(+m[3], +m[2] - 1, +m[1]), jenis, ket: String(r[3] || "").trim() || jenis });
+            hasil.push({ tgl: new Date(+m[3], +m[2] - 1, +m[1]), jenis, ket: (String(r[3] || "").trim() || jenis).replace(/\b(siswa|peserta didik)\b/gi, "murid") });
           }
           done(hasil.length >= 360 ? hasil : null);
         } catch (e) { done(null); }

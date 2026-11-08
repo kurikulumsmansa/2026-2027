@@ -1,5 +1,5 @@
 /* =====================================================================
-   DATA MURID: rekap jumlah siswa per tingkat & daftar nama per kelas
+   DATA MURID: rekap jumlah murid per tingkat & daftar nama per kelas
    ===================================================================== */
 (() => {
   const root = document.getElementById("dataMurid");
@@ -37,8 +37,8 @@
   const total = hitung(KELAS.flatMap(k => MURID.kelas[k]));
   const lp = h => adaLP ? `<span class="mlp"><em class="l">L ${h.L}</em><em class="p">P ${h.P}</em></span>` : "";
   $("#mRekap").innerHTML = perT.map((r, i) => `<button class="mtile2" data-t="${r.t}" style="--c:${["#1e6bff", "#22b07d", "#8b5cf6"][i]}">
-      <small>${r.label}</small><b>${r.n}</b><span>siswa · ${r.kls.length} rombel</span>${lp(r)}</button>`).join("")
-    + `<div class="mtile2 total"><small>Total semua kelas</small><b>${total.n}</b><span>siswa · ${KELAS.length} rombel</span>${lp(total)}</div>`;
+      <small>${r.label}</small><b>${r.n}</b><span>murid · ${r.kls.length} rombel</span>${lp(r)}</button>`).join("")
+    + `<div class="mtile2 total"><small>Total semua kelas</small><b>${total.n}</b><span>murid · ${KELAS.length} rombel</span>${lp(total)}</div>`;
 
   /* pemilih kelas */
   $("#mKelas").innerHTML = TINGKAT.map(([t]) => {
@@ -78,13 +78,13 @@
       out.innerHTML = `<div class="mhead"><b>Hasil pencarian “${q}”</b><span>${hasil.length} murid</span></div>` + (hasil.length ? tabel(hasil, true) : `<p class="gnone">Nama tidak ditemukan.</p>`);
     } else if (kelas) {
       const h = hitung(MURID.kelas[kelas]);
-      out.innerHTML = `<div class="mhead"><b>Kelas ${kelas}</b><span>${h.n} siswa${adaLP ? ` · L ${h.L} · P ${h.P}` : ""}</span></div>${INFO[kelas] ? `<p class="minfo">${INFO[kelas]}</p>` : ""}` + tabel(MURID.kelas[kelas], false);
+      out.innerHTML = `<div class="mhead"><b>Kelas ${kelas}</b><span>${h.n} murid${adaLP ? ` · L ${h.L} · P ${h.P}` : ""}</span></div>${INFO[kelas] ? `<p class="minfo">${INFO[kelas]}</p>` : ""}` + tabel(MURID.kelas[kelas], false);
     } else {
       // rekap per rombel
       const kls = tingkat ? KELAS.filter(k => tingkatDari(k) === tingkat) : KELAS;
-      out.innerHTML = `<div class="mhead"><b>Rekap jumlah siswa per kelas${tingkat ? " · Kelas " + tingkat : ""}</b><span>Klik nama kelas untuk melihat daftar murid</span></div>
+      out.innerHTML = `<div class="mhead"><b>Rekap jumlah murid per kelas${tingkat ? " · Kelas " + tingkat : ""}</b><span>Klik nama kelas untuk melihat daftar murid</span></div>
         <div class="mrek">${kls.map(k => { const h = hitung(MURID.kelas[k]);
-          return `<button class="mrk" data-k="${k}"><b>${k}</b><span>${h.n} siswa</span>${adaLP ? `<small>L ${h.L} · P ${h.P}</small>` : ""}</button>`; }).join("")}</div>`;
+          return `<button class="mrk" data-k="${k}"><b>${k}</b><span>${h.n} murid</span>${adaLP ? `<small>L ${h.L} · P ${h.P}</small>` : ""}</button>`; }).join("")}</div>`;
     }
   }
   root.addEventListener("click", e => {

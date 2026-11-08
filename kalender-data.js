@@ -18,7 +18,7 @@ const KALDIK = {
      Sabtu & Minggu otomatis "Akhir pekan". Di bawah ini hanya hari yang berbeda. */
   rentang: [
     ["2026-07-01", "2026-07-17", "Libur Sekolah", "Libur akhir tahun pelajaran 2025/2026"],
-    ["2026-07-20", "2026-07-24", "Efektif", "MPLS siswa kelas X (Kaldik Kepri)"],
+    ["2026-07-20", "2026-07-24", "Efektif", "MPLS murid kelas X (Kaldik Kepri)"],
     ["2026-08-04", "2026-08-07", "Efektif", "ANBK SMA dan observasi guru (agenda sekolah dari draf)"],
     ["2026-08-11", "2026-08-14", "Efektif", "Observasi guru (agenda sekolah dari draf)"],
     ["2026-08-17", "2026-08-17", "Libur Nasional", "Hari Proklamasi Kemerdekaan RI"],
