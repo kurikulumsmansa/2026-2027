@@ -1029,3 +1029,15 @@ body { background: #eef2fa; }
   .ai-btns, .ai-dl, .ai-open { width: 100%; justify-content: center; }
   .steps { grid-template-columns: minmax(0, 1fr); }
 }
+.tpl-ic.xl { background: linear-gradient(160deg, #3fbf7f, #1d7a46); box-shadow: 0 8px 16px -8px #1d7a46; }
+.tpl-sheets { display: flex; align-items: stretch; gap: 6px; }
+.tpl-sheets .sh { flex: 1; padding: 8px 6px; border-radius: 14px; text-align: center; background: #f1f5f9; }
+.tpl-sheets .sh.on { background: #e3f6ec; box-shadow: inset 0 0 0 2px #22b07d; }
+.tpl-sheets .sh b { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; font-size: .7rem; background: #1d7a46; color: #fff; }
+.tpl-sheets .sh span { display: block; font-size: .8rem; font-weight: 700; color: var(--navy); margin-top: 3px; }
+.tpl-sheets .sh small { display: block; font-size: .7rem; color: #64748b; }
+.sh-arrow { align-self: center; color: #22b07d; font-weight: 900; }
+.xlprev { transform: none; padding: 8px; }
+.tp-tab.xl7 { grid-template-columns: .35fr 1.3fr 1.2fr .55fr 1.3fr .5fr .6fr; }
+.xlprev .tp-tab span { background: #e3f6ec; }
+.xlprev .tp-tab.kosong span { background: #fff; font-weight: 500; }
