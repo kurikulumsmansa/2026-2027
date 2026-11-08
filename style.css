@@ -1204,3 +1204,8 @@ body { background: #eef2fa; }
 .tka-body > p { margin: 0; color: #334155; }
 .tka-steps { margin: 0 0 16px; padding-left: 1.3em; display: grid; gap: 8px; }
 .tka-body .ai-dl { display: inline-flex; }
+.tka-alur { margin-top: 16px; }
+.tka-alur .ai-dl { display: inline-flex; margin-top: 10px; }
+.steps li.tunggu { background: #fff8e6; border: 1px dashed #f0b429; }
+.steps li.tunggu .st-n { background: #f0b429; font-size: 1rem; }
+.steps .tka-alur .ai-dl, .tka-alur .ai-dl { color: #fff; text-decoration: none; }

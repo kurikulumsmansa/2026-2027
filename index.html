@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=32">
+  <link rel="stylesheet" href="style.css?v=33">
 </head>
 <body>
 
@@ -411,7 +411,7 @@ Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre
           <small>Untuk Bapak/Ibu yang ingin membuat soal 3 jenis seperti TKA. Klik untuk membuka.</small>
         </summary>
         <div class="tka-body">
-          <p>Arahan ASAS-BK tetap <b>100 soal PGS</b> seperti di atas. Prompt ini hanya contoh bila ingin membuat soal model TKA. Hasilnya satu file Word berisi kisi-kisi, naskah soal, dan kunci, dibuat dalam <b>3 tahap</b> (40 + 40 + 20 soal).</p>
+          <p>Arahan ASAS-BK tetap <b>100 soal PGS</b> seperti di atas. Prompt ini hanya contoh bila ingin membuat soal model TKA. Hasilnya satu file Word berisi kisi-kisi, naskah soal, dan kunci, dibuat dalam <b>3 tahap</b> (40 + 40 + 20 soal). Tahap 2 dan 3 memakai <b>prompt lanjutan</b> di bawah supaya soalnya tidak sama dengan tahap sebelumnya.</p>
         <!-- 3 jenis soal -->
         <div class="jenis3">
           <div class="js-card" style="--c:#1e6bff"><span class="js-tag">PGS</span><b>Pilihan Ganda Sederhana</b><p>5 pilihan, <b>1 jawaban benar</b>.</p>
@@ -431,12 +431,40 @@ Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre
           <div class="tt-r tt-f"><span><b>Total</b></span><span>1–100</span><span>60</span><span>20</span><span>20</span><span><b>100</b></span></div>
         </div>
 
-          <ol class="tka-steps">
-            <li>Unduh prompt, isi bagian kuning (mapel, kelas, <b>tahap</b>, TP per bab, nama).</li>
-            <li>Salin dari <code>COPY START</code> sampai <code>COPY END</code>, tempel di <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai</a>.</li>
-            <li>Untuk Tahap 2 dan 3, ganti angka tahapnya dan <b>lampirkan file hasil tahap sebelumnya</b>.</li>
+          <ol class="steps tka-alur">
+            <li class="lebar"><span class="st-n">1</span><div><b>Tahap 1 · Soal nomor 1–40</b>
+              <p>Unduh prompt, isi bagian kuning (mapel, kelas, TP per bab, nama, dan tahap <mark>1</mark>). Salin dari <code>COPY START</code> sampai <code>COPY END</code>, tempel di <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai</a>, lalu kirim. <b>Unduh file Word hasilnya</b> dan simpan.</p>
+              <a class="ai-dl" href="files/Prompt-soal-PGS-MCMA-PGK.docx" download="Prompt pembuatan soal dan kisi-kisi (PGS, MCMA, PGK).docx" data-tip="Unduh prompt soal bentuk TKA (Word)"><span><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m9.5 12 1.2 5 1.3-3.5 1.3 3.5 1.2-5"/></svg></span>Unduh Prompt Tahap 1 (.docx)</a></div></li>
+            <li class="tunggu lebar"><span class="st-n">⏳</span><div><b>Tunggu 5 jam</b><p>Claude membatasi pemakaian. Tunggu <b>5 jam</b> sebelum lanjut ke tahap berikutnya.</p></div></li>
+            <li class="lebar"><span class="st-n">2</span><div><b>Tahap 2 · Soal nomor 41–80</b>
+              <p>Buka lagi <b>chat yang sama</b> di Claude. <b>Unggah file Word hasil Tahap 1</b> (klik tanda <b>+</b> atau seret file ke kotak chat). Lalu klik <b>Salin teks</b> di bawah, tempel, kirim. Unduh hasilnya.</p>
+              <div class="copybox"><pre id="promptTahap2">Lanjutkan ke TAHAP 2 dari 3. Saya lampirkan file hasil Tahap 1 (soal nomor 1 sampai 40). Gunakan semua ketentuan dari prompt awal: mata pelajaran, kelas, TP, data tetap, urutan, bentuk dan kaidah soal, serta format keluaran.
+
+Buat 40 soal, nomor 41 sampai 80: LOTS 8 (PGS 6, MCMA 1, PGK 1), MOTS 20 (PGS 12, MCMA 4, PGK 4), HOTS 12 (PGS 6, MCMA 3, PGK 3).
+
+Agar adil dan tidak berulang:
+1. Baca dulu seluruh file Tahap 1. Jangan mengulang stimulus, kasus, data, maupun soal yang sudah ada, termasuk soal yang hanya diubah sedikit kata-katanya.
+2. Tetap sebarkan ke semua bab dan TP secara proporsional. Utamakan TP yang soalnya masih sedikit di Tahap 1.
+3. Lanjutkan penomoran stimulus dari Tahap 1.
+4. Jaga sebaran kunci tetap rata: PGS huruf a sampai e sama banyak, kunci MCMA bervariasi, PGK seimbang antara Benar dan Salah.
+
+Keluaran: satu file Word dengan format yang sama seperti Tahap 1 (kisi-kisi, naskah, lampiran), berisi soal nomor 41 sampai 80 saja. Periksa jumlah, urutan, dan kunci.</pre><button class="copybtn" type="button" data-copy="promptTahap2" data-tip="Salin prompt Tahap 2">Salin teks</button></div></div></li>
+            <li class="tunggu lebar"><span class="st-n">⏳</span><div><b>Tunggu 5 jam lagi</b><p>Setelah Tahap 2 selesai, tunggu <b>5 jam</b> sebelum Tahap 3.</p></div></li>
+            <li class="lebar"><span class="st-n">3</span><div><b>Tahap 3 · Soal nomor 81–100</b>
+              <p>Buka lagi chat yang sama. <b>Unggah file hasil Tahap 1 dan Tahap 2</b>. Klik <b>Salin teks</b>, tempel, kirim. Unduh hasilnya.</p>
+              <div class="copybox"><pre id="promptTahap3">Lanjutkan ke TAHAP 3 dari 3 (tahap terakhir). Saya lampirkan file hasil Tahap 1 (nomor 1 sampai 40) dan Tahap 2 (nomor 41 sampai 80). Gunakan semua ketentuan dari prompt awal: mata pelajaran, kelas, TP, data tetap, urutan, bentuk dan kaidah soal, serta format keluaran.
+
+Buat 20 soal, nomor 81 sampai 100: LOTS 4 (PGS 2, MCMA 1, PGK 1), MOTS 10 (PGS 6, MCMA 2, PGK 2), HOTS 6 (PGS 4, MCMA 1, PGK 1).
+
+Agar adil dan tidak berulang:
+1. Baca dulu seluruh file Tahap 1 dan Tahap 2. Jangan mengulang stimulus, kasus, data, maupun soal yang sudah ada, termasuk soal yang hanya diubah sedikit kata-katanya.
+2. Utamakan TP yang soalnya masih paling sedikit di Tahap 1 dan 2, sehingga semua TP terwakili secara adil.
+3. Lanjutkan penomoran stimulus dari Tahap 2.
+4. Jaga sebaran kunci tetap rata seperti tahap sebelumnya.
+
+Keluaran: satu file Word dengan format yang sama, berisi soal nomor 81 sampai 100 saja. Di bagian akhir, tuliskan rekap total 100 soal dari ketiga tahap: PGS 60, MCMA 20, PGK 20; LOTS 20, MOTS 50, HOTS 30. Periksa jumlah, urutan, dan kunci.</pre><button class="copybtn" type="button" data-copy="promptTahap3" data-tip="Salin prompt Tahap 3">Salin teks</button></div></div></li>
+            <li class="done lebar"><span class="st-n">✓</span><div><b>Selesai</b><p>Sekarang Bapak/Ibu punya 3 file: nomor 1–40, 41–80, dan 81–100. Periksa bagian bertanda <code>[PERLU VERIFIKASI]</code>. Kalau Claude berhenti di tengah, ketik <code>Lanjutkan</code>.</p></div></li>
           </ol>
-          <a class="ai-dl" href="files/Prompt-soal-PGS-MCMA-PGK.docx" download="Prompt pembuatan soal dan kisi-kisi (PGS, MCMA, PGK).docx" data-tip="Unduh prompt soal bentuk TKA (Word)"><span><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m9.5 12 1.2 5 1.3-3.5 1.3 3.5 1.2-5"/></svg></span>Unduh Prompt TKA (.docx)</a>
         </div>
       </details>
 
@@ -536,16 +564,16 @@ Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre
   </div>
 </div>
 
-<script src="links.js?v=32"></script>
-<script src="app.js?v=32"></script>
-<script src="kalender-data.js?v=32"></script>
-<script src="kalender.js?v=32"></script>
-<script src="guru-data.js?v=32"></script>
-<script src="guru.js?v=32"></script>
-<script src="asas.js?v=32"></script>
-<script src="murid-data.js?v=32"></script>
-  <script src="panduan-data.js?v=32"></script>
-  <script src="panduan.js?v=32"></script>
-  <script src="murid.js?v=32"></script>
+<script src="links.js?v=33"></script>
+<script src="app.js?v=33"></script>
+<script src="kalender-data.js?v=33"></script>
+<script src="kalender.js?v=33"></script>
+<script src="guru-data.js?v=33"></script>
+<script src="guru.js?v=33"></script>
+<script src="asas.js?v=33"></script>
+<script src="murid-data.js?v=33"></script>
+  <script src="panduan-data.js?v=33"></script>
+  <script src="panduan.js?v=33"></script>
+  <script src="murid.js?v=33"></script>
 </body>
 </html>
