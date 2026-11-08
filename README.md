@@ -43,3 +43,4 @@ contoh kelas: `"XI HJ 1–2, 5–6; XII HT 1–3"`. Mapel tambahan untuk guru ya
 Jadwal ada di file `asas.js` (daftar `ASAS_JADWAL`), status "Selesai / Sedang berlangsung / x hari lagi" dihitung otomatis.
 Teks ketentuan dan link Google Form/LMS ada di `index.html` bagian `<!-- ===== ASAS-BK ===== -->`.
 Template kisi-kisi: `files/Kisi-kisi-ASAS-template.docx` (ganti file ini untuk memperbarui template).
+Panduan prompt AI (7 langkah) ada di bagian `<!-- Panduan prompt AI -->`; file prompt: `files/Prompt-100-soal-PGS.docx`.
