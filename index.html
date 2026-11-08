@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -38,6 +38,10 @@
     <a href="#beranda" class="side-link active" data-nav>
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
       <span>Beranda</span>
+    </a>
+    <a href="#kalender" class="side-link" data-nav>
+      <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/><circle cx="8" cy="14.5" r=".6"/><circle cx="12" cy="14.5" r=".6"/><circle cx="16" cy="14.5" r=".6"/></svg>
+      <span>Kalender Pendidikan</span>
     </a>
   </nav>
 
@@ -81,6 +85,102 @@
       <span class="orb o1"></span><span class="orb o2"></span>
     </section>
 
+
+    <!-- ===== KALENDER PENDIDIKAN ===== -->
+    <section id="kalender" class="kal glass reveal">
+      <div class="kal-head">
+        <div>
+          <p class="kal-eyebrow">Kalender Pendidikan</p>
+          <h2>SMAN 1 Batam · 2026/2027</h2>
+          <p class="sync" id="kSync"><i></i>Memuat data…</p>
+        </div>
+        <div class="seg" role="tablist">
+          <span class="thumb"></span>
+          <button role="tab" aria-selected="true" data-tab="tabKalender">Kalender</button>
+          <button role="tab" aria-selected="false" data-tab="tabRekap">Rekap</button>
+          <button role="tab" aria-selected="false" data-tab="tabMinggu">Minggu</button>
+          <button role="tab" aria-selected="false" data-tab="tabKet">Keterangan</button>
+        </div>
+      </div>
+
+      <!-- Tab Kalender -->
+      <div class="kpanel" id="tabKalender">
+        <div class="ktool">
+          <div class="knav">
+            <button class="kbtn glass" id="kPrev" aria-label="Bulan sebelumnya"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+            <div class="ktitle"><b id="kJudul"></b><span id="kSub"></span></div>
+            <button class="kbtn glass" id="kNext" aria-label="Bulan berikutnya"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+          </div>
+          <div class="kright">
+            <button class="kchip glass" id="kToday">Hari ini</button>
+            <div class="kmode glass" id="kMode">
+              <button data-mode="bulan" aria-pressed="true">Bulan</button>
+              <button data-mode="tahun" aria-pressed="false">Setahun</button>
+            </div>
+          </div>
+        </div>
+        <div class="kpills" id="kPills"></div>
+
+        <div class="kbody">
+          <div class="kgrid-wrap"><div class="kgrid"></div></div>
+          <aside class="kside">
+            <div class="kdetail" id="kDetail" hidden></div>
+            <div class="kstats" id="kStat"></div>
+            <h3 id="kAgendaJudul">Agenda</h3>
+            <ul class="kagenda" id="kAgenda"></ul>
+          </aside>
+        </div>
+
+        <div class="klegend">
+          <span style="--w:#22b07d">Hari efektif</span>
+          <span style="--w:#ef4444">Libur nasional</span>
+          <span style="--w:#f97316">Cuti bersama</span>
+          <span style="--w:#3b82f6">Libur sekolah</span>
+          <span style="--w:#8b5cf6">Non-KBM</span>
+          <span style="--w:#94a3b8">Akhir pekan</span>
+          <span class="dotl" style="--w:#14b8a6">MPLS</span>
+          <span class="dotl" style="--w:#6366f1">ANBK / Observasi</span>
+          <span class="dotl" style="--w:#f59e0b">TKA</span>
+          <span class="dotl" style="--w:#e11d48">Sumatif / Asesmen</span>
+          <span class="dotl" style="--w:#16a34a">Ramadan</span>
+        </div>
+      </div>
+
+      <!-- Tab Rekap -->
+      <div class="kpanel" id="tabRekap" hidden>
+        <div class="kstats wide" id="rekapTiles"></div>
+        <div class="tbl-wrap">
+          <table class="rekap">
+            <thead><tr><th>Bulan</th><th>Hari kalender</th><th>Sabtu &amp; Minggu</th><th>Libur nasional &amp; cuti</th><th>Libur sekolah</th><th>Non-KBM</th><th>Hari efektif</th><th>Jumlah minggu</th><th>Minggu efektif</th><th>Tidak efektif</th></tr></thead>
+            <tbody id="rekapBody"></tbody>
+          </table>
+        </div>
+        <p class="knote">Hari efektif = Senin–Jumat di luar libur nasional, cuti bersama, libur sekolah, dan kegiatan non-KBM. Minggu efektif = minggu (Senin–Minggu) dengan minimal 3 hari efektif, dihitung pada bulan tempat hari Seninnya berada.</p>
+      </div>
+
+      <!-- Tab Minggu -->
+      <div class="kpanel" id="tabMinggu" hidden>
+        <div class="kmode glass" id="mingguSeg">
+          <button data-s="Semua" aria-pressed="true">Semua</button>
+          <button data-s="Ganjil" aria-pressed="false">Ganjil</button>
+          <button data-s="Genap" aria-pressed="false">Genap</button>
+        </div>
+        <ul class="wlist" id="mingguList"></ul>
+      </div>
+
+      <!-- Tab Keterangan -->
+      <div class="kpanel" id="tabKet" hidden>
+        <div class="ketgrid">
+          <div class="ketbox"><h3>A. Libur nasional &amp; cuti bersama</h3><ul class="kagenda" id="ketLibur"></ul></div>
+          <div class="ketbox"><h3>B. Agenda kegiatan sekolah</h3><ul class="kagenda" id="ketAgenda"></ul></div>
+          <div class="ketbox"><h3>C. Peringatan (tidak meliburkan sekolah)</h3><ul class="kagenda" id="ketPeringatan"></ul></div>
+          <div class="ketbox"><h3>D. Catatan penting</h3><ul class="kagenda" id="ketCatatan"></ul></div>
+        </div>
+      </div>
+
+      <a class="kopen" href="https://docs.google.com/spreadsheets/d/1q_HcEny9GmdbBIBL9b-98GfPlJ5mQ3I0bKk86XOyujU/edit?gid=1362878372#gid=1362878372" target="_blank" rel="noopener">Buka versi Google Sheets <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    </section>
+
     <section class="reveal">
       <div class="sec-head"><h2>Akses Cepat</h2></div>
       <div class="quick" id="quick"></div>
@@ -92,7 +192,9 @@
   </div>
 </div>
 
-<script src="links.js?v=9"></script>
-<script src="app.js?v=9"></script>
+<script src="links.js?v=10"></script>
+<script src="app.js?v=10"></script>
+<script src="kalender-data.js?v=10"></script>
+<script src="kalender.js?v=10"></script>
 </body>
 </html>
