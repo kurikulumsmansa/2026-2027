@@ -10,7 +10,7 @@
   const SHEET = "1frD5O7OnUOmgwxHn_zFOvf5ahwosQSIKBwKyANf_W98";
   let live = false;
   /* tampilkan langsung (data tersimpan terakhir / cadangan), lalu perbarui diam-diam jika sheet berubah */
-  const SIMPAN = "guruLive";
+  const SIMPAN = "guruLive2"; try { localStorage.removeItem("guruLive"); } catch (_) {}
   let lama = null; try { lama = localStorage.getItem(SIMPAN); } catch (_) {}
   const pakai = j => { const [kel, tamb] = JSON.parse(j); GURU.kelompok = kel; GURU.tambahan = tamb; live = true; };
   if (lama) try { pakai(lama); } catch (_) { lama = null; }
@@ -29,12 +29,14 @@
     const kel = GURU.kelompok.map(k => ({ nama: k.nama, guru: [] })), tamb = [];
     for (const r of rows) {
       const [k = "", n = "", m = "", c = ""] = (r.c || []).map(teks);
-      if (!n || !m) continue;
+      /* hanya baris yang benar-benar berformat tab WEBSITE (nama huruf, kelas berisi X HL / XI HJ / XII HT) */
+      if (!n || !m || !/[a-z]/i.test(n) || !/(X HL|XI HJ|XII HT)/.test(c)) continue;
       if (/tambahan/i.test(k)) { tamb.push([n, m, c]); continue; }
       const i = kel.findIndex(x => x.nama.toLowerCase() === k.toLowerCase());
-      kel[i < 0 ? 0 : i].guru.push([n, m, c]);
+      if (i < 0) continue;
+      kel[i].guru.push([n, m, c]);
     }
-    if (kel.reduce((a, k) => a + k.guru.length, 0) <= 10) return;
+    if (kel.reduce((a, k) => a + k.guru.length, 0) < 30) return;
     const j = JSON.stringify([kel, tamb]); if (j === lama) return;
     try { localStorage.setItem(SIMPAN, j); } catch (_) {}
     pakai(j); ulang();
