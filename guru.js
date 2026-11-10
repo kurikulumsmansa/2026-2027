@@ -2,14 +2,20 @@
    GURU & PEMBAGIAN MENGAJAR
    ===================================================================== */
 (() => {
-  const root = document.getElementById("daftarGuru");
+  let root = document.getElementById("daftarGuru");
   if (!root) return;
 
   /* Ambil data terbaru dari tab "WEBSITE" di Google Sheets Pembagian Tugas Guru.
      Kolom: Kelompok | Nama Guru | Mata Pelajaran | Kelas. Gagal -> pakai guru-data.js. */
   const SHEET = "1frD5O7OnUOmgwxHn_zFOvf5ahwosQSIKBwKyANf_W98";
   let live = false;
-  new Promise(resolve => {
+  /* tampilkan langsung (data tersimpan terakhir / cadangan), lalu perbarui diam-diam jika sheet berubah */
+  const SIMPAN = "guruLive";
+  let lama = null; try { lama = localStorage.getItem(SIMPAN); } catch (_) {}
+  const pakai = j => { const [kel, tamb] = JSON.parse(j); GURU.kelompok = kel; GURU.tambahan = tamb; live = true; };
+  if (lama) try { pakai(lama); } catch (_) { lama = null; }
+  const ulang = () => { const f = root.cloneNode(true); root.replaceWith(f); root = f; mulai(); };
+  setTimeout(() => new Promise(resolve => {
     const cb = "__guru" + Date.now(), s = document.createElement("script");
     const t = setTimeout(() => done(null), 8000);
     function done(v) { clearTimeout(t); delete window[cb]; s.remove(); resolve(v); }
@@ -28,8 +34,12 @@
       const i = kel.findIndex(x => x.nama.toLowerCase() === k.toLowerCase());
       kel[i < 0 ? 0 : i].guru.push([n, m, c]);
     }
-    if (kel.reduce((a, k) => a + k.guru.length, 0) > 10) { GURU.kelompok = kel; GURU.tambahan = tamb; live = true; }
-  }).catch(() => {}).then(mulai);
+    if (kel.reduce((a, k) => a + k.guru.length, 0) <= 10) return;
+    const j = JSON.stringify([kel, tamb]); if (j === lama) return;
+    try { localStorage.setItem(SIMPAN, j); } catch (_) {}
+    pakai(j); ulang();
+  }).catch(() => {}), 0);
+  mulai();
 
   function mulai() {
   const $ = s => root.querySelector(s);

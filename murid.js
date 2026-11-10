@@ -2,7 +2,7 @@
    DATA MURID: rekap jumlah murid per tingkat & daftar nama per kelas
    ===================================================================== */
 (() => {
-  const root = document.getElementById("dataMurid");
+  let root = document.getElementById("dataMurid");
   if (!root || typeof MURID === "undefined") return;
 
   /* Ambil data terbaru langsung dari Google Sheets (tab HL, HJ, HT).
@@ -34,19 +34,27 @@
     return out;
   }
   let live = false;
-  Promise.all(Object.keys(TAB).map(ambilTab)).then(hasil => {
+  /* tampilkan langsung (data tersimpan terakhir / cadangan), lalu perbarui diam-diam jika sheet berubah */
+  const SIMPAN = "muridLive";
+  let lama = null; try { lama = localStorage.getItem(SIMPAN); } catch (_) {}
+  const pakai = j => { const baru = JSON.parse(j);
+    const tk = new Set(Object.keys(baru).map(k => k.split(" ")[0]));
+    for (const k of Object.keys(MURID.kelas)) if (tk.has(k.split(" ")[0])) delete MURID.kelas[k];
+    for (const k in baru) if (baru[k].length) MURID.kelas[k] = baru[k].join("\n");
+    live = true; };
+  if (lama) try { pakai(lama); } catch (_) { lama = null; }
+  const ulang = () => { const f = root.cloneNode(true); root.replaceWith(f); root = f; mulai(); };
+  setTimeout(() => Promise.all(Object.keys(TAB).map(ambilTab)).then(hasil => {
     const baru = {};
     Object.keys(TAB).forEach((tab, i) => { if (!hasil[i]) return;
       const o = olah(tab, hasil[i]); if (Object.values(o).some(v => v.length)) Object.assign(baru, o); });
     const n = Object.values(baru).reduce((x, v) => x + v.length, 0);
-    if (n > 100) {
-      /* ganti hanya tingkat yang berhasil diambil */
-      const tk = new Set(Object.keys(baru).map(k => k.split(" ")[0]));
-      for (const k of Object.keys(MURID.kelas)) if (tk.has(k.split(" ")[0])) delete MURID.kelas[k];
-      for (const k in baru) if (baru[k].length) MURID.kelas[k] = baru[k].join("\n");
-      live = true;
-    }
-  }).catch(() => {}).then(mulai);
+    if (n <= 100) return;
+    const j = JSON.stringify(baru); if (j === lama) return;
+    try { localStorage.setItem(SIMPAN, j); } catch (_) {}
+    pakai(j); ulang();
+  }).catch(() => {}), 0);
+  mulai();
 
   function mulai() {
   const $ = s => root.querySelector(s);
