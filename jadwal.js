@@ -46,11 +46,11 @@
         if (!b) return `<td class="jd-kosong${cls}"></td>`;
         let span = 1; for (let j = b[0] + 1; j <= b[1]; j++) span++;
         return `<td rowspan="${span}" class="jd-isi${cls}">${b[2].map(([m, g]) =>
-          `<div class="jd-m" style="--c:${warna(m)}" title="${nama(m)}"><b>${m}</b>${nama(m) ? `<small>${nama(m)}</small>` : ""}${g && GNAMA(g) ? `<span class="jd-g">${GNAMA(g)}</span>` : ""}${g ? `<i>${g}</i>` : ""}</div>`).join("")}</td>`;
+          `<div class="jd-m" style="--c:${warna(m)}"><b>${nama(m) || m}</b>${g ? `<span class="jd-g">${GNAMA(g) || g}</span>` : ""}</div>`).join("")}</td>`;
       }).join("")}</tr>`;
     }).join("");
     $("#jdTabel").innerHTML = `<div class="mhead"><b>Jadwal Kelas ${k}</b><span>Wali kelas: ${J.wali || "–"}</span></div>
-      <p class="mthint">Kotak kecil di pojok (misal <i class="jd-kode">IR</i>) adalah kode guru.</p>${hp.matches ? `<div class="jd-hari">${HARI.map(h => `<button class="jd-hb${h === hariPilih ? " on" : ""}" data-jh="${h}">${h}</button>`).join("")}</div>` : ""}
+      ${hp.matches ? `<div class="jd-hari">${HARI.map(h => `<button class="jd-hb${h === hariPilih ? " on" : ""}" data-jh="${h}">${h}</button>`).join("")}</div>` : ""}
       <div class="jd-wrap"><table class="jd-tab-j"><thead><tr><th>Jam</th>${HR.map(h => `<th class="${h === hariIni ? "jd-today" : ""}">${h}${h === hariIni ? "<small>hari ini</small>" : ""}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>
       <p class="jd-note">Sumber: PDF jadwal kelas ${tk}, revisi 15 Juli 2026. <a href="https://drive.google.com/file/d/${JADWAL.pdf[tk]}/view" target="_blank" rel="noopener">Lihat PDF asli</a></p>`;
   }
@@ -63,17 +63,31 @@
   const P = JADWAL.piket;
   if (P) {
     const nm = k => GNAMA(k) || k;
-    const kartu = h => { const [ko, ...ses] = P.hari[h];
-      return `<div class="pk-hari${h === hariIni ? " on" : ""}"><div class="pk-h"><b>${h}</b>${h === hariIni ? "<span>Hari ini</span>" : ""}</div>
-        <p class="pk-ko"><small>Koordinator piket</small>${nm(ko)}</p>
-        ${ses.map((g, i) => `<div class="pk-s"><span class="pk-jam"><b>${P.sesi[i][0]}</b><small>${P.sesi[i][1]}</small></span><span class="pk-n">${g.map(nm).join("<br>")}</span></div>`).join("")}</div>`; };
+    const SESI = ["Koordinator", ...P.sesi.map(x => x[0])];
+    const WAKTU = ["Seharian", ...P.sesi.map(x => x[1])];
+    let hariPk = hariIni || "Senin";
     const box = document.getElementById("piketBox");
-    if (box) box.innerHTML = HARI.map(kartu).join("");
+    const gambar = () => {
+      if (!box) return;
+      if (hp.matches) {
+        const [ko, ...ses] = P.hari[hariPk];
+        box.innerHTML = `<div class="jd-hari">${HARI.map(h => `<button class="jd-hb${h === hariPk ? " on" : ""}" data-pk="${h}">${h}</button>`).join("")}</div>
+          <div class="pk-list">${[[ko], ...ses].map((g, i) => `<div class="pk-row${i === 0 ? " ko" : ""}"><span class="pk-sesi"><b>${SESI[i]}</b><small>${WAKTU[i]}</small></span><span class="pk-nama">${g.map(nm).join("<br>")}</span></div>`).join("")}</div>
+          ${hariPk === hariIni ? "" : `<p class="jd-note">Hari ini: ${hariIni || "libur"}.</p>`}`;
+      } else {
+        box.innerHTML = `<div class="jd-wrap"><table class="pk-tab"><thead><tr><th>Hari</th>${SESI.map((s, i) => `<th>${s}<small>${WAKTU[i]}</small></th>`).join("")}</tr></thead>
+          <tbody>${HARI.map(h => { const [ko, ...ses] = P.hari[h];
+            return `<tr class="${h === hariIni ? "on" : ""}"><th>${h}${h === hariIni ? "<small>Hari ini</small>" : ""}</th>${[[ko], ...ses].map((g, i) => `<td class="${i === 0 ? "ko" : ""}">${g.map(nm).join("<br>")}</td>`).join("")}</tr>`; }).join("")}</tbody></table></div>`;
+      }
+    };
+    gambar();
+    hp.addEventListener("change", gambar);
+    if (box) box.addEventListener("click", e => { const b = e.target.closest("[data-pk]"); if (b) { hariPk = b.dataset.pk; gambar(); } });
     const kini = document.getElementById("piketHariIni");
     if (kini) {
       if (hariIni && P.hari[hariIni]) { const [ko, ...ses] = P.hari[hariIni];
-        kini.innerHTML = `<div class="sec-head"><h2>Guru piket hari ini · ${hariIni}</h2></div><a href="#jadwal" class="pk-kini glass"><span class="pk-ko"><small>Koordinator</small>${nm(ko)}</span>${ses.map((g, i) =>
-          `<span class="pk-s2"><small>${P.sesi[i][0]} · ${P.sesi[i][1]}</small>${g.map(nm).join(", ")}</span>`).join("")}</a>`;
+        kini.innerHTML = `<div class="sec-head"><h2>Guru piket hari ini · ${hariIni}</h2><a href="#piket" class="pk-lihat">Lihat semua</a></div>
+          <a href="#piket" class="pk-kini glass">${[[ko], ...ses].map((g, i) => `<span class="pk-s2${i === 0 ? " ko" : ""}"><small>${SESI[i]}${i ? " · " + WAKTU[i] : ""}</small>${g.map(nm).join("<br>")}</span>`).join("")}</a>`;
       } else kini.hidden = true;
     }
   }

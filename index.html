@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=43">
+  <link rel="stylesheet" href="style.css?v=44">
 </head>
 <body>
 
@@ -46,6 +46,10 @@
     <a href="#jadwal" class="side-link main-link" data-nav data-go="jadwal">
       <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg>
       <span><b>Jadwal Pelajaran</b><small>Jadwal per kelas X, XI, XII</small></span>
+    </a>
+    <a href="#piket" class="side-link main-link" data-nav data-go="piket">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.5"/><path d="M5 21c.6-4 3.4-6.5 7-6.5s6.4 2.5 7 6.5"/><path d="m9.5 17.5 2.5 2 2.5-2"/></svg>
+      <span><b>Guru Piket</b><small>Siapa piket hari ini</small></span>
     </a>
   </nav>
 
@@ -619,9 +623,6 @@ Keluaran: satu file Word dengan format yang sama, berisi soal nomor 81 sampai 10
         <div class="kpick" id="jdKelas"></div>
       </div>
       <div class="jd-hasil glass reveal" id="jdTabel"></div>
-      <h3 class="fr-head reveal" id="piket"><span>P</span>Jadwal Guru Piket</h3>
-      <p class="fr-sub reveal">Semester Ganjil 2026/2027. Kotak biru adalah hari ini.</p>
-      <div class="pk-grid reveal" id="piketBox"></div>
     </section>
 
     <!-- ===== FORMULIR GURU ===== -->
@@ -805,6 +806,19 @@ Keluaran: satu file Word dengan format yang sama, berisi soal nomor 81 sampai 10
       </div>
     </section>
 
+    <!-- ===== GURU PIKET ===== -->
+    <section class="asas lay" data-view="piket" id="piketPage">
+      <div class="asas-hero lay-hero pk-hero reveal">
+        <div class="ah-text">
+          <span class="ah-tag">Semester Ganjil · Tahun Ajaran 2026/2027</span>
+          <h2>Guru Piket</h2>
+          <p class="ah-sub">Jadwal guru piket Senin sampai Jumat</p>
+          <p class="ah-salam">Jadwal hari ini ditandai warna biru.</p>
+        </div>
+      </div>
+      <div class="pk-wrap glass reveal" id="piketBox"></div>
+    </section>
+
     <section data-view="dokumen">
       <div class="page-head reveal"><h2>Dokumen &amp; Layanan</h2><p>Klik nama dokumen untuk membukanya. Dokumen akan terbuka di tab baru.</p></div>
       <div class="boards" id="boards"></div>
@@ -814,18 +828,18 @@ Keluaran: satu file Word dengan format yang sama, berisi soal nomor 81 sampai 10
   </div>
 </div>
 
-<script src="links.js?v=43"></script>
-<script src="app.js?v=43"></script>
-<script src="kalender-data.js?v=43"></script>
-<script src="kalender.js?v=43"></script>
-<script src="guru-data.js?v=43"></script>
-<script src="guru.js?v=43"></script>
-<script src="asas.js?v=43"></script>
-<script src="murid-data.js?v=43"></script>
-  <script src="panduan-data.js?v=43"></script>
-  <script src="panduan.js?v=43"></script>
-  <script src="murid.js?v=43"></script>
-  <script src="jadwal-data.js?v=43"></script>
-  <script src="jadwal.js?v=43"></script>
+<script src="links.js?v=44"></script>
+<script src="app.js?v=44"></script>
+<script src="kalender-data.js?v=44"></script>
+<script src="kalender.js?v=44"></script>
+<script src="guru-data.js?v=44"></script>
+<script src="guru.js?v=44"></script>
+<script src="asas.js?v=44"></script>
+<script src="murid-data.js?v=44"></script>
+  <script src="panduan-data.js?v=44"></script>
+  <script src="panduan.js?v=44"></script>
+  <script src="murid.js?v=44"></script>
+  <script src="jadwal-data.js?v=44"></script>
+  <script src="jadwal.js?v=44"></script>
 </body>
 </html>
