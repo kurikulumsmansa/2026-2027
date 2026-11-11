@@ -3,8 +3,8 @@
    Ubah jadwal di sini: [tanggal mulai, tanggal selesai, kegiatan, penting?]
    ===================================================================== */
 const ASAS_JADWAL = [
-  ["2026-11-14", "2026-11-14", "Batas akhir unggah soal serta pengumpulan kisi-kisi dan kartu soal", true],
-  ["2026-11-16", "2026-11-20", "Telaah soal"],
+  ["2026-11-16", "2026-11-16", "Batas akhir unggah soal serta pengumpulan kisi-kisi dan kartu soal", true],
+  ["2026-11-17", "2026-11-20", "Telaah soal"],
   ["2026-11-26", "2026-11-26", "Simulasi ASAS-BK"],
   ["2026-11-30", "2026-12-09", "Pelaksanaan ASAS-BK", true],
   ["2026-12-10", "2026-12-11", "Asesmen susulan"],
