@@ -1362,3 +1362,11 @@ td.jd-today { background: rgba(30,107,255,.05); }
 #piketHariIni .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .pk-lihat { font-weight: 800; color: #1e6bff; text-decoration: none; }
 .pk-s2.ko { background: var(--navy); color: #fff; } .pk-s2.ko small { color: #b6c3e2; }
+
+/* ===== ASAS: jalur kedua (sudah punya soal) ===== */
+.jalur2 { margin-top: 22px; padding: 18px; border-radius: 22px; border: 2.5px dashed #8db5ff; background: rgba(240,246,255,.85); }
+.j2-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+.j2-ic { flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #1e6bff; color: #fff; font-weight: 900; font-size: 1.2rem; }
+.j2-head b { font-size: 1.2rem; color: var(--navy); }
+.j2-head p { margin: 4px 0 0; color: #334155; }
+.jalur2 .st-n { background: #1e6bff; }

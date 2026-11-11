@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=45">
+  <link rel="stylesheet" href="style.css?v=46">
 </head>
 <body>
 
@@ -429,7 +429,7 @@
           <div>
             <span class="ai-tag">Panduan · Membuat soal dengan bantuan AI</span>
             <h3>Cara Membuat Soal dengan Claude</h3>
-            <p>Ikuti 8 langkah di bawah. Hasilnya: <b>100 soal</b>, <b>kisi-kisi</b>, dan <b>kartu soal</b>.</p>
+            <p>Ikuti 6 langkah di bawah. Hasilnya: <b>100 soal</b>, <b>kisi-kisi</b>, dan <b>kartu soal</b>.</p>
           </div>
           <div class="ai-btns">
             <a class="ai-dl" href="files/Prompt-100-soal-PGS.docx" download="Prompt pembuatan 100 soal PGS sekaligus.docx" data-tip="Unduh file prompt (Word)"><span><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m9.5 12 1.2 5 1.3-3.5 1.3 3.5 1.2-5"/></svg></span>Unduh Prompt (.docx)</a>
@@ -442,17 +442,27 @@
           <li><span class="st-n">2</span><div><b>Isi yang kuning</b><p>Buka di Word. Isi <mark>mapel</mark>, <mark>kelas</mark>, <mark>TP</mark>, dan <mark>nama Bapak/Ibu</mark>.</p></div></li>
           <li><span class="st-n">3</span><div><b>Salin teksnya</b><p>Blok dari <code>COPY START</code> sampai <code>COPY END</code>, lalu salin.</p></div></li>
           <li class="warn"><span class="st-n">4</span><div><b>Tempel di Claude</b><p>Buka <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai</a>, tempel, lalu kirim.</p><p class="st-warn">⚠️ Tempel teksnya saja, jangan kirim file Word.</p></div></li>
-          <li><span class="st-n">5</span><div><b>Tunggu</b><p>Soal dan kisi-kisi akan jadi. Kalau berhenti, ketik <code>Lanjutkan</code>.</p></div></li>
-          <li><span class="st-n">6</span><div><b>Kirim Excel ke Claude</b><p>Unduh <a href="files/Kisi-Kisi-dan-Kartu-Soal-ASAS-BK.xlsx" download="Kisi-Kisi dan Kartu Soal ASAS-BK.xlsx">template Excel</a>, lalu seret ke chat Claude yang sama.</p></div></li>
-          <li class="lebar"><span class="st-n">7</span><div><b>Salin perintah ini, tempel, kirim</b><p>Klik <b>Salin teks</b>, tempel di Claude, kirim. Teksnya tidak perlu dibaca. Claude akan mengisi Excel, kartu soal terisi sendiri. Unduh hasilnya.</p>
-            <div class="copybox"><pre id="promptExcel">Saya lampirkan file Excel &quot;Kisi-Kisi dan Kartu Soal ASAS-BK&quot;. Isi file ini dengan 100 soal yang sudah kamu buat di atas:
-1. Sheet Kisi-Kisi: isi identitas Mata Pelajaran (sel C9), Kelas / Fase (sel E9), dan Nama Guru (sel C10).
-2. Mulai baris 14 (timpa baris contoh), satu soal per baris sampai baris 113: kolom A nomor, B Tujuan Pembelajaran, C Indikator Soal, D Level Kompetensi (hanya LOTS, MOTS, atau HOTS), E Soal lengkap dengan pilihan A sampai E, F Kunci Soal (satu huruf kapital), G Bentuk Soal (PGS).
-3. Jangan mengubah sheet Kartu Soal dan Cek Komposisi, rumus, format, maupun logo. Kartu soal akan terisi otomatis dari sheet Kisi-Kisi.
-4. Periksa: 100 soal, LOTS 20, MOTS 50, HOTS 30, semuanya PGS.
-Setelah selesai, berikan file Excel yang sudah terisi agar bisa saya unduh.</pre><button class="copybtn" type="button" data-copy="promptExcel" data-tip="Salin teks ini">Salin teks</button></div></div></li>
-          <li class="done lebar"><span class="st-n">8</span><div><b>Kumpulkan</b><p>Soal ke <a href="https://elearning.smansa-batam.sch.id/" target="_blank" rel="noopener">LMS</a>, Excel kisi-kisi &amp; kartu soal ke <a href="https://forms.gle/FLTuQGUMkWXh63Sy8" target="_blank" rel="noopener">Google Form</a>. Paling lambat <b>16 November</b>.</p></div></li>
+          <li><span class="st-n">5</span><div><b>Tunggu sampai selesai</b><p>Claude akan membuat <b>soal, kisi-kisi, dan kartu soal</b> sekaligus. Kalau berhenti, ketik <code>Lanjutkan</code>. Setelah selesai, unduh semua hasilnya.</p></div></li>
+          <li class="done"><span class="st-n">6</span><div><b>Kumpulkan</b><p>Soal ke <a href="https://elearning.smansa-batam.sch.id/" target="_blank" rel="noopener">LMS</a>, Excel kisi-kisi &amp; kartu soal ke <a href="https://forms.gle/FLTuQGUMkWXh63Sy8" target="_blank" rel="noopener">Google Form</a>. Paling lambat <b>16 November</b>.</p></div></li>
         </ol>
+
+        <div class="jalur2">
+          <div class="j2-head"><span class="j2-ic">?</span><div><b>Sudah punya soal, tapi belum ada kisi-kisi?</b><p>Bapak/Ibu <u>tidak perlu</u> langkah 1–5 di atas. Cukup ikuti 4 langkah ini.</p></div></div>
+          <ol class="steps">
+            <li><span class="st-n">A</span><div><b>Unduh template Excel</b><p>Klik <a href="files/Kisi-Kisi-dan-Kartu-Soal-ASAS-BK.xlsx" download="Kisi-Kisi dan Kartu Soal ASAS-BK.xlsx">template Excel</a> untuk menyimpannya.</p></div></li>
+            <li class="warn"><span class="st-n">B</span><div><b>Unggah 2 file ke Claude</b><p>Buka <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai</a> (chat baru). Seret ke kotak chat: <b>file soal Bapak/Ibu</b> dan <b>template Excel</b> tadi.</p></div></li>
+            <li class="lebar"><span class="st-n">C</span><div><b>Salin perintah ini, tempel, kirim</b><p>Klik <b>Salin teks</b>, tempel di chat yang sama, lalu kirim. Teksnya tidak perlu dibaca.</p>
+              <div class="copybox"><pre id="promptExcel">Saya lampirkan 2 file: (1) file soal ASAS-BK yang sudah saya buat, dan (2) file Excel &quot;Kisi-Kisi dan Kartu Soal ASAS-BK&quot;.
+Tolong isi file Excel itu berdasarkan soal-soal di file saya:
+1. Sheet Kisi-Kisi: isi Mata Pelajaran (sel C9), Kelas / Fase (sel E9), dan Nama Guru (sel C10). Ambil dari file soal saya. Jika tidak ada, tanyakan dulu kepada saya.
+2. Mulai baris 14 (timpa baris contoh), satu soal per baris: kolom A nomor, B Tujuan Pembelajaran, C Indikator Soal, D Level Kompetensi (hanya LOTS, MOTS, atau HOTS), E Soal lengkap dengan pilihan A sampai E, F Kunci Soal (satu huruf kapital), G Bentuk Soal (PGS).
+3. Jangan mengubah isi soal dan kunci jawaban saya. Tujuan Pembelajaran, indikator, dan level kompetensi kamu tentukan sesuai isi setiap soal.
+4. Jangan mengubah sheet Kartu Soal dan Cek Komposisi, rumus, format, maupun logo. Kartu soal akan terisi otomatis dari sheet Kisi-Kisi.
+5. Setelah selesai, laporkan jumlah soal serta jumlah LOTS, MOTS, dan HOTS. Ketentuan ASAS-BK: 100 soal PGS dengan LOTS 20, MOTS 50, HOTS 30. Jika soal saya belum sesuai ketentuan ini, beri tahu saya bagian mana yang perlu diperbaiki.
+Berikan file Excel yang sudah terisi agar bisa saya unduh.</pre><button class="copybtn" type="button" data-copy="promptExcel" data-tip="Salin teks ini">Salin teks</button></div></div></li>
+            <li class="done"><span class="st-n">D</span><div><b>Unduh dan kumpulkan</b><p>Unduh Excel hasil dari Claude, lalu kumpulkan seperti langkah 6.</p></div></li>
+          </ol>
+        </div>
 
       </div>
 
@@ -828,18 +838,18 @@ Keluaran: satu file Word dengan format yang sama, berisi soal nomor 81 sampai 10
   </div>
 </div>
 
-<script src="links.js?v=45"></script>
-<script src="app.js?v=45"></script>
-<script src="kalender-data.js?v=45"></script>
-<script src="kalender.js?v=45"></script>
-<script src="guru-data.js?v=45"></script>
-<script src="guru.js?v=45"></script>
-<script src="asas.js?v=45"></script>
-<script src="murid-data.js?v=45"></script>
-  <script src="panduan-data.js?v=45"></script>
-  <script src="panduan.js?v=45"></script>
-  <script src="murid.js?v=45"></script>
-  <script src="jadwal-data.js?v=45"></script>
-  <script src="jadwal.js?v=45"></script>
+<script src="links.js?v=46"></script>
+<script src="app.js?v=46"></script>
+<script src="kalender-data.js?v=46"></script>
+<script src="kalender.js?v=46"></script>
+<script src="guru-data.js?v=46"></script>
+<script src="guru.js?v=46"></script>
+<script src="asas.js?v=46"></script>
+<script src="murid-data.js?v=46"></script>
+  <script src="panduan-data.js?v=46"></script>
+  <script src="panduan.js?v=46"></script>
+  <script src="murid.js?v=46"></script>
+  <script src="jadwal-data.js?v=46"></script>
+  <script src="jadwal.js?v=46"></script>
 </body>
 </html>
